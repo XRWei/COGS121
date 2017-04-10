@@ -1,6 +1,5 @@
 Idea 1
-Idea one is inspired by TaskRabbit. People can use the app to assign or get small tasks when the task-assigner and task-catcher 
-are close based on location. 
+Idea 1 is inspired by TaskRabbit. The application primarily helps users to take everyday tasks and get extra payment in their most convenient and efficient way. It is like a marketplace that matches the task-taker with local demand along the way from start location to destination, allowing task-requester to find immediate help with everyday tasks. The application helps people take back their lives, be their own boss, help people out and make some money on their road. The system will helps the task-requesters to find nearby task-takers to carry out their work and it also helps the task-takers to plan optimal way to finish the tasks. Moreover, it has potential to shape a new form of labor market that provides simple tasks, short-term jobs and long-term jobs.
 
 
 Idea 2
