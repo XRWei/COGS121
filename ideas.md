@@ -15,3 +15,7 @@ Idea 5 is a traveling map that provides educational material when you get to a l
 Idea 6 is a fast trip advising tool that provides people rapid suggestion on where to go next for their trip.
 
 Idea 7 is a exercise route record and reward game that helps people keep a records of where they went on their exercising trip and also amaze their friends by drop pins on landmarks.
+
+Idea 8 is a service that would allow people to look up schedules for certain event programs, add the program schedule to their personal calender or request for notifications, and to help assist people navigate their way to the program location. This idea considers events such as conventions, conferences, and possibly olympic events like LA2024.
+
+Idea 9 is an exploring tool for UCSD students to understand what resource centers are on campus and is to encourage them to check the places out and find out what resources are there to utilize. This exploring tool could also be applied to other sites with dense populations like shopping malls.
