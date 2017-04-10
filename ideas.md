@@ -11,3 +11,7 @@ Idea 4 is to create a map for people that can help them to find their lost perso
 
 
 Idea 5 is a traveling map that provides educational material when you get to a landmark.
+
+Idea 6 is a fast trip advising tool that provides people rapid suggestion on where to go next for their trip.
+
+Idea 7 is a exercise route record and reward game that helps people keep a records of where they went on their exercising trip and also amaze their friends by drop pins on landmarks.
