@@ -15,3 +15,9 @@ Xinran Wei's storyboard for idea 6 (Fast Travel Advice and Route Sharing)
 
 Xinran Wei's storyboard for idea 7 (Exercising Map Sharing)
 ![Xinran Wei's Storyboard 2](https://raw.githubusercontent.com/XRWei/COGS121/master/img/storyboards/IMG_1844.JPG)
+
+Jessica Yeung's storyboard for idea 8 (Event Scheduling and Router)
+![Jessica's Storyboard 1](https://raw.githubusercontent.com/XRWei/COGS121/master/img/storyboards/IMG_2506.JPG)
+
+Jessica Yeung's storyboard for idea 9 (UCSD Resource Locator)
+![Jessica's Storyboard 2](https://raw.githubusercontent.com/XRWei/COGS121/master/img/storyboards/IMG_2505.JPG)
