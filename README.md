@@ -1,4 +1,5 @@
 # COGS121
+Human-Computer-Interaction Programming Studio
 
 ## Team Chicas
 * Qixin Ding
