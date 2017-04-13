@@ -1,4 +1,4 @@
-## Project Title
+# Project Title
 
 ## Summary of Project
 Maximum 140-character “tweet length”
