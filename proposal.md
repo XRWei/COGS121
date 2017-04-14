@@ -1,4 +1,4 @@
-# Project title: Dine With Me
+# Dine With Me
 
 ### Summary
 By searching nearby people and restaurants in UCSD, Dine With Me helps you to deal with embarrassment of lonely dining and make new friends!
@@ -37,12 +37,8 @@ Find posts nearby:
 View a details of a post and contact post owner:
 ![final_storyboard](https://github.com/dingqixin/chicas/blob/storyboards/img/storyboards/ui5.jpg)
 
-
-
-
 ### Programming Task Assignment
 * Qixin Ding will be in charge of front-end development. After we settle down user interface design, she will program to implement the design. 
 * Ruijia Chen is responsible for back-end development and focus on the functionality of the app. 
 * Jessica Yeung will learn about APIs related to map and location and program the APIs into our app. 
-
-**Current we only have three team members. 
+* Marie Schneider will take charge of animations and connect the back-end and front-end together. 
