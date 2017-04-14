@@ -31,14 +31,14 @@ Therefore, we would like to come up a new idea that can help users to find nearb
 
 ### User Interface
 Home page:
-![final_storyboard](https://raw.githubusercontent.com/dingqixin/chicas/master/img/userinterface/ui4.jpg)
+![final_storyboard](https://github.com/dingqixin/chicas/blob/master/img/userinterface/1st/ui4.jpg)
 
 Post or cancel dining buddy serching post:
-![final_storyboard](https://raw.githubusercontent.com/dingqixin/chicas/master/img/userinterface/ui3.jpg)
-![final_storyboard](https://raw.githubusercontent.com/dingqixin/chicas/master/img/userinterface/ui2.jpg)
+![final_storyboard](https://github.com/dingqixin/chicas/blob/master/img/userinterface/1st/ui3.jpg)
+![final_storyboard](https://github.com/dingqixin/chicas/blob/master/img/userinterface/1st/ui2.jpg)
 
 Find posts nearby:
-![final_storyboard](https://raw.githubusercontent.com/dingqixin/chicas/master/img/userinterface/ui1.jpg)
+![final_storyboard](https://github.com/dingqixin/chicas/blob/master/img/userinterface/1st/ui1.jpg)
 
 View a details of a post and contact post owner:
-![final_storyboard](https://raw.githubusercontent.com/dingqixin/chicas/master/img/userinterface/ui5.jpg)
+![final_storyboard](https://github.com/dingqixin/chicas/blob/master/img/userinterface/1st/ui5.jpg)
