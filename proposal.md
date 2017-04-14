@@ -1,10 +1,10 @@
-# Dine With Me
+# Project title: Dine With Me
 
 ### Summary
 By searching nearby people and restaurants in UCSD, Dine With Me helps you to deal with embarrassment of lonely dining and make new friends!
 
 ### Storyboard
-(Add Pictures Here)
+![final_storyboard](https://github.com/dingqixin/chicas/blob/storyboards/img/storyboards/final_storyboard.jpg)
 
 ### Feedbacks
 From the feedbacks from classmates and storyboards from other groups, there are lots of similar ideas of Task-Catcher, Lost and Found and Trip Planning in the class. For the idea of UCSD Exploring Map, people might want to keep their privacy and are not willing to share their stories. Event Scheduling and Router is more related to reminder than map. The ideas of Resource Locator and trip planning are too complicated and are unrealistic to achieve for us in a few weeks. 
@@ -24,7 +24,21 @@ Therefore, we would like to come up a new idea that can help users to find nearb
 10. Users can edit profiles, which contain pictures, basic information such as major, interests, recent goals, and etc. 
 
 ### User Interface
-(Add Pictures Here)
+Home page:
+![final_storyboard](https://github.com/dingqixin/chicas/blob/storyboards/img/storyboards/ui4.jpg)
+
+Post or cancel dining buddy serching post:
+![final_storyboard](https://github.com/dingqixin/chicas/blob/storyboards/img/storyboards/ui3.jpg)
+![final_storyboard](https://github.com/dingqixin/chicas/blob/storyboards/img/storyboards/ui2.jpg)
+
+Find posts nearby:
+![final_storyboard](https://github.com/dingqixin/chicas/blob/storyboards/img/storyboards/ui1.jpg)
+
+View a details of a post and contact post owner:
+![final_storyboard](https://github.com/dingqixin/chicas/blob/storyboards/img/storyboards/ui5.jpg)
+
+
+
 
 ### Programming Task Assignment
 * Qixin Ding will be in charge of front-end development. After we settle down user interface design, she will program to implement the design. 
