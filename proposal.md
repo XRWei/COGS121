@@ -1,7 +1,7 @@
-# Project Title
+# Dine With Me
 
 ## Summary of Project
-Maximum 140-character “tweet length”
+By searching nearby people and restaurants in UCSD, Dine With Me helps you to deal with embarrassment of lonely dining and make new friends!
 
 ## Storyboard
 A single storyboard illustrating the compelling need that your project satisfies. This should ideally be based on one of your original storyboards, but could be different too if you want to change ideas
