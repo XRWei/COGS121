@@ -6,7 +6,7 @@ Human-Computer-Interaction Programming Studio
 * Ruijia Chen
 * Jessica Yeung
 * Marie Schneider (Join after Milestone 2)
-* Xinran Wei (Dropped)
+* Xinran Wei (Dropped at Week 2)
 
 ## Repository Change
 Because Xinran dropped the class, we transfer our repository. 
