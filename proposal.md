@@ -38,7 +38,7 @@ View a details of a post and contact post owner:
 ![final_storyboard](https://github.com/dingqixin/chicas/blob/storyboards/img/storyboards/ui5.jpg)
 
 ### Programming Task Assignment
-* Qixin Ding will take charge of front-end development and implement the design after settling down user interface. 
+* Qixin Ding will focus on front-end development and implement the design after settling down user interface. 
 * Ruijia Chen is responsible for back-end development and focus on the functionality of the app. 
 * Jessica Yeung will learn about APIs related to map and location and program the APIs into our app. 
 * Marie Schneider will take charge of animations and connect the back-end and front-end together. 
