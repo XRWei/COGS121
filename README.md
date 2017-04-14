@@ -5,10 +5,11 @@ Human-Computer-Interaction Programming Studio
 * Qixin Ding
 * Ruijia Chen
 * Jessica Yeung
+* Marie Schneider (Join after Milestone 2)
 * Xinran Wei (Dropped)
 
 ## Repository Change
-Because Xinran Wei dropped the class, we transfer our repository. 
+Because Xinran dropped the class, we transfer our repository. 
 
 Previous: https://github.com/XRWei/COGS121 
 
