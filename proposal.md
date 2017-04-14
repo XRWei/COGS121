@@ -23,6 +23,12 @@ Therefore, we would like to come up a new idea that can help users to find nearb
 9. Users can chat in text with the post owners. 
 10. Users can edit profiles, which contain pictures, basic information such as major, interests, recent goals, and etc. 
 
+### Programming Task Assignment
+* Qixin Ding will focus on front-end development and implement the design after settling down user interface. 
+* Ruijia Chen is responsible for back-end development and focus on the functionality of the app. 
+* Jessica Yeung will learn about APIs related to map and location and program the APIs into our app. 
+* Marie Schneider will take charge of animations and connect the back-end and front-end together. 
+
 ### User Interface
 Home page:
 ![final_storyboard](https://raw.githubusercontent.com/dingqixin/chicas/master/img/userinterface/ui4.jpg)
@@ -36,9 +42,3 @@ Find posts nearby:
 
 View a details of a post and contact post owner:
 ![final_storyboard](https://raw.githubusercontent.com/dingqixin/chicas/master/img/userinterface/ui5.jpg)
-
-### Programming Task Assignment
-* Qixin Ding will focus on front-end development and implement the design after settling down user interface. 
-* Ruijia Chen is responsible for back-end development and focus on the functionality of the app. 
-* Jessica Yeung will learn about APIs related to map and location and program the APIs into our app. 
-* Marie Schneider will take charge of animations and connect the back-end and front-end together. 
