@@ -4,7 +4,7 @@
 By searching nearby people and restaurants in UCSD, Dine With Me helps you to deal with embarrassment of lonely dining and make new friends!
 
 ### Storyboard
-![final_storyboard](https://github.com/dingqixin/chicas/blob/storyboards/img/storyboards/final_storyboard.jpg)
+![final_storyboard](https://github.com/dingqixin/chicas/blob/storyboards/img/storyboards/final_storyboard1.jpg)
 
 ### Feedbacks
 From the feedbacks from classmates and storyboards from other groups, there are lots of similar ideas of Task-Catcher, Lost and Found and Trip Planning in the class. For the idea of UCSD Exploring Map, people might want to keep their privacy and are not willing to share their stories. Event Scheduling and Router is more related to reminder than map. The ideas of Resource Locator and trip planning are too complicated and are unrealistic to achieve for us in a few weeks. 
