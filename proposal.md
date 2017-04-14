@@ -23,4 +23,8 @@ From the feedbacks from classmates and storyboards from other groups, there are 
 
 
 ### Programming Task Assignment
-A description of how you will split the programming work amongst your 4 team members. Remember: everyone should write code!
+* Qixin Ding will be in charge of front-end development. After we settle down user interface design, she will program to implement the design. 
+* Ruijia Chen is responsible for back-end development and focus on the functionality of the app. 
+* Jessica Yeung will learn about APIs related to map and location and program the APIs into our app. 
+
+**Current we only have three team members. 
