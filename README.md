@@ -5,7 +5,6 @@ Human-Computer-Interaction Programming Studio
 * Qixin Ding
 * Ruijia Chen
 * Jessica Yeung
-* Marie Schneider (Join after Milestone 2)
 * Xinran Wei (Dropped at Week 2)
 
 ## Repository Change
