@@ -1,6 +1,6 @@
 # Storyboards
 
-## Qixin(Sherry) Ding
+## Qixin Ding
 ### Storyboard 1 for Idea 1 (Trip Planning)
 ![Qixin Ding Storyboard 1](https://raw.githubusercontent.com/dingqixin/chicas/master/img/storyboards/Storyboard%20for%20Idea%201%20-%20Qixin%20Ding.jpg)
 
@@ -8,7 +8,7 @@
 ![Qixin Ding Storyboard 2](https://raw.githubusercontent.com/dingqixin/chicas/master/img/storyboards/Storyboard%20for%20Idea%202%20-%20Qixin%20Ding.jpg)
 
 
-## Ruijia(Regina) Cheng
+## Ruijia Cheng
 ### Storyboard for Idea 4 (Lost and Found Map)
 ![Ruijia Cheng Storyboard 1](https://raw.githubusercontent.com/dingqixin/chicas/master/img/storyboards/1373474751.jpg)
 
@@ -16,7 +16,7 @@
 ![Ruijia Cheng Storyboard 2](https://raw.githubusercontent.com/dingqixin/chicas/master/img/storyboards/187377229.jpg)
 
 
-## Xinran(Tracy) Wei
+## Xinran Wei
 ### Storyboard for Idea 6 (Fast Travel Advice and Route Sharing)
 ![Xinran Wei's Storyboard 1](https://raw.githubusercontent.com/dingqixin/chicas/master/img/storyboards/IMG_1843.JPG)
 
