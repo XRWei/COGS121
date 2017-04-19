@@ -5,12 +5,12 @@
 ![Marie's Paper Prototype](https://github.com/dingqixin/chicas/blob/master/img/userinterface/2nd/Mari's%20prototype.jpg)
 
 
-## Qixin(Sherry) Ding
+## Qixin Ding
 This is the user profile UI for Dine With Me. The "book like" left corner button is for users to start editing all the information through a linear questions slide. Or, users can also edit information by directly clicking the certain item on the interface. The right corner button is for users to log in their Facebook account and the system will extract the information from the Facebook to automatically fulfill the profile for users. The part of featured photos allow users to upload 10 images that can show their charateristics. The circle under the featured photos shows the profile protrait of users that will appear on the map. There are four parts of profile information, the basic info, eduction, interests, and recent goals. They are helpful for users to find prospective parters to dine with or to find common topics to talk about during dining. The recent goals part encourages users to keep in touch after dining. 
 ![Qixin's Paper Prototype](https://github.com/dingqixin/chicas/blob/master/img/userinterface/2nd/Qixin's%20UI.jpeg)
 
 
-## Ruijia(Regina) Cheng
+## Ruijia Cheng
 This upper left corner sketch is the UI that when the user's request gets accepted by another user, the post owner can see the information of the person who accepted the request. The rest three are the UI for the find feature after you click a request that you are interested in. 
 ![Regina_UI](https://github.com/dingqixin/chicas/blob/master/img/userinterface/2nd/2103140889.jpg)
 
