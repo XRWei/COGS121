@@ -1,5 +1,5 @@
 ### Marie Schneider
-![Marie's Paper Prototype](https://github.com/dingqixin/chicas/blob/meschneider-patch-1/img/userinterface/2nd/17976184_1391743137549013_1456000768_o.jpg?raw=true)
+![Marie's Paper Prototype](https://github.com/dingqixin/chicas/blob/master/img/userinterface/2nd/Mari's%20prototype.jpg)
 
 ### Qixin(Sherry) Ding
 ![Qixin's Paper Prototype](https://github.com/dingqixin/chicas/blob/master/img/userinterface/2nd/Qixin's%20UI.jpeg)
