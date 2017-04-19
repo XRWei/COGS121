@@ -2,11 +2,11 @@
 Human-Computer-Interaction Programming Studio
 
 ## Team Chicas
-* Qixin Ding
-* Ruijia Chen
+* Qixin(Sherry) Ding
+* Ruijia(Regina) Chen
 * Jessica Yeung
 * Marie Schneider (Join at Week 3)
-* Xinran Wei (Dropped at Week 2)
+* Xinran(Tracy) Wei (Dropped at Week 2)
 
 ## Repository Change
 Because Xinran dropped the class, we transfer our repository. 
