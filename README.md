@@ -1,4 +1,4 @@
-# COGS121
+# Dine With Me
 Human-Computer-Interaction Programming Studio
 
 ## Team Chicas
