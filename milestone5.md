@@ -2,10 +2,10 @@
 
 ## Task Assignment
 ### Qixin Ding
-Set up basic files for coding framework. Take charge of the user interface and styles. Fix bugs and help on functionality of request post and map. 
+Set up basic files for coding framework. Take charge of the user interface and styles. Fix bugs and work on functionality of request post and map. 
 
 ### Ruijia Cheng
-Focus on funtionality of request post. Allows users to post and delete requests on the map. 
+Focus on funtionality of request post. Allows users to post and delete requests on the map. Fix bugs on some error messages. 
 
 ### Jessica Yeung
 Learn about map API. Get the map worked on the main page. 
