@@ -1,0 +1,24 @@
+{
+  "name": "dine-with-me",
+  "version": "1.0.0",
+  "description": "By searching nearby people and restaurants in UCSD, Dine With Me helps you to deal with embarrassment of lonely dining and make new friends!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node node_modules/keeling-js/entry.js"
+  },
+  "author": "Qixin Ding, Ruijia Cheng, Jessica Yeung, Marie Schneider",
+  "license": "ISC",
+  "dependencies": {
+    "keeling-js": "^1.1.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dingqixin/chicas.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dingqixin/chicas/issues"
+  },
+  "homepage": "https://github.com/dingqixin/chicas#readme",
+  "devDependencies": {}
+}
