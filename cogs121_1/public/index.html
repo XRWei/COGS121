@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Dine With Me</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <link rel="stylesheet" href="css/index.css" />
+        <script src="js/jquery.js"></script>
+    </head>
+    <body>
+        <nav>Dine With Me</nav>
+        <main>
+            <tab-section id="pick-tab-section" class="active">
+                <div id="map-outer">
+                    <img id="map-loading" src="img/loading.svg" />
+                    <div id="map"></div>
+                </div>
+            </tab-section>
+            <tab-section id="request-tab-section">
+                <form id="request-form">
+                    <h2>Post Request for Dining Buddy</h2>
+                    <label>Name: </label>
+                    <input id="request-item" type="text" placeholder="Type your name here" />
+                    <label>Message: </label>
+                    <textarea id="request-description" placeholder="Describe yourself or your surroundings"></textarea>
+                    <button type="submit">Post</button>
+                </form>
+            </tab-section>
+        </main>
+        <footer>
+            <tab id="pick-tab" class="active">Search Nearby</tab>
+            <tab id="request-tab">Post Request</tab>
+        </footer>
+        <script>
+            var map;
+
+            function initMap() {
+                $("#map-loading").fadeOut();
+                getGeoPosition(function (pos) {
+                    map = new google.maps.Map(document.getElementById("map"), {
+                        zoom: 15,
+                        center: pos
+                    });
+                    var marker = new google.maps.Marker({
+                        position: pos,
+                        icon: "img/self.png",
+                        map: map
+                    });
+                    //load data from the json file
+                    loadPick();
+                }, function (err) {
+                    console.log(err);
+                });
+            }
+
+            function loadPick() {
+                ajax({
+                    url: "/ajax/pick?action=get",
+                    type: "get",
+                    success: function (data) {
+                        data.forEach(function (pick) {
+                            var item = new google.maps.InfoWindow;
+                            item.setPosition({lat: pick.lat, lng: pick.lng});
+                            item.setContent(pick.name + ": "+pick.description);
+                            //item.setContent(pick.description);
+                            item.open(map);
+                        });
+                    }
+                });
+            }
+
+            function postRequest() {
+                if ($("#request-item").val() == "") {
+                    alert("Please insert your name!");
+                }
+                if ($("#request-description").val() == "") {
+                    alert("Please insert some description of yourself or your surroundings!");
+                }
+                randomClosePosition(function (pos) {
+                    ajax({
+                        url: "/ajax/request?action=post",
+                        type: "post",
+                        data: {
+                            name: $("#request-item").val(),
+                            description: $("#request-description").val(),
+                            lat: pos.lat,
+                            lng: pos.lng
+                        },
+                        success: function (data) {
+                            alert("Post Success!");
+                            window.location.reload();
+                        }
+                    });
+                });
+            }
+
+            function getGeoPosition(callback) {
+                navigator.geolocation.getCurrentPosition(function (info) {
+                    callback({lat: info.coords.latitude, lng: info.coords.longitude});
+                });
+            }
+
+            //Just for demo, FIX ME when need to get the exact location
+            //stretch goal for milestone5, only show people in a certain distance
+            function randomClosePosition(callback) {
+                getGeoPosition(function (pos) {
+                    pos.lat += -0.01 + Math.random() * 0.02;
+                    pos.lng += -0.01 + Math.random() * 0.02;
+                    callback(pos);
+                });
+            }
+        </script>
+        <script src="js/index.js"></script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0BIjCQP-zarunMKbJgnlB-zVquaUrSqU&callback=initMap"></script>
+    </body>
+</html>
