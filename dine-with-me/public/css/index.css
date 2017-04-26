@@ -89,7 +89,7 @@ main tab-section.active {
     border-radius: 3px;
     border: none;
     text-align: center;
-    background-color: rgba(0, 134, 236, 1);
+    background-color: rgba(0, 134, 236, 0.8);
     color: rgba(250, 250, 250, 1);
 }
 
