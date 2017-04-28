@@ -3,7 +3,7 @@ Human-Computer-Interaction Programming Studio
 
 ## Team Chicas
 * Qixin(Sherry) Ding
-* Ruijia(Regina) Chen
+* Ruijia(Regina) Cheng
 * Jessica Yeung
 * Marie Schneider (Join at Week 3)
 * Xinran Wei (Dropped at Week 2)
