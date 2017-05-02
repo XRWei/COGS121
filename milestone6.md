@@ -1,2 +1,2 @@
-This is our video prototype for our app, Dine With Me.
+# Video Prototype
 https://www.youtube.com/embed/1P_vN9QNPQQ
