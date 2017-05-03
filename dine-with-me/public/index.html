@@ -7,67 +7,297 @@
         <script src="js/jquery.js"></script>
     </head>
     <body>
-        <nav>Dine With Me</nav>
+        <div id="mySidenav" class="sidenav">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+          <a href="#">Search</a>
+          <a href="postReq.html">Request</a>
+          <a href="profile.html">Profile</a>
+          <a href="#">Settings</a>
+          <a href="#">Log Out</a>
+        </div>
+
+        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Dine With Me</span>
+        <!-- <nav>Dine With Me</nav> -->
+
         <main>
-            <tab-section id="pick-tab-section" class="active">
-                <div id="map-outer">
-                    <img id="map-loading" src="img/loading.svg" />
-                    <div id="map"></div>
+            <!--tab-section id="pick-tab-section" class="active"-->
+                <div id="wrapper">
+                    <div id="map-outer">
+                        <img id="map-loading" src="img/loading.svg" />
+                        <div id="map"></div>
+                    </div>
+                    <ls>
+                        <!--div class="dropdown">
+                            <button onclick="myFunction1()" class="dropbtn1">filter time</button>
+                              <div id="myDropdown1" class="dropdown-content">
+                                
+                                <a onclick = "filterSeats1">less than 15 mins</a>
+                                <a href="#base">15 mins to 30 mins</a>
+                                <a href="#blog">30 mins to 45 mins</a>
+                                <a href="#contact">45 mins to 1 hour</a>
+                                <a href="#custom">more than 1 hour</a>
+                                <a href="#custom">clean filter</a>
+                              
+                              </div>
+                        </div-->
+                    </ls>
+                    <ls>
+                        <div class="dropdown">
+                            <button onclick="myFunction2()" class="dropbtn2">filter seats</button>
+                              <div id="myDropdown2" class="dropdown-content">
+                                <!-- <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()"> -->
+                                <a onclick = "filterSeats1()">1 seat</a>
+                                <a onclick = "filterSeats2()">2 seats</a>
+                                <a onclick = "filterSeats3()">3 seats</a>
+                                <a onclick = "filterSeats4()">more than 3 seats</a>
+                                <a onclick = "filterSeats5()">clean filter</a>
+                              <!--</div>-->
+                              </div>
+                        </div>
+                    </ls>
+                    <ls>
+                      <div class="dropdown">
+                            <button onclick="location.href = 'postReq.html';" class="dropbtn3">Post new request</button>
+                              
+                        </div>  
+                    </ls>
                 </div>
-            </tab-section>
-            <tab-section id="request-tab-section">
-                <form id="request-form">
+            <!--/tab-section-->
+            <!--tab-section id="request-tab-section"-->
+                <!--form id="request-form">
                     <h2>Post Request for Dining Buddy</h2>
                     <label>Name: </label>
                     <input id="request-item" type="text" placeholder="Type your name here" />
                     <label>Message: </label>
                     <textarea id="request-description" placeholder="Describe yourself or your surroundings"></textarea>
                     <button type="submit">Post</button>
-                </form>
-            </tab-section>
+                </form-->
+            <!--/tab-section-->
         </main>
-        <footer>
+
+        <!--footer>
             <tab id="pick-tab" class="active">Search Nearby</tab>
             <tab id="request-tab">Post Request</tab>
-        </footer>
-        <script>
+        </footer-->
+       <script>
             var map;
-
-            function initMap() {
+            var seat = 0;
+            function initMap(seat) {
                 $("#map-loading").fadeOut();
                 getGeoPosition(function (pos) {
                     map = new google.maps.Map(document.getElementById("map"), {
                         zoom: 15,
                         center: pos
                     });
-                    var marker = new google.maps.Marker({
+                    var current_loc = new google.maps.Marker({
                         position: pos,
                         icon: "img/self.png",
                         map: map
                     });
+                    //added a new draggable marker 
+                    var marker = new google.maps.Marker({
+                        position: pos,
+                        icon: "img/marker.png",
+                        draggable:true,
+                        map: map
+                    });
                     //load data from the json file
-                    loadPick();
+                    //getMarkerLoc();
+                    
+                    if (seat == 0) {
+                        loadPick();
+                    }
+                    if (seat ==1) {
+                        ajax({
+                        url: "/ajax/pick?action=get",
+                        type: "get",
+                        success: function (data) {
+                            alert("Filter Success!");
+                            data.forEach(function (pick) {
+                                if (pick.seats == 1){
+                                    var myLatLng = {lat: pick.lat, lng: pick.lng};
+                                    var item = new google.maps.Marker({
+                                        icon: "img/number_1.png",
+                                        position: myLatLng,
+                                        map: map
+                                        });
+                                    var infowindow = new google.maps.InfoWindow({
+                                    content: pick.name + ": "+pick.description+" I have "+pick.seats+" seats"
+                                    });
+                                item.addListener('click', function() {
+                                infowindow.open(map, item);
+                                });
+                                    //item.setContent(pick.description);
+                                    //item.open(map);
+                                }
+                                
+                            });
+                        }
+                    });  
+                    }
+                    
+                    if (seat ==2) {
+                        ajax({
+                        url: "/ajax/pick?action=get",
+                        type: "get",
+                        success: function (data) {
+                            alert("Filter Success!");
+                            data.forEach(function (pick) {
+                                if (pick.seats == 2){
+                                var myLatLng = {lat: pick.lat, lng: pick.lng};
+                                var item = new google.maps.Marker({
+                                    icon: "img/number_2.png",
+                                    position: myLatLng,
+                                    map: map
+                                    });
+                                var infowindow = new google.maps.InfoWindow({
+                                    content: pick.name + ": "+pick.description+" I have "+pick.seats+" seats"
+                                    });
+                                item.addListener('click', function() {
+                                infowindow.open(map, item);
+                                });
+                                //item.setContent(pick.description);
+                                //item.open(map);
+                                }
+                                
+                            });
+                        }
+                    });  
+                    }
+
+                    if (seat ==3) {
+                        ajax({
+                        url: "/ajax/pick?action=get",
+                        type: "get",
+                        success: function (data) {
+                            alert("Filter Success!");
+                            data.forEach(function (pick) {
+                                if (pick.seats == 3){
+                                var myLatLng = {lat: pick.lat, lng: pick.lng};
+                                var item = new google.maps.Marker({
+                                    icon: "img/number_3.png",
+                                    position: myLatLng,
+                                    map: map
+                                    });
+                                var infowindow = new google.maps.InfoWindow({
+                                    content: pick.name + ": "+pick.description+" I have "+pick.seats+" seats"
+                                    });
+                                item.addListener('click', function() {
+                                infowindow.open(map, item);
+                                });
+                                //item.setContent(pick.description);
+                                //item.open(map);
+                                }
+                                
+                            });
+                        }
+                    });  
+                    }
+                   
+                   if (seat ==4) {
+                        ajax({
+                        url: "/ajax/pick?action=get",
+                        type: "get",
+                        success: function (data) {
+                            alert("Filter Success!");
+                            data.forEach(function (pick) {
+                                if (pick.seats > 3){
+                                var item = new google.maps.InfoWindow;
+                                item.setPosition({lat: pick.lat, lng: pick.lng});
+                                item.setContent(pick.seats+" seats");
+                                //item.setContent(pick.description);
+                                item.open(map);
+                                }
+                                
+                            });
+                        }
+                    });  
+                    }
                 }, function (err) {
                     console.log(err);
                 });
             }
+
+            //function getMarkerLoc() {
+                //getGeoPosition(function (pos) {
+                //});
+                //var marker_lat = marker.getGeoPosition.lat();
+                //var marker_lng = marker.getGeoPosition.lng();
+               // var item_marker = new google.maps.InfoWindow;
+                //item_marker.setPosition({lat: pos.lat, lng: pos.lng});
+                //item_marker.setContent("hello");
+                //item_marker.open(map);
+            //}
 
             function loadPick() {
                 ajax({
                     url: "/ajax/pick?action=get",
                     type: "get",
                     success: function (data) {
+                        alert("load Success!");
                         data.forEach(function (pick) {
-                            var item = new google.maps.InfoWindow;
-                            item.setPosition({lat: pick.lat, lng: pick.lng});
-                            item.setContent(pick.name + ": "+pick.description);
-                            //item.setContent(pick.description);
-                            item.open(map);
+                            if (pick.seats == 1){
+                                var myLatLng = {lat: pick.lat, lng: pick.lng};
+                                var item = new google.maps.Marker({
+                                    icon: "img/number_1.png",
+                                    position: myLatLng,
+                                    map: map
+                                    });
+                                var infowindow = new google.maps.InfoWindow({
+                                    content: pick.name + ": "+pick.description+" I have "+pick.seats+" seats"
+                                    });
+                                item.addListener('click', function() {
+                                infowindow.open(map, item);
+                                });
+                                //item.setContent(pick.description);
+                                //item.open(map);
+                            }
+                            if (pick.seats == 2){
+                                var myLatLng = {lat: pick.lat, lng: pick.lng};
+                                var item = new google.maps.Marker({
+                                    icon: "img/number_2.png",
+                                    position: myLatLng,
+                                    map: map
+                                    });
+                                var infowindow = new google.maps.InfoWindow({
+                                    content: pick.name + ": "+pick.description+" I have "+pick.seats+" seats"
+                                    });
+                                item.addListener('click', function() {
+                                infowindow.open(map, item);
+                                });
+                                //item.setContent(pick.description);
+                                //item.open(map);
+                            }
+                            if (pick.seats == 3){
+                                var myLatLng = {lat: pick.lat, lng: pick.lng};
+                                var item = new google.maps.Marker({
+                                    icon: "img/number_3.png",
+                                    position: myLatLng,
+                                    map: map
+                                    });
+                                var infowindow = new google.maps.InfoWindow({
+                                    content: pick.name + ": "+pick.description+" I have "+pick.seats+" seats"
+                                    });
+                                item.addListener('click', function() {
+                                infowindow.open(map, item);
+                                });
+                                //item.setContent(pick.description);
+                                //item.open(map);
+                            }
+                            if (pick.seats > 3){
+                                var item = new google.maps.InfoWindow;
+                                item.setPosition({lat: pick.lat, lng: pick.lng});
+                                item.setContent(pick.seats+" seats");
+                                //item.setContent(pick.description);
+                                item.open(map);
+                            }
                         });
                     }
                 });
             }
 
+        initMap(0);
+    
             function postRequest() {
                 if ($("#request-item").val() == "") {
                     alert("Please insert your name!");
@@ -82,6 +312,8 @@
                         data: {
                             name: $("#request-item").val(),
                             description: $("#request-description").val(),
+                            seats: $("#request-seats").val(),
+                            time: $("#request-time").val(),
                             lat: pos.lat,
                             lng: pos.lng
                         },
@@ -108,8 +340,58 @@
                     callback(pos);
                 });
             }
+
+            function myFunction1() {
+                document.getElementById("myDropdown1").classList.toggle("show");
+            }
+
+            function myFunction2() {
+                document.getElementById("myDropdown2").classList.toggle("show");
+            }
+
+            function filterFunction() {
+                var input, filter, ul, li, a, i;
+                input = document.getElementById("myInput");
+                filter = input.value.toUpperCase();
+                div = document.getElementById("myDropdown");
+                a = div.getElementsByTagName("a");
+                for (i = 0; i < a.length; i++) {
+                    if (a[i].innerHTML.toUpperCase().indexOf(filter) > -1) {
+                        a[i].style.display = "";
+                    } else {
+                        a[i].style.display = "none";
+                    }
+                }
+            }
+
+            function filterSeats1() {
+                var seat = 1;
+                initMap(seat)
+            }
+            
+            function filterSeats2() {
+                var seat = 2;
+                initMap(seat)
+            }
+            
+            function filterSeats3() {
+                var seat = 3;
+                initMap(seat)
+            }
+
+            function filterSeats4() {
+                var seat = 4;
+                initMap(seat)
+            }
+            function filterSeats5() {
+                var seat = 0;
+                initMap(seat)
+            }
+        //initMap();
+        //loadPick();
         </script>
+        
         <script src="js/index.js"></script>
-        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0BIjCQP-zarunMKbJgnlB-zVquaUrSqU&callback=initMap"></script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0BIjCQP-zarunMKbJgnlB-zVquaUrSqU"></script>
     </body>
 </html>

@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <title>Dine With Me</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <link rel="stylesheet" href="css/index.css" />
+        <script src="js/jquery.js"></script>
+</head>
+<body>
+	<div id="mySidenav" class="sidenav">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+          <a href="index.html">Search</a>
+          <a href="#">Request</a>
+          <a href="profile.html">Profile</a>
+          <a href="#">Settings</a>
+          <a href="#">Log Out</a>
+        </div>
+
+        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Dine With Me</span>
+
+        <main>
+				<form id="request-form">
+                    <h2>Post Request for Dining Buddy</h2>
+                    <label>Name: </label>
+                    <input id="request-item" type="text" placeholder="Type your name here" />
+                    <label>Numer of seats avaliable: </label>
+                    <input id="request-seats" type="text" placeholder="Type number of seats avaliable hear" />
+                    <label>How long will you stay? </label>
+                    <input id="request-time" type="text" placeholder="Type the time duration you want to stay here" />
+                    <label>Message: </label>
+                    <textarea id="request-description" placeholder="Describe yourself or your surroundings"></textarea>
+                    <button type="submit">Post</button>
+                </form>
+        </main>
+
+<script>
+
+	var map;
+            var seat = 0;
+            function initMap(seat) {
+                $("#map-loading").fadeOut();
+                getGeoPosition(function (pos) {
+                    map = new google.maps.Map(document.getElementById("map"), {
+                        zoom: 15,
+                        center: pos
+                    });
+                    var current_loc = new google.maps.Marker({
+                        position: pos,
+                        icon: "img/self.png",
+                        map: map
+                    });
+                    //added a new draggable marker 
+                    var marker = new google.maps.Marker({
+                        position: pos,
+                        icon: "img/marker.png",
+                        draggable:true,
+                        map: map
+                    });
+                    //load data from the json file
+                    //getMarkerLoc();
+                    
+                    if (seat == 0) {
+                        loadPick();
+                    }
+                    if (seat ==1) {
+                        ajax({
+                        url: "/ajax/pick?action=get",
+                        type: "get",
+                        success: function (data) {
+                            alert("Filter Success!");
+                            data.forEach(function (pick) {
+                                if (pick.seats == 1){
+                                    var myLatLng = {lat: pick.lat, lng: pick.lng};
+                                    var item = new google.maps.Marker({
+                                        icon: "img/number_1.png",
+                                        position: myLatLng,
+                                        map: map
+                                        });
+                                    var infowindow = new google.maps.InfoWindow({
+                                    content: pick.name + ": "+pick.description+" I have "+pick.seats+" seats"
+                                    });
+                                item.addListener('click', function() {
+                                infowindow.open(map, item);
+                                });
+                                    //item.setContent(pick.description);
+                                    //item.open(map);
+                                }
+                                
+                            });
+                        }
+                    });  
+                    }
+                    
+                    if (seat ==2) {
+                        ajax({
+                        url: "/ajax/pick?action=get",
+                        type: "get",
+                        success: function (data) {
+                            alert("Filter Success!");
+                            data.forEach(function (pick) {
+                                if (pick.seats == 2){
+                                var myLatLng = {lat: pick.lat, lng: pick.lng};
+                                var item = new google.maps.Marker({
+                                    icon: "img/number_2.png",
+                                    position: myLatLng,
+                                    map: map
+                                    });
+                                var infowindow = new google.maps.InfoWindow({
+                                    content: pick.name + ": "+pick.description+" I have "+pick.seats+" seats"
+                                    });
+                                item.addListener('click', function() {
+                                infowindow.open(map, item);
+                                });
+                                //item.setContent(pick.description);
+                                //item.open(map);
+                                }
+                                
+                            });
+                        }
+                    });  
+                    }
+
+                    if (seat ==3) {
+                        ajax({
+                        url: "/ajax/pick?action=get",
+                        type: "get",
+                        success: function (data) {
+                            alert("Filter Success!");
+                            data.forEach(function (pick) {
+                                if (pick.seats == 3){
+                                var myLatLng = {lat: pick.lat, lng: pick.lng};
+                                var item = new google.maps.Marker({
+                                    icon: "img/number_3.png",
+                                    position: myLatLng,
+                                    map: map
+                                    });
+                                var infowindow = new google.maps.InfoWindow({
+                                    content: pick.name + ": "+pick.description+" I have "+pick.seats+" seats"
+                                    });
+                                item.addListener('click', function() {
+                                infowindow.open(map, item);
+                                });
+                                //item.setContent(pick.description);
+                                //item.open(map);
+                                }
+                                
+                            });
+                        }
+                    });  
+                    }
+                   
+                   if (seat ==4) {
+                        ajax({
+                        url: "/ajax/pick?action=get",
+                        type: "get",
+                        success: function (data) {
+                            alert("Filter Success!");
+                            data.forEach(function (pick) {
+                                if (pick.seats > 3){
+                                var item = new google.maps.InfoWindow;
+                                item.setPosition({lat: pick.lat, lng: pick.lng});
+                                item.setContent(pick.seats+" seats");
+                                //item.setContent(pick.description);
+                                item.open(map);
+                                }
+                                
+                            });
+                        }
+                    });  
+                    }
+                }, function (err) {
+                    console.log(err);
+                });
+            }
+
+            //function getMarkerLoc() {
+                //getGeoPosition(function (pos) {
+                //});
+                //var marker_lat = marker.getGeoPosition.lat();
+                //var marker_lng = marker.getGeoPosition.lng();
+               // var item_marker = new google.maps.InfoWindow;
+                //item_marker.setPosition({lat: pos.lat, lng: pos.lng});
+                //item_marker.setContent("hello");
+                //item_marker.open(map);
+            //}
+
+            function loadPick() {
+                ajax({
+                    url: "/ajax/pick?action=get",
+                    type: "get",
+                    success: function (data) {
+                        alert("load Success!");
+                        data.forEach(function (pick) {
+                            if (pick.seats == 1){
+                                var myLatLng = {lat: pick.lat, lng: pick.lng};
+                                var item = new google.maps.Marker({
+                                    icon: "img/number_1.png",
+                                    position: myLatLng,
+                                    map: map
+                                    });
+                                var infowindow = new google.maps.InfoWindow({
+                                    content: pick.name + ": "+pick.description+" I have "+pick.seats+" seats"
+                                    });
+                                item.addListener('click', function() {
+                                infowindow.open(map, item);
+                                });
+                                //item.setContent(pick.description);
+                                //item.open(map);
+                            }
+                            if (pick.seats == 2){
+                                var myLatLng = {lat: pick.lat, lng: pick.lng};
+                                var item = new google.maps.Marker({
+                                    icon: "img/number_2.png",
+                                    position: myLatLng,
+                                    map: map
+                                    });
+                                var infowindow = new google.maps.InfoWindow({
+                                    content: pick.name + ": "+pick.description+" I have "+pick.seats+" seats"
+                                    });
+                                item.addListener('click', function() {
+                                infowindow.open(map, item);
+                                });
+                                //item.setContent(pick.description);
+                                //item.open(map);
+                            }
+                            if (pick.seats == 3){
+                                var myLatLng = {lat: pick.lat, lng: pick.lng};
+                                var item = new google.maps.Marker({
+                                    icon: "img/number_3.png",
+                                    position: myLatLng,
+                                    map: map
+                                    });
+                                var infowindow = new google.maps.InfoWindow({
+                                    content: pick.name + ": "+pick.description+" I have "+pick.seats+" seats"
+                                    });
+                                item.addListener('click', function() {
+                                infowindow.open(map, item);
+                                });
+                                //item.setContent(pick.description);
+                                //item.open(map);
+                            }
+                            if (pick.seats > 3){
+                                var item = new google.maps.InfoWindow;
+                                item.setPosition({lat: pick.lat, lng: pick.lng});
+                                item.setContent(pick.seats+" seats");
+                                //item.setContent(pick.description);
+                                item.open(map);
+                            }
+                        });
+                    }
+                });
+            }
+
+        initMap(0);
+
+		function postRequest() {
+                if ($("#request-item").val() == "") {
+                    alert("Please insert your name!");
+                }
+                if ($("#request-description").val() == "") {
+                    alert("Please insert some description of yourself or your surroundings!");
+                }
+                randomClosePosition(function (pos) {
+                    ajax({
+                        url: "/ajax/request?action=post",
+                        type: "post",
+                        data: {
+                            name: $("#request-item").val(),
+                            description: $("#request-description").val(),
+                            seats: $("#request-seats").val(),
+                            time: $("#request-time").val(),
+                            lat: pos.lat,
+                            lng: pos.lng
+                        },
+                        success: function (data) {
+                            alert("Post Success!");
+                            intiMap(0);
+                        }
+                    });
+                });
+            }
+
+            function getGeoPosition(callback) {
+                navigator.geolocation.getCurrentPosition(function (info) {
+                    callback({lat: info.coords.latitude, lng: info.coords.longitude});
+                });
+            }
+
+            //Just for demo, FIX ME when need to get the exact location
+            //stretch goal for milestone5, only show people in a certain distance
+            function randomClosePosition(callback) {
+                getGeoPosition(function (pos) {
+                    pos.lat += -0.01 + Math.random() * 0.02;
+                    pos.lng += -0.01 + Math.random() * 0.02;
+                    callback(pos);
+                });
+            }
+
+                        function myFunction1() {
+                document.getElementById("myDropdown1").classList.toggle("show");
+            }
+
+            function myFunction2() {
+                document.getElementById("myDropdown2").classList.toggle("show");
+            }
+
+            function filterFunction() {
+                var input, filter, ul, li, a, i;
+                input = document.getElementById("myInput");
+                filter = input.value.toUpperCase();
+                div = document.getElementById("myDropdown");
+                a = div.getElementsByTagName("a");
+                for (i = 0; i < a.length; i++) {
+                    if (a[i].innerHTML.toUpperCase().indexOf(filter) > -1) {
+                        a[i].style.display = "";
+                    } else {
+                        a[i].style.display = "none";
+                    }
+                }
+            }
+
+            function filterSeats1() {
+                var seat = 1;
+                initMap(seat)
+            }
+            
+            function filterSeats2() {
+                var seat = 2;
+                initMap(seat)
+            }
+            
+            function filterSeats3() {
+                var seat = 3;
+                initMap(seat)
+            }
+
+            function filterSeats4() {
+                var seat = 4;
+                initMap(seat)
+            }
+            function filterSeats5() {
+                var seat = 0;
+                initMap(seat)
+            }
+
+</script>
+<script src="js/index.js"></script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0BIjCQP-zarunMKbJgnlB-zVquaUrSqU"></script>
+</body>
+</html>
