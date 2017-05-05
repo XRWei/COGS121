@@ -7,17 +7,61 @@
         <script src="js/jquery.js"></script>
     </head>
     <body>
-        <div id="mySidenav" class="sidenav">
+        <!-- <div id="mySidenav" class="sidenav">
           <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-          <a href="#">Search</a>
+          <a href="#">Profile</a>
+          <a href="#">Request</a>
+          <a href="#">Settings</a>
+          <a href="#">Log Out</a>
+      </div> -->
+      <div class="topnav" id="myTopnav">
+          <a href="#">Home</a>
           <a href="postReq.html">Request</a>
           <a href="profile.html">Profile</a>
           <a href="#">Settings</a>
           <a href="#">Log Out</a>
-        </div>
+          <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="menuFunction()">&#9776;</a>
+      </div>
 
-        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Dine With Me</span>
-        <!-- <nav>Dine With Me</nav> -->
+      <div id="slideout">
+        <!-- <img src="img/tab.png" alt="Requests" /> -->
+        <p>Find in List</p>
+        <div id="slideout_inner">
+            <table>
+                <!--tr>
+                    <th>Seats</th>
+                    <th>Name</th>
+                </tr-->
+                <!-- PUT JSON DATA HERE -->
+                <tr>
+                    <!-- SEAT DATA -->
+                    <th>Cindy</th>
+                    <td>I have 1 seat</td>
+                    <!-- NAME -->
+                    <td>I am at bk</td>
+                </tr>
+
+                <tr>
+                    <!-- SEAT DATA -->
+                    <th>Marie</th>
+                    <td>I have 2 seat</td>
+                    <!-- NAME -->
+                    <td>I am at panda</td>
+                </tr>
+
+                <tr>
+                    <!-- SEAT DATA -->
+                    <th>Jessica</th>
+                    <td>I have 3 seat</td>
+                    <!-- NAME -->
+                    <td>I am at pines</td>
+                </tr>
+            </table>
+        </div>
+      </div>
+    <!-- <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Dine With Me</span> -->
+    <!-- <nav>Dine With Me</nav> -->
+
 
         <main>
             <!--tab-section id="pick-tab-section" class="active"-->
@@ -320,6 +364,7 @@
                         success: function (data) {
                             alert("Post Success!");
                             window.location.reload();
+
                         }
                     });
                 });

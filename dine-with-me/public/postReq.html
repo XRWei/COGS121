@@ -7,16 +7,25 @@
         <script src="js/jquery.js"></script>
 </head>
 <body>
-	<div id="mySidenav" class="sidenav">
+	<!--div id="mySidenav" class="sidenav">
           <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
           <a href="index.html">Search</a>
           <a href="#">Request</a>
           <a href="profile.html">Profile</a>
           <a href="#">Settings</a>
           <a href="#">Log Out</a>
-        </div>
+    </div-->
 
-        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Dine With Me</span>
+     <div class="topnav" id="myTopnav">
+      <a href="index.html">Home</a>
+      <a href="#">Request</a>
+      <a href="profile.html">Profile</a>
+      <a href="#">Settings</a>
+      <a href="#">Log Out</a>
+      <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="menuFunction()">&#9776;</a>
+    </div>
+
+        <!--span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Dine With Me</span-->
 
         <main>
 				<form id="request-form">
@@ -24,12 +33,30 @@
                     <label>Name: </label>
                     <input id="request-item" type="text" placeholder="Type your name here" />
                     <label>Numer of seats avaliable: </label>
-                    <input id="request-seats" type="text" placeholder="Type number of seats avaliable hear" />
+                    <!--input id="request-seats" type="text" placeholder="Type number of seats avaliable hear" /-->
+                    <select id="request-seats" name="seats">
+                        <option value=1> 1 seat</option>
+                        <option value=2> 2 seats</option>
+                        <option value=3> 3 seats</option>
+                        <option value=4> 4 seats</option>
+                        <option value=5> 5 seats</option>
+                        <option value=6> 6 seats</option>
+                    </select>
+
                     <label>How long will you stay? </label>
-                    <input id="request-time" type="text" placeholder="Type the time duration you want to stay here" />
+                    <!--input id="request-time" type="text" placeholder="Type the time duration you want to stay here"-->
+                    <select id="request-time" name="time">
+                        <option value=1> less than 15 minutes</option>
+                        <option value=2> 15 to 30 minutes</option>
+                        <option value=3> 30 minutes to 1 hour</option>
+                        <option value=4> more than 1 hour</option>
+                    </select>
+                    
+
                     <label>Message: </label>
                     <textarea id="request-description" placeholder="Describe yourself or your surroundings"></textarea>
                     <button type="submit">Post</button>
+                    <button onclick = "location.href = 'index.html';">Cancel and go back</button>
                 </form>
         </main>
 
@@ -260,6 +287,12 @@
                 if ($("#request-description").val() == "") {
                     alert("Please insert some description of yourself or your surroundings!");
                 }
+                if ($("#request-seats").val() == "") {
+                    alert("Please insert the available seats number");
+                }
+                if ($("#request-description").val() == "") {
+                    alert("Please insert the time you are planning to stay!");
+                }
                 randomClosePosition(function (pos) {
                     ajax({
                         url: "/ajax/request?action=post",
@@ -274,7 +307,8 @@
                         },
                         success: function (data) {
                             alert("Post Success!");
-                            intiMap(0);
+                            //intiMap(0);
+                            window.location.replace("http://localhost:21023/index.html");
                         }
                     });
                 });
