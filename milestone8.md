@@ -11,3 +11,7 @@
 ### The first pictures show how their own profile page looks to the user. They can edit their profile picture, about me, interests, and major. 
 ### The last picture shows how another user's profile looks to a user. 
 ![Post](https://github.com/dingqixin/chicas/blob/meschneider-patch-1/img/userinterface/profile_ui.jpg)
+
+### Jessica Yeung
+### This UI sketch is for accepting a request that has been posted to the app. It shows three options which a user could use to accept a request to dine with another user. The circles indicate a user's interaction and the colored arrows direct to the next thing the user should see. The first option is indicated by the green route, where they use the slideout request list to choose a request and is directed to the request page to see the requestor's profile, the details of the location/user, and the option to accept or cancel a request. After accepting the request, the user will be redirected to the homepage which will show the user's route to the location and no other requests on the map. The second option is indicated by the red route, which the user can press the marker to see some more information about the request and accept it there and show the same end result of the red route. The last route is an extension of the second route, where they are redirected to the accept page.
+![Post](https://github.com/dingqixin/chicas/blob/master/img/userinterface/acceptReq.jpg)
