@@ -5,3 +5,9 @@
 ### The user can see their previous posts by clicking the see pending post button. There are three possible statues of a post: pending, expired and accepted. Pending means the post is still with in time and no one has accepted yet, so the user can still edit or delete the  post. Expired means when the time runs out, no one accepts the post. Accepted means the post is accepted by some one. And by clicking the accepted post, the post owner can see the information of the person who accepted. 
 ### Only when the user has no pending posts can the user post new request.
 ![Post](https://github.com/dingqixin/chicas/blob/ReginaChangzhou-patch-2/img/1745476317.jpg)
+
+#Profile page 
+##Marie Schneider 
+###The first pictures show how their own profile page looks to the user. They can edit their profile picture, about me, interests, and major. 
+###The last picture shows how another user's profile looks to a user. 
+![Post](https://github.com/dingqixin/chicas/blob/meschneider-patch-1/img/userinterface/profile_ui.jpg)
