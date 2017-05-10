@@ -38,9 +38,9 @@
                         <option value=1> 1 seat</option>
                         <option value=2> 2 seats</option>
                         <option value=3> 3 seats</option>
-                        <option value=4> 4 seats</option>
-                        <option value=5> 5 seats</option>
-                        <option value=6> 6 seats</option>
+                        <!--option value=4> 4 seats</option-->
+                        <!--option value=5> 5 seats</option-->
+                        <!--option value=6> 6 seats</option-->
                     </select>
 
                     <label>How long will you stay? </label>
@@ -294,6 +294,11 @@
                     alert("Please insert the time you are planning to stay!");
                 }
                 randomClosePosition(function (pos) {
+                    //var now = Date.now();
+                    var date = new Date;
+                    var seconds = date.getSeconds();
+                    var minutes = date.getMinutes();
+                    var hour = date.getHours();
                     ajax({
                         url: "/ajax/request?action=post",
                         type: "post",
@@ -302,8 +307,12 @@
                             description: $("#request-description").val(),
                             seats: $("#request-seats").val(),
                             time: $("#request-time").val(),
+                            //current_time: now,
                             lat: pos.lat,
-                            lng: pos.lng
+                            lng: pos.lng,
+                            post_hour: hour,
+                            post_minute: minutes,
+                            post_second: seconds
                         },
                         success: function (data) {
                             alert("Post Success!");

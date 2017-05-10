@@ -1,147 +1,182 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Dine With Me</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-        <link rel="stylesheet" href="css/index.css" />
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-        <script src="js/jquery.js"></script>
-    </head>
-    <body>
-        <!-- <div id="mySidenav" class="sidenav">
-          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-          <a href="#">Profile</a>
-          <a href="#">Request</a>
-          <a href="#">Settings</a>
-          <a href="#">Log Out</a>
-      </div> -->
-      <div class="topnav" id="myTopnav">
-          <a href="#">Home</a>
-          <a href="profile.html">Profile</a>
-          <a href="#">Settings</a>
-          <a href="#">Log Out</a>
-          <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="menuFunction()">&#9776;</a>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Introducing Lollipop, a sweet new take on Android.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>Dine With Me</title>
+
+    <!-- Page styles -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/jquery.js"></script>
+    <style>
+    #view-source {
+      position: fixed;
+      display: block;
+      right: 0;
+      bottom: 0;
+      margin-right: 40px;
+      margin-bottom: 40px;
+      z-index: 900;
+  }
+  </style>
+</head>
+<body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+
+      <div class="android-header mdl-layout__header mdl-layout__header--waterfall">
+        <div class="mdl-layout__header-row">
+          <span class="android-title mdl-layout-title">
+            <img class="android-logo-image" src="img/name.png" href="">
+        </span>
+        <!-- Add spacer, to align navigation to the right in desktop -->
+        <div class="android-header-spacer mdl-layout-spacer"></div>
+        <div class="android-search-box mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right mdl-textfield--full-width">
+            <label class="mdl-button mdl-js-button mdl-button--icon" for="search-field">
+              <i class="material-icons">search</i>
+          </label>
+          <div class="mdl-textfield__expandable-holder">
+              <input class="mdl-textfield__input" type="text" id="search-field">
+          </div>
       </div>
+      <!-- Navigation -->
+      <div class="android-navigation-container">
+        <nav class="android-navigation mdl-navigation">
+          <a class="mdl-navigation__link mdl-typography--text-uppercase" href="">Profile</a>
+          <a class="mdl-navigation__link mdl-typography--text-uppercase" href="">Settings</a>
+          <a class="mdl-navigation__link mdl-typography--text-uppercase" href="">Log Out</a>
+      </nav>
+  </div>
+  <span class="android-mobile-title mdl-layout-title">
+    <img class="android-logo-image" src="img/name.png">
+</span>
+<button class="android-more-button mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect" id="more-button">
+    <i class="material-icons">more_vert</i>
+</button>
+    <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right mdl-js-ripple-effect" for="more-button">
+      <li class="mdl-menu__item">We</li>
+      <li class="mdl-menu__item">Are</li>
+      <li class="mdl-menu__item">Awesome!</li>
+    </ul>
+</ul>
+</div>
+</div>
 
-      <div id="slideout">
-        <!-- <img src="img/tab.png" alt="Requests" /> -->
-        <p>Find in List</p>
-        <div id="slideout_inner">
-            <table>
-                <!--tr>
-                    <th>Seats</th>
-                    <th>Name</th>
-                </tr-->
-                <!-- PUT JSON DATA HERE -->
-                <tr>
-                    <!-- SEAT DATA -->
-                    <th>Cindy</th>
-                    <td>I have 1 seat</td>
-                    <!-- NAME -->
-                    <td>I am at bk</td>
-                </tr>
+<div class="android-drawer mdl-layout__drawer">
+    <span class="mdl-layout-title">
+      <img class="android-logo-image" src="img/abbrev-white.png">
+  </span>
+  <nav class="mdl-navigation">
+      <a class="mdl-navigation__link" href="">Profile</a>
+      <div class="android-drawer-separator"></div>
+      <span class="mdl-navigation__link" href="">Options</span>
+      <a class="mdl-navigation__link" href="">Settings</a>
+      <a class="mdl-navigation__link" href="">Log Out</a>
+      <div class="android-drawer-separator"></div>
+      <span class="mdl-navigation__link" href="">Resources</span>
+      <a class="mdl-navigation__link" href="">About</a>
+      <a class="mdl-navigation__link" href="">Contact</a>
+      <div class="android-drawer-separator"></div>
+      <span class="mdl-navigation__link" href="">For developers</span>
+      <a class="mdl-navigation__link" href="">View Source Code</a>
+  </nav>
+</div>
 
-                <tr>
-                    <!-- SEAT DATA -->
-                    <th>Marie</th>
-                    <td>I have 2 seat</td>
-                    <!-- NAME -->
-                    <td>I am at panda</td>
-                </tr>
+<div class="android-content mdl-layout__content">
+    <a name="top"></a>
+    <div class="android-be-together-section mdl-typography--text-center">
+      <a href="#screens">
+        <button class="android-fab mdl-button mdl-button--colored mdl-js-button mdl-button--fab mdl-js-ripple-effect">
+          <i class="material-icons">expand_more</i>
+      </button>
+  </a>
+  <div id="slideout">
+    <p>Find in List</p>
+    <div id="slideout_inner">
+        <table>
+            <tr>
+                <th>Cindy</th>
+                <td>I have 1 seat</td>
+                <td>I am at bk</td>
+            </tr>
 
-                <tr>
-                    <!-- SEAT DATA -->
-                    <th>Jessica</th>
-                    <td>I have 3 seat</td>
-                    <!-- NAME -->
-                    <td>I am at pines</td>
-                </tr>
-            </table>
+            <tr>
+                <th>Marie</th>
+                <td>I have 2 seat</td>
+                <td>I am at panda</td>
+            </tr>
+
+            <tr>
+                <th>Jessica</th>
+                <td>I have 3 seat</td>
+                <td>I am at pines</td>
+            </tr>
+        </table>
+    </div>
+</div>
+<main>
+    <div id="wrapper">
+        <div id="map-outer">
+            <img id="map-loading" src="img/loading.svg" />
+            <input id="searchInput" class="controls" type="text" placeholder="Enter a location">
+            <div id="map"></div>
         </div>
-      </div>
-    <!-- <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Dine With Me</span> -->
-    <!-- <nav>Dine With Me</nav> -->
-
-
-        <main>
-            <!--tab-section id="pick-tab-section" class="active"-->
-                <div id="wrapper">
-                    <div id="map-outer">
-                        <img id="map-loading" src="img/loading.svg" />
-                        <div id="map"></div>
-                    </div>
-                    <ls>
-                        <!--div class="dropdown">
-                            <button onclick="myFunction1()" class="dropbtn1">filter time</button>
-                              <div id="myDropdown1" class="dropdown-content">
-                                
-                                <a onclick = "filterSeats1">less than 15 mins</a>
-                                <a href="#base">15 mins to 30 mins</a>
-                                <a href="#blog">30 mins to 45 mins</a>
-                                <a href="#contact">45 mins to 1 hour</a>
-                                <a href="#custom">more than 1 hour</a>
-                                <a href="#custom">clean filter</a>
-                              
-                              </div>
-                        </div-->
-                    </ls>
-                    <ls>
-                        <div class="dropdown">
-                            <button onclick="myFunction2()" class="dropbtn2">filter seats</button>
-                              <div id="myDropdown2" class="dropdown-content">
-                                <!-- <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()"> -->
-                                <a onclick = "filterSeats1()">1 seat</a>
-                                <a onclick = "filterSeats2()">2 seats</a>
-                                <a onclick = "filterSeats3()">3 seats</a>
-                                <a onclick = "filterSeats4()">more than 3 seats</a>
-                                <a onclick = "filterSeats5()">clean filter</a>
-                              <!--</div>-->
-                              </div>
-                        </div>
-                    </ls>
-                    <!-- <ls>
-                      <div class="dropdown">
-                            <button onclick="location.href = 'postReq.html';" class="dropbtn3">Post new request</button>
-                              
-                        </div>  
-                    </ls> -->
+        <ls>
+        </ls>
+        <ls>
+            <div class="dropdown">
+                <button onclick="myFunction2()" class="dropbtn2">filter seats</button>
+                <div id="myDropdown2" class="dropdown-content">
+                    <a onclick = "filterSeats1()">1 seat</a>
+                    <a onclick = "filterSeats2()">2 seats</a>
+                    <a onclick = "filterSeats3()">3 seats</a>
+                    <a onclick = "filterSeats4()">more than 3 seats</a>
+                    <a onclick = "filterSeats5()">clean filter</a>
+                    <!--</div>-->
                 </div>
-            <!--/tab-section-->
-            <!--tab-section id="request-tab-section"-->
-                <!--form id="request-form">
-                    <h2>Post Request for Dining Buddy</h2>
-                    <label>Name: </label>
-                    <input id="request-item" type="text" placeholder="Type your name here" />
-                    <label>Message: </label>
-                    <textarea id="request-description" placeholder="Describe yourself or your surroundings"></textarea>
-                    <button type="submit">Post</button>
-                </form-->
-            <!--/tab-section-->
-            <!-- Add Button -->
-            <a href="postreq.html" class="float">
-                <i class="fa fa-plus my-float"></i>
-            </a>
-        </main>
+            </div>
+        </ls>
+    </div>
+                <div id="myModal" class="modal">
+                  <!-- Modal content -->
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <span class="close">&times;</span>
+                        <h2 id = "modal-name"></h2>
+                      </div>
+                      <div class="modal-body">
+                        <p id = "modal-profile"></p>
+                        <p id = "modal-seats"></p>
+                        <p id = "modal-description"></p>
+                        <p id = "modal-post-time"></p>
+                        <p id = "modal-stay-time"></p>
+                      </div>
+                      <div class="modal-footer">
+                        <button>Accept</button>
+                      </div>
+                    </div>
+                </div>
+</main>
 
-        <!--footer>
-            <tab id="pick-tab" class="active">Search Nearby</tab>
-            <tab id="request-tab">Post Request</tab>
-        </footer-->
-       <script>
-            var map;
-            var seat = 0;
-            function initMap(seat) {
-                $("#map-loading").fadeOut();
-                getGeoPosition(function (pos) {
-                    map = new google.maps.Map(document.getElementById("map"), {
-                        zoom: 15,
-                        center: pos
-                    });
-                    var current_loc = new google.maps.Marker({
-                        position: pos,
-                        icon: "img/self.png",
-                        map: map
-                    });
+<script>
+var map;
+var seat = 0;
+function initMap(seat) {
+    $("#map-loading").fadeOut();
+    getGeoPosition(function (pos) {
+        map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 15,
+            center: pos
+        });
+        var current_loc = new google.maps.Marker({
+            position: pos,
+            icon: "img/self.png",
+            map: map
+        });
                     //added a new draggable marker 
                     var marker = new google.maps.Marker({
                         position: pos,
@@ -150,7 +185,6 @@
                         map: map
                     });
                     //load data from the json file
-                    //getMarkerLoc();
                     
                     if (seat == 0) {
                         loadPick();
@@ -173,11 +207,40 @@
                                     content: pick.name + ": "+pick.description+" I have "+pick.seats+" seats"
                                     });
                                 item.addListener('click', function() {
-                                infowindow.open(map, item);
+                                 var modal = document.getElementById('myModal');
+                                document.getElementById("modal-profile").innerHTML = "profile:"
+                                document.getElementById("modal-name").innerHTML = pick.name
+                                document.getElementById("modal-seats").innerHTML = pick.seats + "seats available"
+                                document.getElementById("modal-description").innerHTML = "Message:" + pick.description
+                                document.getElementById("modal-post-time").innerHTML = "Posted at: " + pick.post_hour +" : "+ pick.post_minute +" : "+ pick.post_second
+                                document.getElementById("modal-stay-time").innerHTML = "Stay for: " + pick.time + "minutes"
+
+
+                                // Get the <span> element that closes the modal
+                                var span = document.getElementsByClassName("close")[0];
+
+                                // When the user clicks on the button, open the modal 
+                                //item.onclick = function() {
+                                    modal.style.display = "block";
+                                //}
+
+                                // When the user clicks on <span> (x), close the modal
+                                span.onclick = function() {
+                                    modal.style.display = "none";
+                                }
+
+                                // When the user clicks anywhere outside of the modal, close it
+                                window.onclick = function(event) {
+                                    if (event.target == modal) {
+                                        modal.style.display = "none";
+                                    }
+                                }
+
                                 });
                                     //item.setContent(pick.description);
                                     //item.open(map);
                                 }
+                                //markers1.push(item);
                                 
                             });
                         }
@@ -202,7 +265,33 @@
                                     content: pick.name + ": "+pick.description+" I have "+pick.seats+" seats"
                                     });
                                 item.addListener('click', function() {
-                                infowindow.open(map, item);
+                                 var modal = document.getElementById('myModal');
+                                document.getElementById("modal-profile").innerHTML = "profile:"
+                                document.getElementById("modal-name").innerHTML = pick.name
+                                document.getElementById("modal-seats").innerHTML = pick.seats + "seats available"
+                                document.getElementById("modal-description").innerHTML = "Message:" + pick.description
+                                document.getElementById("modal-post-time").innerHTML = "Posted at: " + pick.post_hour +" : "+ pick.post_minute +" : "+ pick.post_second
+                                document.getElementById("modal-stay-time").innerHTML = "Stay for: " + pick.time + "minutes"
+
+                                // Get the <span> element that closes the modal
+                                var span = document.getElementsByClassName("close")[0];
+
+                                // When the user clicks on the button, open the modal 
+                                //item.onclick = function() {
+                                    modal.style.display = "block";
+                                //}
+
+                                // When the user clicks on <span> (x), close the modal
+                                span.onclick = function() {
+                                    modal.style.display = "none";
+                                }
+
+                                // When the user clicks anywhere outside of the modal, close it
+                                window.onclick = function(event) {
+                                    if (event.target == modal) {
+                                        modal.style.display = "none";
+                                    }
+                                }
                                 });
                                 //item.setContent(pick.description);
                                 //item.open(map);
@@ -231,7 +320,33 @@
                                     content: pick.name + ": "+pick.description+" I have "+pick.seats+" seats"
                                     });
                                 item.addListener('click', function() {
-                                infowindow.open(map, item);
+                                 var modal = document.getElementById('myModal');
+                                document.getElementById("modal-profile").innerHTML = "profile:"
+                                document.getElementById("modal-name").innerHTML = pick.name
+                                document.getElementById("modal-seats").innerHTML = pick.seats + "seats available"
+                                document.getElementById("modal-description").innerHTML = "Message:" + pick.description
+                                document.getElementById("modal-post-time").innerHTML = "Posted at: " + pick.post_hour +" : "+ pick.post_minute +" : "+ pick.post_second
+                                document.getElementById("modal-stay-time").innerHTML = "Stay for: " + pick.time + "minutes"
+
+                                // Get the <span> element that closes the modal
+                                var span = document.getElementsByClassName("close")[0];
+
+                                // When the user clicks on the button, open the modal 
+                                //item.onclick = function() {
+                                    modal.style.display = "block";
+                                //}
+
+                                // When the user clicks on <span> (x), close the modal
+                                span.onclick = function() {
+                                    modal.style.display = "none";
+                                }
+
+                                // When the user clicks anywhere outside of the modal, close it
+                                window.onclick = function(event) {
+                                    if (event.target == modal) {
+                                        modal.style.display = "none";
+                                    }
+                                }
                                 });
                                 //item.setContent(pick.description);
                                 //item.open(map);
@@ -242,28 +357,31 @@
                     });  
                     }
                    
-                   if (seat ==4) {
-                        ajax({
-                        url: "/ajax/pick?action=get",
-                        type: "get",
-                        success: function (data) {
-                            alert("Filter Success!");
-                            data.forEach(function (pick) {
-                                if (pick.seats > 3){
-                                var item = new google.maps.InfoWindow;
-                                item.setPosition({lat: pick.lat, lng: pick.lng});
-                                item.setContent(pick.seats+" seats");
+                   //if (seat ==4) {
+                        //ajax({
+                        //url: "/ajax/pick?action=get",
+                        //type: "get",
+                        //success: function (data) {
+                            //alert("Filter Success!");
+                            //data.forEach(function (pick) {
+                               // if (pick.seats > 3){
+                               // var item = new google.maps.InfoWindow;
+                                //item.setPosition({lat: pick.lat, lng: pick.lng});
+                                //item.setContent(pick.seats+" seats");
                                 //item.setContent(pick.description);
-                                item.open(map);
-                                }
+                                //item.open(map);
+                                //}
                                 
-                            });
-                        }
-                    });  
-                    }
+                            //});
+                        //}
+                    //});  
+                    //}
                 }, function (err) {
                     console.log(err);
                 });
+
+                
+            
             }
 
             //function getMarkerLoc() {
@@ -295,7 +413,36 @@
                                     content: pick.name + ": "+pick.description+" I have "+pick.seats+" seats"
                                     });
                                 item.addListener('click', function() {
-                                infowindow.open(map, item);
+                                //infowindow.open(map, item);
+                                var modal = document.getElementById('myModal');
+                                document.getElementById("modal-profile").innerHTML = "profile: "
+                                document.getElementById("modal-name").innerHTML = pick.name
+                                document.getElementById("modal-seats").innerHTML = pick.seats + " seats available"
+                                document.getElementById("modal-description").innerHTML = "Message: " + pick.description
+                                document.getElementById("modal-post-time").innerHTML = "Posted at: " + pick.post_hour +" : "+ pick.post_minute +" : "+ pick.post_second
+                                document.getElementById("modal-stay-time").innerHTML = "Stay for: " + pick.time + "minutes"
+
+                                // Get the <span> element that closess the modal
+                                var span = document.getElementsByClassName("close")[0];
+
+                                // When the user clicks on the button, open the modal 
+                                //item.onclick = function() {
+                                    modal.style.display = "block";
+                                //}
+
+                                // When the user clicks on <span> (x), close the modal
+                                span.onclick = function() {
+                                    modal.style.display = "none";
+                                }
+
+                                // When the user clicks anywhere outside of the modal, close it
+                                window.onclick = function(event) {
+                                    if (event.target == modal) {
+                                        modal.style.display = "none";
+                                    }
+                                }
+
+
                                 });
                                 //item.setContent(pick.description);
                                 //item.open(map);
@@ -311,7 +458,33 @@
                                     content: pick.name + ": "+pick.description+" I have "+pick.seats+" seats"
                                     });
                                 item.addListener('click', function() {
-                                infowindow.open(map, item);
+                                 var modal = document.getElementById('myModal');
+                                document.getElementById("modal-profile").innerHTML = "profile:"
+                                document.getElementById("modal-name").innerHTML = pick.name
+                                document.getElementById("modal-seats").innerHTML = pick.seats + "seats available"
+                                document.getElementById("modal-description").innerHTML = "Message:" + pick.description
+                                document.getElementById("modal-post-time").innerHTML = "Posted at: " + pick.post_hour +" : "+ pick.post_minute +" : "+ pick.post_second
+                                document.getElementById("modal-stay-time").innerHTML = "Stay for: " + pick.time + "minutes"
+
+                                // Get the <span> element that closes the modal
+                                var span = document.getElementsByClassName("close")[0];
+
+                                // When the user clicks on the button, open the modal 
+                                //item.onclick = function() {
+                                    modal.style.display = "block";
+                                //}
+
+                                // When the user clicks on <span> (x), close the modal
+                                span.onclick = function() {
+                                    modal.style.display = "none";
+                                }
+
+                                // When the user clicks anywhere outside of the modal, close it
+                                window.onclick = function(event) {
+                                    if (event.target == modal) {
+                                        modal.style.display = "none";
+                                    }
+                                }
                                 });
                                 //item.setContent(pick.description);
                                 //item.open(map);
@@ -327,18 +500,44 @@
                                     content: pick.name + ": "+pick.description+" I have "+pick.seats+" seats"
                                     });
                                 item.addListener('click', function() {
-                                infowindow.open(map, item);
+                                 var modal = document.getElementById('myModal');
+                                document.getElementById("modal-profile").innerHTML = "profile:"
+                                document.getElementById("modal-name").innerHTML = pick.name
+                                document.getElementById("modal-seats").innerHTML = pick.seats + "seats available"
+                                document.getElementById("modal-description").innerHTML = "Message:" + pick.description
+                                document.getElementById("modal-post-time").innerHTML = "Posted at: " + pick.post_hour +" : "+ pick.post_minute +" : "+ pick.post_second
+                                document.getElementById("modal-stay-time").innerHTML = "Stay for: " + pick.time + "minutes"
+
+                                // Get the <span> element that closes the modal
+                                var span = document.getElementsByClassName("close")[0];
+
+                                // When the user clicks on the button, open the modal 
+                                //item.onclick = function() {
+                                    modal.style.display = "block";
+                                //}
+
+                                // When the user clicks on <span> (x), close the modal
+                                span.onclick = function() {
+                                    modal.style.display = "none";
+                                }
+
+                                // When the user clicks anywhere outside of the modal, close it
+                                window.onclick = function(event) {
+                                    if (event.target == modal) {
+                                        modal.style.display = "none";
+                                    }
+                                }
                                 });
                                 //item.setContent(pick.description);
                                 //item.open(map);
                             }
-                            if (pick.seats > 3){
-                                var item = new google.maps.InfoWindow;
-                                item.setPosition({lat: pick.lat, lng: pick.lng});
-                                item.setContent(pick.seats+" seats");
+                            //if (pick.seats > 3){
+                                //var item = new google.maps.InfoWindow;
+                                //item.setPosition({lat: pick.lat, lng: pick.lng});
+                                //item.setContent(pick.seats+" seats");
                                 //item.setContent(pick.description);
-                                item.open(map);
-                            }
+                                //item.open(map);
+                            //}
                         });
                     }
                 });
@@ -416,6 +615,7 @@
             function filterSeats1() {
                 var seat = 1;
                 initMap(seat)
+
             }
             
             function filterSeats2() {
@@ -436,11 +636,67 @@
                 var seat = 0;
                 initMap(seat)
             }
+
+            function loadlist(){
+                ajax({
+                        url: "/ajax/pick?action=get",
+                        type: "get",
+                        success: function (data) {
+                            data.forEach(function (pick) {
+                                 var modal = document.getElementById('myModal');
+                                document.getElementById("modal-profile").innerHTML = "profile:"
+                                document.getElementById("modal-name").innerHTML = pick.name
+                                document.getElementById("modal-seats").innerHTML = pick.seats + "seats available"
+                                document.getElementById("modal-description").innerHTML = "Message:" + pick.description
+                                document.getElementById("modal-post-time").innerHTML = "Posted at: " + pick.post_hour +" : "+ pick.post_minute +" : "+ pick.post_second
+                                document.getElementById("modal-stay-time").innerHTML = "Stay for: " + pick.time + "minutes"
+
+
+
+                                });
+                                    //item.setContent(pick.description);
+                                    //item.open(map);
+                                }
+                                //markers1.push(item);
+                                
+                            });
+                        }
+                    
         //initMap();
         //loadPick();
+        //var markers = [];
+
+        //function addMarker(location) {
+            //var marker = new google.maps.Marker({
+                //position: location,
+                //map: map
+            //});
+            //markers.push(marker);
+        //}
+
+      // Sets the map on all markers in the array.
+      //function setMapOnAll(map) {
+        //for (var i = 0; i < markers1.length; i++) {
+          //markers1[i].setMap(map);
+        //}
+      //}
+
+      // Removes the markers from the map, but keeps them in the array.
+      //function clearMarkers() {
+        //setMapOnAll(null);
+      //}
+
         </script>
-        
-        <script src="js/index.js"></script>
-        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0BIjCQP-zarunMKbJgnlB-zVquaUrSqU"></script>
-    </body>
+
+            <script src="js/index.js"></script>
+            <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0BIjCQP-zarunMKbJgnlB-zVquaUrSqU"></script>
+            <footer class="android-footer mdl-mega-footer">
+              <div class="mdl-mega-footer--middle-section">
+                <p class="mdl-typography--font-light">Team Chicas © 2017 COGS121, UC San Diego</p>
+            </footer>
+        </div>
+    </div>
+    <a href="postReq.html" target="_blank" id="view-source" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast">Add Request</a>
+    <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+</body>
 </html>
