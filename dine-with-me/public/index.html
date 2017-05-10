@@ -466,7 +466,6 @@ function initMap(seat) {
                     url: "/ajax/pick?action=get",
                     type: "get",
                     success: function (data) {
-                        alert("load Success!");
                         data.forEach(function (pick) {
                             if (pick.seats == 1){
                                 var myLatLng = {lat: pick.lat, lng: pick.lng};
@@ -759,7 +758,7 @@ function initMap(seat) {
             <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0BIjCQP-zarunMKbJgnlB-zVquaUrSqU&libraries=places&callback=initMap" async defer></script>
         </div>
     </div>
-    <a href="postReq.html" target="_blank" id="view-source" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast">Add Request</a>
+    <a href="/postReq.html" id="view-source" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast">Add Request</a>
     <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 </body>
 </html>
