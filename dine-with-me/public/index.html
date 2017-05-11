@@ -34,7 +34,7 @@
             <img class="android-logo-image" src="img/name.png" href="">
         </span>
         <!-- Add spacer, to align navigation to the right in desktop -->
-        <div class="android-header-spacer mdl-layout-spacer"></div>
+        <!--<div class="android-header-spacer mdl-layout-spacer"></div>
         <div class="android-search-box mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right mdl-textfield--full-width">
             <label class="mdl-button mdl-js-button mdl-button--icon" for="search-field">
               <i class="material-icons">search</i>
@@ -42,19 +42,19 @@
           <div class="mdl-textfield__expandable-holder">
               <input class="mdl-textfield__input" type="text" id="search-field">
           </div>
-      </div>
+      </div>-->
       <!-- Navigation -->
-      <div class="android-navigation-container">
+      <!--<div class="android-navigation-container">
         <nav class="android-navigation mdl-navigation">
           <a class="mdl-navigation__link mdl-typography--text-uppercase" href="">Profile</a>
           <a class="mdl-navigation__link mdl-typography--text-uppercase" href="">Settings</a>
           <a class="mdl-navigation__link mdl-typography--text-uppercase" href="">Log Out</a>
       </nav>
-  </div>
+  </div>-->
   <span class="android-mobile-title mdl-layout-title">
     <img class="android-logo-image" src="img/name.png">
 </span>
-<button class="android-more-button mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect" id="more-button">
+<!--<button class="android-more-button mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect" id="more-button">
     <i class="material-icons">more_vert</i>
 </button>
     <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right mdl-js-ripple-effect" for="more-button">
@@ -62,11 +62,11 @@
       <li class="mdl-menu__item">Are</li>
       <li class="mdl-menu__item">Awesome!</li>
     </ul>
-</ul>
+</ul>-->
 </div>
 </div>
 
-<div class="android-drawer mdl-layout__drawer">
+<!--<div class="android-drawer mdl-layout__drawer">
     <span class="mdl-layout-title">
       <img class="android-logo-image" src="img/abbrev-white.png">
   </span>
@@ -84,7 +84,7 @@
       <span class="mdl-navigation__link" href="">For developers</span>
       <a class="mdl-navigation__link" href="">View Source Code</a>
   </nav>
-</div>
+</div>-->
 
 <div class="android-content mdl-layout__content">
     <a name="top"></a>
@@ -159,6 +159,19 @@
                         <button>Accept</button>
                       </div>
                     </div>
+                </div>
+
+                 <!--Bottom Navigation--> 
+                <div class="navbar">
+                    <a href="/index.html">
+                        <img class="img" src="img/home-icon.png">
+                    </a>
+                    <a href="#profile">
+                        <img class="img" src="img/profile-icon.png">
+                    </a>
+                    <a href="/postReq.html">
+                        <img class="img" src="img/request-icon.png">
+                    </a>
                 </div>
 </main>
 
@@ -758,7 +771,6 @@ function initMap(seat) {
             <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0BIjCQP-zarunMKbJgnlB-zVquaUrSqU&libraries=places&callback=initMap" async defer></script>
         </div>
     </div>
-    <a href="/postReq.html" id="view-source" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast">Add Request</a>
     <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 </body>
 </html>

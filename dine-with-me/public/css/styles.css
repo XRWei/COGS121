@@ -900,3 +900,28 @@ a img{
 #searchInput:focus {
     border-color: #4d90fe;
 }
+
+.navbar {
+    overflow: hidden;
+    background-color: #ffffff;
+    position: fixed; /* Set the navbar to fixed position */
+    bottom: 0;
+    width: 100%; /* Full width */
+    padding-top: 14px;
+    padding-bottom: 14px;
+}
+
+/* Links inside the navbar */
+.navbar a {
+    float: left;
+    display: block;
+    color: #000000;
+    text-align: center;
+    text-decoration: none;
+    width:33.33%;
+    height: 33.3%;
+}
+.navbar img{
+  width:33.3%;
+  max-height:33.3%;
+}
