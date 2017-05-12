@@ -94,28 +94,17 @@
           <i class="material-icons">expand_more</i>
       </button>
   </a>
-  <div id="slideout">
-    <p>Find in List</p>
+  <!--Slide out where JSON Data is loaded-->
+   <div id="slideout">
+    <input type="button" onclick="loadlist()" value="List"/>
     <div id="slideout_inner">
-        <table>
+        <table id="tableList">
             <tr>
-                <th>Cindy</th>
-                <td>I have 1 seat</td>
-                <td>I am at bk</td>
+                <th>Name</th>
+                <th>Seats</th>
+                <th>Description</th>
             </tr>
-
-            <tr>
-                <th>Marie</th>
-                <td>I have 2 seat</td>
-                <td>I am at panda</td>
-            </tr>
-
-            <tr>
-                <th>Jessica</th>
-                <td>I have 3 seat</td>
-                <td>I am at pines</td>
-            </tr>
-        </table>
+        </table>      
     </div>
 </div>
 <main>
@@ -176,6 +165,28 @@
 </main>
 
 <script>
+
+//Loads the list of requests
+function loadlist(){
+    ajax({
+    url: "/ajax/pick?action=get",
+    type: "get",
+        success: function (data) {
+            var trHTML = '';
+            data.forEach(function (pick) {
+                var modal = document.getElementById('myModal');
+                //document.getElementById("modal-profile").innerHTML = "profile:"
+                document.getElementById("modal-name").innerHTML = pick.name;
+                document.getElementById("modal-seats").innerHTML = pick.seats;
+                document.getElementById("modal-description").innerHTML = pick.description;
+                trHTML += '<tr><td>' + pick.name + '</td><td>' + pick.seats + '</td><td>'+ pick.description +'</td></tr>';
+                
+            });
+            $('#tableList').append(trHTML);
+        }
+    });
+}
+
 var map;
 var seat = 0;
 function initMap(seat) {
@@ -190,19 +201,15 @@ function initMap(seat) {
             icon: "img/self.png",
             map: map
         });
-
         var input = document.getElementById('searchInput');
         map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-
         var autocomplete = new google.maps.places.Autocomplete(input);
         autocomplete.bindTo('bounds', map);
-
         var infowindow = new google.maps.InfoWindow();
         var marker = new google.maps.Marker({
             map: map,
             anchorPoint: new google.maps.Point(0, -29)
         });
-
         autocomplete.addListener('place_changed', function() {
             infowindow.close();
             marker.setVisible(false);
@@ -254,8 +261,6 @@ function initMap(seat) {
             document.getElementById('lat').innerHTML = place.geometry.location.lat();
             document.getElementById('lon').innerHTML = place.geometry.location.lng();
             });
-
-
                     //added a new draggable marker 
                     //var marker = new google.maps.Marker({
                         //position: pos,
@@ -293,28 +298,22 @@ function initMap(seat) {
                                 document.getElementById("modal-description").innerHTML = "Message:" + pick.description
                                 document.getElementById("modal-post-time").innerHTML = "Posted at: " + pick.post_hour +" : "+ pick.post_minute +" : "+ pick.post_second
                                 document.getElementById("modal-stay-time").innerHTML = "Stay for: " + pick.time + "minutes"
-
-
                                 // Get the <span> element that closes the modal
                                 var span = document.getElementsByClassName("close")[0];
-
                                 // When the user clicks on the button, open the modal 
                                 //item.onclick = function() {
                                     modal.style.display = "block";
                                 //}
-
                                 // When the user clicks on <span> (x), close the modal
                                 span.onclick = function() {
                                     modal.style.display = "none";
                                 }
-
                                 // When the user clicks anywhere outside of the modal, close it
                                 window.onclick = function(event) {
                                     if (event.target == modal) {
                                         modal.style.display = "none";
                                     }
                                 }
-
                                 });
                                     //item.setContent(pick.description);
                                     //item.open(map);
@@ -351,20 +350,16 @@ function initMap(seat) {
                                 document.getElementById("modal-description").innerHTML = "Message:" + pick.description
                                 document.getElementById("modal-post-time").innerHTML = "Posted at: " + pick.post_hour +" : "+ pick.post_minute +" : "+ pick.post_second
                                 document.getElementById("modal-stay-time").innerHTML = "Stay for: " + pick.time + "minutes"
-
                                 // Get the <span> element that closes the modal
                                 var span = document.getElementsByClassName("close")[0];
-
                                 // When the user clicks on the button, open the modal 
                                 //item.onclick = function() {
                                     modal.style.display = "block";
                                 //}
-
                                 // When the user clicks on <span> (x), close the modal
                                 span.onclick = function() {
                                     modal.style.display = "none";
                                 }
-
                                 // When the user clicks anywhere outside of the modal, close it
                                 window.onclick = function(event) {
                                     if (event.target == modal) {
@@ -380,7 +375,6 @@ function initMap(seat) {
                         }
                     });  
                     }
-
                     if (seat ==3) {
                         ajax({
                         url: "/ajax/pick?action=get",
@@ -406,20 +400,16 @@ function initMap(seat) {
                                 document.getElementById("modal-description").innerHTML = "Message:" + pick.description
                                 document.getElementById("modal-post-time").innerHTML = "Posted at: " + pick.post_hour +" : "+ pick.post_minute +" : "+ pick.post_second
                                 document.getElementById("modal-stay-time").innerHTML = "Stay for: " + pick.time + "minutes"
-
                                 // Get the <span> element that closes the modal
                                 var span = document.getElementsByClassName("close")[0];
-
                                 // When the user clicks on the button, open the modal 
                                 //item.onclick = function() {
                                     modal.style.display = "block";
                                 //}
-
                                 // When the user clicks on <span> (x), close the modal
                                 span.onclick = function() {
                                     modal.style.display = "none";
                                 }
-
                                 // When the user clicks anywhere outside of the modal, close it
                                 window.onclick = function(event) {
                                     if (event.target == modal) {
@@ -458,11 +448,9 @@ function initMap(seat) {
                 }, function (err) {
                     console.log(err);
                 });
-
                 
             
             }
-
             //function getMarkerLoc() {
                 //getGeoPosition(function (pos) {
                 //});
@@ -473,7 +461,6 @@ function initMap(seat) {
                 //item_marker.setContent("hello");
                 //item_marker.open(map);
             //}
-
             function loadPick() {
                 ajax({
                     url: "/ajax/pick?action=get",
@@ -499,28 +486,22 @@ function initMap(seat) {
                                 document.getElementById("modal-description").innerHTML = "Message: " + pick.description
                                 document.getElementById("modal-post-time").innerHTML = "Posted at: " + pick.post_hour +" : "+ pick.post_minute +" : "+ pick.post_second
                                 document.getElementById("modal-stay-time").innerHTML = "Stay for: " + pick.time + "minutes"
-
                                 // Get the <span> element that closess the modal
                                 var span = document.getElementsByClassName("close")[0];
-
                                 // When the user clicks on the button, open the modal 
                                 //item.onclick = function() {
                                     modal.style.display = "block";
                                 //}
-
                                 // When the user clicks on <span> (x), close the modal
                                 span.onclick = function() {
                                     modal.style.display = "none";
                                 }
-
                                 // When the user clicks anywhere outside of the modal, close it
                                 window.onclick = function(event) {
                                     if (event.target == modal) {
                                         modal.style.display = "none";
                                     }
                                 }
-
-
                                 });
                                 //item.setContent(pick.description);
                                 //item.open(map);
@@ -543,20 +524,16 @@ function initMap(seat) {
                                 document.getElementById("modal-description").innerHTML = "Message:" + pick.description
                                 document.getElementById("modal-post-time").innerHTML = "Posted at: " + pick.post_hour +" : "+ pick.post_minute +" : "+ pick.post_second
                                 document.getElementById("modal-stay-time").innerHTML = "Stay for: " + pick.time + "minutes"
-
                                 // Get the <span> element that closes the modal
                                 var span = document.getElementsByClassName("close")[0];
-
                                 // When the user clicks on the button, open the modal 
                                 //item.onclick = function() {
                                     modal.style.display = "block";
                                 //}
-
                                 // When the user clicks on <span> (x), close the modal
                                 span.onclick = function() {
                                     modal.style.display = "none";
                                 }
-
                                 // When the user clicks anywhere outside of the modal, close it
                                 window.onclick = function(event) {
                                     if (event.target == modal) {
@@ -585,20 +562,16 @@ function initMap(seat) {
                                 document.getElementById("modal-description").innerHTML = "Message:" + pick.description
                                 document.getElementById("modal-post-time").innerHTML = "Posted at: " + pick.post_hour +" : "+ pick.post_minute +" : "+ pick.post_second
                                 document.getElementById("modal-stay-time").innerHTML = "Stay for: " + pick.time + "minutes"
-
                                 // Get the <span> element that closes the modal
                                 var span = document.getElementsByClassName("close")[0];
-
                                 // When the user clicks on the button, open the modal 
                                 //item.onclick = function() {
                                     modal.style.display = "block";
                                 //}
-
                                 // When the user clicks on <span> (x), close the modal
                                 span.onclick = function() {
                                     modal.style.display = "none";
                                 }
-
                                 // When the user clicks anywhere outside of the modal, close it
                                 window.onclick = function(event) {
                                     if (event.target == modal) {
@@ -620,7 +593,6 @@ function initMap(seat) {
                     }
                 });
             }
-
         initMap(0);
     
             function postRequest() {
@@ -645,18 +617,15 @@ function initMap(seat) {
                         success: function (data) {
                             alert("Post Success!");
                             window.location.reload();
-
                         }
                     });
                 });
             }
-
             function getGeoPosition(callback) {
                 navigator.geolocation.getCurrentPosition(function (info) {
                     callback({lat: info.coords.latitude, lng: info.coords.longitude});
                 });
             }
-
             //Just for demo, FIX ME when need to get the exact location
             //stretch goal for milestone5, only show people in a certain distance
             function randomClosePosition(callback) {
@@ -666,15 +635,12 @@ function initMap(seat) {
                     callback(pos);
                 });
             }
-
             function myFunction1() {
                 document.getElementById("myDropdown1").classList.toggle("show");
             }
-
             function myFunction2() {
                 document.getElementById("myDropdown2").classList.toggle("show");
             }
-
             function filterFunction() {
                 var input, filter, ul, li, a, i;
                 input = document.getElementById("myInput");
@@ -689,11 +655,9 @@ function initMap(seat) {
                     }
                 }
             }
-
             function filterSeats1() {
                 var seat = 1;
                 initMap(seat)
-
             }
             
             function filterSeats2() {
@@ -705,7 +669,6 @@ function initMap(seat) {
                 var seat = 3;
                 initMap(seat)
             }
-
             function filterSeats4() {
                 var seat = 4;
                 initMap(seat)
@@ -714,36 +677,11 @@ function initMap(seat) {
                 var seat = 0;
                 initMap(seat)
             }
-
-            function loadlist(){
-                ajax({
-                        url: "/ajax/pick?action=get",
-                        type: "get",
-                        success: function (data) {
-                            data.forEach(function (pick) {
-                                 var modal = document.getElementById('myModal');
-                                document.getElementById("modal-profile").innerHTML = "profile:"
-                                document.getElementById("modal-name").innerHTML = pick.name
-                                document.getElementById("modal-seats").innerHTML = pick.seats + "seats available"
-                                document.getElementById("modal-description").innerHTML = "Message:" + pick.description
-                                document.getElementById("modal-post-time").innerHTML = "Posted at: " + pick.post_hour +" : "+ pick.post_minute +" : "+ pick.post_second
-                                document.getElementById("modal-stay-time").innerHTML = "Stay for: " + pick.time + "minutes"
-
-
-
-                                });
-                                    //item.setContent(pick.description);
-                                    //item.open(map);
-                                }
-                                //markers1.push(item);
-                                
-                            });
-                        }
+            
                     
         //initMap();
         //loadPick();
         //var markers = [];
-
         //function addMarker(location) {
             //var marker = new google.maps.Marker({
                 //position: location,
@@ -751,19 +689,16 @@ function initMap(seat) {
             //});
             //markers.push(marker);
         //}
-
       // Sets the map on all markers in the array.
       //function setMapOnAll(map) {
         //for (var i = 0; i < markers1.length; i++) {
           //markers1[i].setMap(map);
         //}
       //}
-
       // Removes the markers from the map, but keeps them in the array.
       //function clearMarkers() {
         //setMapOnAll(null);
       //}
-
         </script>
 
             <script src="js/index.js"></script>

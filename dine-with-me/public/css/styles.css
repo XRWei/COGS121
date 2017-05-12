@@ -724,7 +724,8 @@ a img{
     background: #6DAD53;
     width: 200px;
     padding: 25px;
-    height: 130px;
+    max-height: 130px;
+    overflow: scroll;
     -webkit-transition-duration: 0.3s;
     -moz-transition-duration: 0.3s;
     transition-duration: 0.3s;
