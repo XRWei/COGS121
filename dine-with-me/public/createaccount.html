@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Log In</title>
+  <title>Create Account</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
   <link rel="stylesheet" href="css/styles.css">
   <script src="js/jquery.js"></script>
@@ -24,10 +24,9 @@
                 <br/>
                 <input type="password" name="password" id="password" class="text" maxlength="30" placeholder="password"/>
                 <br/>
-                <center>
-                    <button type="submit" id="btnSubmit">Log In</button>
-                </center>
-                <input type="button" onclick="location.href='/createaccount.html';" value="New User"/>
+                <input type="password" name="confirmpassword" id="confirmpassword" class="text" maxlength="30" placeholder=" confirm password"/>
+                <br/>
+                <center><button type="submit" id="btnSubmit">Log In</button></center>
             </form>
         </div>
    
@@ -36,17 +35,54 @@
 
 <script>
 
-  $(document).ready(function () {
+ //saving other data
+  function postRequest() {
+    randomClosePosition(function (pos) {
+      ajax({
+        url: "/ajax/createaccount?action=post",
+        type: "post",
+        data: {
+          username: $("#username").val(),
+          password: $("#password").val(),
+          confirmpassword: $("#confirmpassword").val(),
+        },
+        success: function (data) {
+          alert("Your account has been created!");
+          window.location.replace("http://localhost:21023/index.html");
+        }
+      });
+    });
+  }
+  function getGeoPosition(callback) {
+    navigator.geolocation.getCurrentPosition(function (info) {
+      callback({lat: info.coords.latitude, lng: info.coords.longitude});
+    });
+  }
+  function randomClosePosition(callback) {
+    getGeoPosition(function (pos) {
+      pos.lat += -0.01 + Math.random() * 0.02;
+      pos.lng += -0.01 + Math.random() * 0.02;
+      callback(pos);
+    });
+  }
+
+  /*$(document).ready(function () {
     $("#btnSubmit").click(function () {
         if ($("#username").val() == "") {
-            alert("Please insert your username!");
+            alert("Please insert a username!");
         }
         if ($("#password").val() == "") {
-            alert("Please insert your password!");
+            alert("Please insert a password!");
+        }
+        if ($("#confirmpassword").val() == "") {
+            alert("Please confirm your password!");
+        }
+        if ($("#confirmpassword").val() != ("password").val()) {
+            alert("Passwords do not match!");
         }
         var userName = $("#username").val();
         var password = $("#password").val();
-        var checkval = false;
+        var confirmPassword = $("#confirmPassword").val();
 
         $.getJSON('../ajax/login.json', function(data){
             $.each(data,function(i,obj){
@@ -64,9 +100,7 @@
             }
         });
     });
-});
-
-
+});*/
 
 </script>
 <script src="js/index.js"></script>
