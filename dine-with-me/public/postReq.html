@@ -69,8 +69,8 @@
 
                     <label>Message: </label>
                     <textarea id="request-description" placeholder="Describe yourself or your surroundings"></textarea>
-                    <button type="submit">Post</button>
-                    <button onclick = "location.href = 'index.html';">Cancel</button>
+                    <button type="submit">Post</but<button onclick = "location.href = 'index.html';">Cancel</button>ton>
+                    
                 </form>
 
                  <!--Bottom Navigation--> 
@@ -78,7 +78,7 @@
                     <a href="/index.html">
                         <img class="img" src="img/home-icon.png">
                     </a>
-                    <a href="#profile">
+                    <a href="/profile.html">
                         <img class="img" src="img/profile-icon.png">
                     </a>
                     <a href="/postReq.html">
@@ -89,224 +89,6 @@
         </main>
 
 <script>
-
-	var map;
-            var seat = 0;
-            function initMap(seat) {
-                $("#map-loading").fadeOut();
-                getGeoPosition(function (pos) {
-                    map = new google.maps.Map(document.getElementById("map"), {
-                        zoom: 15,
-                        center: pos
-                    });
-                    var current_loc = new google.maps.Marker({
-                        position: pos,
-                        icon: "img/self.png",
-                        map: map
-                    });
-                    //added a new draggable marker 
-                    var marker = new google.maps.Marker({
-                        position: pos,
-                        icon: "img/marker.png",
-                        draggable:true,
-                        map: map
-                    });
-                    //load data from the json file
-                    //getMarkerLoc();
-                    
-                    if (seat == 0) {
-                        loadPick();
-                    }
-                    if (seat ==1) {
-                        ajax({
-                        url: "/ajax/pick?action=get",
-                        type: "get",
-                        success: function (data) {
-                            alert("Filter Success!");
-                            data.forEach(function (pick) {
-                                if (pick.seats == 1){
-                                    var myLatLng = {lat: pick.lat, lng: pick.lng};
-                                    var item = new google.maps.Marker({
-                                        icon: "img/number_1.png",
-                                        position: myLatLng,
-                                        map: map
-                                        });
-                                    var infowindow = new google.maps.InfoWindow({
-                                    content: pick.name + ": "+pick.description+" I have "+pick.seats+" seats"
-                                    });
-                                item.addListener('click', function() {
-                                infowindow.open(map, item);
-                                });
-                                    //item.setContent(pick.description);
-                                    //item.open(map);
-                                }
-                                
-                            });
-                        }
-                    });  
-                    }
-                    
-                    if (seat ==2) {
-                        ajax({
-                        url: "/ajax/pick?action=get",
-                        type: "get",
-                        success: function (data) {
-                            alert("Filter Success!");
-                            data.forEach(function (pick) {
-                                if (pick.seats == 2){
-                                var myLatLng = {lat: pick.lat, lng: pick.lng};
-                                var item = new google.maps.Marker({
-                                    icon: "img/number_2.png",
-                                    position: myLatLng,
-                                    map: map
-                                    });
-                                var infowindow = new google.maps.InfoWindow({
-                                    content: pick.name + ": "+pick.description+" I have "+pick.seats+" seats"
-                                    });
-                                item.addListener('click', function() {
-                                infowindow.open(map, item);
-                                });
-                                //item.setContent(pick.description);
-                                //item.open(map);
-                                }
-                                
-                            });
-                        }
-                    });  
-                    }
-
-                    if (seat ==3) {
-                        ajax({
-                        url: "/ajax/pick?action=get",
-                        type: "get",
-                        success: function (data) {
-                            alert("Filter Success!");
-                            data.forEach(function (pick) {
-                                if (pick.seats == 3){
-                                var myLatLng = {lat: pick.lat, lng: pick.lng};
-                                var item = new google.maps.Marker({
-                                    icon: "img/number_3.png",
-                                    position: myLatLng,
-                                    map: map
-                                    });
-                                var infowindow = new google.maps.InfoWindow({
-                                    content: pick.name + ": "+pick.description+" I have "+pick.seats+" seats"
-                                    });
-                                item.addListener('click', function() {
-                                infowindow.open(map, item);
-                                });
-                                //item.setContent(pick.description);
-                                //item.open(map);
-                                }
-                                
-                            });
-                        }
-                    });  
-                    }
-                   
-                   if (seat ==4) {
-                        ajax({
-                        url: "/ajax/pick?action=get",
-                        type: "get",
-                        success: function (data) {
-                            alert("Filter Success!");
-                            data.forEach(function (pick) {
-                                if (pick.seats > 3){
-                                var item = new google.maps.InfoWindow;
-                                item.setPosition({lat: pick.lat, lng: pick.lng});
-                                item.setContent(pick.seats+" seats");
-                                //item.setContent(pick.description);
-                                item.open(map);
-                                }
-                                
-                            });
-                        }
-                    });  
-                    }
-                }, function (err) {
-                    console.log(err);
-                });
-            }
-
-            //function getMarkerLoc() {
-                //getGeoPosition(function (pos) {
-                //});
-                //var marker_lat = marker.getGeoPosition.lat();
-                //var marker_lng = marker.getGeoPosition.lng();
-               // var item_marker = new google.maps.InfoWindow;
-                //item_marker.setPosition({lat: pos.lat, lng: pos.lng});
-                //item_marker.setContent("hello");
-                //item_marker.open(map);
-            //}
-
-            function loadPick() {
-                ajax({
-                    url: "/ajax/pick?action=get",
-                    type: "get",
-                    success: function (data) {
-                        alert("load Success!");
-                        data.forEach(function (pick) {
-                            if (pick.seats == 1){
-                                var myLatLng = {lat: pick.lat, lng: pick.lng};
-                                var item = new google.maps.Marker({
-                                    icon: "img/number_1.png",
-                                    position: myLatLng,
-                                    map: map
-                                    });
-                                var infowindow = new google.maps.InfoWindow({
-                                    content: pick.name + ": "+pick.description+" I have "+pick.seats+" seats"
-                                    });
-                                item.addListener('click', function() {
-                                infowindow.open(map, item);
-                                });
-                                //item.setContent(pick.description);
-                                //item.open(map);
-                            }
-                            if (pick.seats == 2){
-                                var myLatLng = {lat: pick.lat, lng: pick.lng};
-                                var item = new google.maps.Marker({
-                                    icon: "img/number_2.png",
-                                    position: myLatLng,
-                                    map: map
-                                    });
-                                var infowindow = new google.maps.InfoWindow({
-                                    content: pick.name + ": "+pick.description+" I have "+pick.seats+" seats"
-                                    });
-                                item.addListener('click', function() {
-                                infowindow.open(map, item);
-                                });
-                                //item.setContent(pick.description);
-                                //item.open(map);
-                            }
-                            if (pick.seats == 3){
-                                var myLatLng = {lat: pick.lat, lng: pick.lng};
-                                var item = new google.maps.Marker({
-                                    icon: "img/number_3.png",
-                                    position: myLatLng,
-                                    map: map
-                                    });
-                                var infowindow = new google.maps.InfoWindow({
-                                    content: pick.name + ": "+pick.description+" I have "+pick.seats+" seats"
-                                    });
-                                item.addListener('click', function() {
-                                infowindow.open(map, item);
-                                });
-                                //item.setContent(pick.description);
-                                //item.open(map);
-                            }
-                            if (pick.seats > 3){
-                                var item = new google.maps.InfoWindow;
-                                item.setPosition({lat: pick.lat, lng: pick.lng});
-                                item.setContent(pick.seats+" seats");
-                                //item.setContent(pick.description);
-                                item.open(map);
-                            }
-                        });
-                    }
-                });
-            }
-
-        initMap(0);
 
 		function postRequest() {
                 if ($("#request-item").val() == "") {
@@ -365,53 +147,6 @@
                     pos.lng += -0.01 + Math.random() * 0.02;
                     callback(pos);
                 });
-            }
-
-                        function myFunction1() {
-                document.getElementById("myDropdown1").classList.toggle("show");
-            }
-
-            function myFunction2() {
-                document.getElementById("myDropdown2").classList.toggle("show");
-            }
-
-            function filterFunction() {
-                var input, filter, ul, li, a, i;
-                input = document.getElementById("myInput");
-                filter = input.value.toUpperCase();
-                div = document.getElementById("myDropdown");
-                a = div.getElementsByTagName("a");
-                for (i = 0; i < a.length; i++) {
-                    if (a[i].innerHTML.toUpperCase().indexOf(filter) > -1) {
-                        a[i].style.display = "";
-                    } else {
-                        a[i].style.display = "none";
-                    }
-                }
-            }
-
-            function filterSeats1() {
-                var seat = 1;
-                initMap(seat)
-            }
-            
-            function filterSeats2() {
-                var seat = 2;
-                initMap(seat)
-            }
-            
-            function filterSeats3() {
-                var seat = 3;
-                initMap(seat)
-            }
-
-            function filterSeats4() {
-                var seat = 4;
-                initMap(seat)
-            }
-            function filterSeats5() {
-                var seat = 0;
-                initMap(seat)
             }
 
 </script>
