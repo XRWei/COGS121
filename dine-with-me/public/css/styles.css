@@ -36,6 +36,8 @@ main tab-section.active {
   height: 100%;
 }
 
+/******************** Request Form ***************/
+
 #request-form {
   padding: 15px;
 }
@@ -45,18 +47,16 @@ main tab-section.active {
   margin: 15px 0;
 }
 
-#request-form input {
+#request-form input, textarea {
   padding: 10px;
   border-radius: 3px;
   border: 1px solid rgba(230, 230, 230, 1);
   width: calc(100% - 22px);
+  text-align: center;
 }
 
 #request-form textarea {
   resize: none;
-  padding: 10px;
-  border-radius: 3px;
-  border: 1px solid rgba(230, 230, 230, 1);
   width: calc(100% - 22px);
   height: 80px;
 }
@@ -84,6 +84,8 @@ main tab-section.active {
   background-color: rgba(0, 134, 236, 0.8);
   color: rgba(250, 250, 250, 1);
 }
+
+
 body {
   margin: 0;
 }
@@ -96,6 +98,10 @@ a img{
 ::-moz-selection {
   background-color: #6ab344;
   color: #fff;
+}
+
+::-webkit-scrollbar { 
+  display: none; 
 }
 
 /************* Website Style ***************/
@@ -305,58 +311,6 @@ a img{
   text-decoration: none;
 }
 
-.android-wear {
-  display: inline-block;
-  width: 160px;
-  margin-right: 32px;
-}
-
-.android-wear .android-screen-image {
-  width: 40%;
-  z-index: 1;
-}
-
-
-.android-phone {
-  display: inline-block;
-  width: 64px;
-  margin-right: 48px;
-}
-
-.android-phone .android-screen-image {
-  width: 100%;
-  z-index: 1;
-}
-
-
-.android-tablet {
-  display: inline-block;
-  width: 110px;
-  margin-right: 64px;
-}
-
-.android-tablet .android-screen-image {
-  width: 100%;
-  z-index: 1;
-}
-
-.android-tablet .android-link {
-  display: block;
-  z-index: 2;
-}
-
-
-.android-tv {
-  display: inline-block;
-  width: 300px;
-  margin-right: 80px;
-}
-
-.android-tv .android-screen-image {
-  width: 100%;
-  z-index: 1;
-}
-
 
 .android-auto {
   display: inline-block;
@@ -364,39 +318,6 @@ a img{
   overflow: hidden;
 }
 
-.android-auto .android-screen-image {
-  display: block;
-  height: 300px;
-  z-index: 1;
-}
-
-
-.android-wear-section {
-  position: relative;
-  background: url('images/wear.png') center top no-repeat;
-  background-size: cover;
-  height: 800px;
-}
-
-.android-wear-band {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  text-align: center;
-  background-color: #37474f;
-}
-
-.android-wear-band-text {
-  max-width: 800px;
-  margin-left: 25%;
-  padding: 24px;
-  text-align: left;
-  color: white;
-}
-
-.android-wear-band-text p {
-  padding-top: 8px;
-}
 
 .android-link {
   text-decoration: none;
@@ -534,265 +455,185 @@ a img{
   cursor: pointer;
 }
 
-
-/**** Mobile layout ****/
-@media (max-width: 900px) {
-  .android-navigation-container {
-    display: none;
-  }
-
-  .android-title {
-    display: none !important;
-  }
-
-  .android-mobile-title {
-    display: block !important;
-    position: absolute;
-    left: calc(50% - 70px);
-    top: 12px;
-    transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  /* WebViews in iOS 9 break the "~" operator, and WebViews in OS X 10.10 break
-     consecutive "+" operators in some cases. Therefore, we need to use both
-     here to cover all the bases. */
-     .android.android-search-box.is-focused ~ .android-mobile-title,
-     .android-search-box.is-focused + .android-navigation-container + .android-mobile-title {
-      opacity: 0;
-    }
-
-    .android-more-button {
-      display: none;
-    }
-
-    .android-search-box.is-focused {
-      width: calc(100% - 48px);
-    }
-
-    .android-search-box .mdl-textfield__expandable-holder {
-      width: 100%;
-    }
-
-    .android-be-together-section {
-      height: 350px;
-    }
-
-    .android-slogan {
-      font-size: 26px;
-      margin: 0 16px;
-      padding-top: 24px;
-    }
-
-    .android-sub-slogan {
-      font-size: 16px;
-      margin: 0 16px;
-      padding-top: 8px;
-    }
-
-    .android-create-character {
-      padding-top: 200px;
-      font-size: 16px;
-    }
-
-    .android-create-character img {
-      height: 12px;
-    }
-
-    .android-fab {
-      display: none;
-    }
-
-    .android-wear-band-text {
-      margin-left: 0;
-      padding: 16px;
-    }
-
-    .android-footer .mdl-mega-footer--bottom-section {
-      display: none;
-    }
-  }
-  
-  /*Map Filters*/
-  #wrapper {
-    position: relative; 
-  }
-
-  .over_map1 button{ 
-    position: absolute;
-    top: 500px; 
-    left: 400px; 
-    z-index: 99; 
-    background-color: rgba(0, 134, 236, 0.8);
-    color: rgba(250, 250, 250, 1);
-    height: 35px;
-    width:25%
-  }
-
-  #over_map2 button{ 
-    position: absolute; 
-    top: 500px;
-    left: 450px;
-    z-index: 99; 
-    background-color: rgba(0, 236, 134, 0.8);
-    color: rgba(250, 250, 250, 1);
-    height: 35px;
-    width:50px;
-  }
-
-  .dropbtn1, .dropbtn2 {
-    z-index: 99;
-    position: relative;
-    background-color: #4CAF50;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-  }
-
-  .dropbtn2 {
-    left: 450px;
-  }
-
-  .dropbtn:hover, .dropbtn:focus {
-    background-color: #3e8e41;
-  }
-  #myInput {
-    border-box: box-sizing;
-    background-image: url('searchicon.png');
-    background-position: 14px 12px;
-    background-repeat: no-repeat;
-    font-size: 16px;
-    padding: 14px 20px 12px 45px;
-    border: none;
-  }
-
-  .dropdown {
-    display: inline-block;
-  }
-
-  .dropdown-content {
-    display: none;
-    position: relative;
-    left: 450px;
-    background-color: #f6f6f6;
-    min-width: 230px;
-    overflow: auto;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-  }
-
-  .dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-  }
-
-  .dropdown a:hover {
-    background-color: #ddd;
-  }
-
-  .show {
-    display:block;
-  }
-
-  /******************** Slidout request list **********************/
-  #slideout {
-    display: block;  
-    top: 150px;
-    z-index: 99;
-    position: fixed;
-    left: 0;
-    width: 35px;
-    padding: 12px 0;
-    text-align: center;
-    background: #6DAD53;
-    color: white;
-    -webkit-transition-duration: 0.3s;
-    -moz-transition-duration: 0.3s;
-    transition-duration: 0.3s;
-    -o-transition-duration: 0.3s;
-    -webkit-border-radius: 0 5px 5px 0;
-    -moz-border-radius: 0 5px 5px 0;
-    border-radius: 0 5px 5px 0;
-  }
-  #slideout_inner {
-    position: fixed;
-    top: 150px;
-    left: -250px;
-    background: #6DAD53;
-    width: 200px;
-    padding: 25px;
-    max-height: 130px;
-    overflow: scroll;
-    -webkit-transition-duration: 0.3s;
-    -moz-transition-duration: 0.3s;
-    transition-duration: 0.3s;
-    -o-transition-duration: 0.3s;
-    text-align: left;
-    -webkit-border-radius: 0 0 5px 0;
-    -moz-border-radius: 0 0 5px 0;
-    border-radius: 0 0 5px 0;
-  }
-  #slideout_inner textarea {
-    width: 190px;
-    height: 100px;
-    margin-bottom: 6px;
-  }
-
-  #slideout:hover {
-    left: 250px;
-  }
-
-  #slideout:hover #slideout_inner {
-    left: 0;
-  }
-
-  #slideout tr {
-    padding: 5px;
-  }
-
-
-  
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 129; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+/**************************** Map Filters **********************/
+#wrapper {
+  position: relative; 
 }
 
+.over_map1 button{ 
+  position: absolute;
+  top: 500px; 
+  left: 400px; 
+  z-index: 99; 
+  background-color: rgba(0, 134, 236, 0.8);
+  color: rgba(250, 250, 250, 1);
+  height: 35px;
+  width:25%
+}
 
+#over_map2 button{ 
+  position: absolute; 
+  top: 500px;
+  left: 450px;
+  z-index: 99; 
+  background-color: rgba(0, 236, 134, 0.8);
+  color: rgba(250, 250, 250, 1);
+  height: 35px;
+  width:50px;
+}
+
+.dropbtn1, .dropbtn2 {
+  z-index: 99;
+  position: relative;
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropbtn2 {
+  left: 450px;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+  background-color: #3e8e41;
+}
+#myInput {
+  border-box: box-sizing;
+  background-image: url('searchicon.png');
+  background-position: 14px 12px;
+  background-repeat: no-repeat;
+  font-size: 16px;
+  padding: 14px 20px 12px 45px;
+  border: none;
+}
+
+.dropdown {
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: relative;
+  left: 450px;
+  background-color: #f6f6f6;
+  min-width: 230px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown a:hover {
+  background-color: #ddd;
+}
+
+.show {
+  display:block;
+}
+
+/******************** Slidout request list **********************/
+#slideout {
+  display: block;  
+  top: 150px;
+  z-index: 99;
+  position: fixed;
+  left: 0;
+  width: 35px;
+  padding: 12px 0;
+  text-align: center;
+  background: #6DAD53;
+  color: white;
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  -webkit-border-radius: 0 5px 5px 0;
+  -moz-border-radius: 0 5px 5px 0;
+  border-radius: 0 5px 5px 0;
+}
+#slideout_inner {
+  position: fixed;
+  top: 150px;
+  left: -250px;
+  background: #6DAD53;
+  width: 200px;
+  padding: 25px;
+  max-height: 130px;
+  overflow: scroll;
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  text-align: left;
+  -webkit-border-radius: 0 0 5px 0;
+  -moz-border-radius: 0 0 5px 0;
+  border-radius: 0 0 5px 0;
+}
+#slideout_inner textarea {
+  width: 190px;
+  height: 100px;
+  margin-bottom: 6px;
+}
+
+#slideout:hover {
+  left: 250px;
+}
+
+#slideout:hover #slideout_inner {
+  left: 0;
+}
+
+#slideout tr {
+  padding: 5px;
+}
+
+/********************* Modal Window ***************************/
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 129; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
 
 /* The Close Button */
 .close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    z-index:129;
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  z-index:129;
 }
 
 .close:hover,
 .close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-    z-index:129;
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+  z-index:129;
 }
 
 /* Modal Header */
 .modal-header {
-    padding: 2px 16px;
-    background-color: #5cb85c;
-    color: white;
-    z-index:129;
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: white;
+  z-index:129;
 }
 
 /* Modal Body */
@@ -800,134 +641,135 @@ a img{
 
 /* Modal Footer */
 .modal-footer {
-    padding: 2px 16px;
-    background-color: #5cb85c;
-    color: white;
-    z-index:129;
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: white;
+  z-index:129;
 }
 
 /* Modal Content */
 .modal-content {
-    position: relative;
-    background-color: #fefefe;
-    margin: 15% auto;
-    padding: 0;
-    border: 1px solid #888;
-    width: 80%;
-    z-index:129;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-    -webkit-animation-name: animatetop;
-    -webkit-animation-duration: 0.4s;
-    animation-name: animatetop;
-    animation-duration: 0.4s
+  position: relative;
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 80%;
+  z-index:129;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
 
 }
 
-/* Add Animation */
+/********************* Add Animation **************************/
 @-webkit-keyframes animatetop {
-    from {top: -300px; opacity: 0} 
-    to {top: 0; opacity: 1}
+  from {top: -300px; opacity: 0} 
+  to {top: 0; opacity: 1}
 }
 
 @keyframes animatetop {
-    from {top: -300px; opacity: 0}
-    to {top: 0; opacity: 1}
+  from {top: -300px; opacity: 0}
+  to {top: 0; opacity: 1}
 }
 
 .pac-card {
-        margin: 10px 10px 0 0;
-        border-radius: 2px 0 0 2px;
-        box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        outline: none;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-        background-color: #fff;
-        font-family: Roboto;
-      }
+  margin: 10px 10px 0 0;
+  border-radius: 2px 0 0 2px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  outline: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  background-color: #fff;
+  font-family: Roboto;
+}
 
-      #pac-container {
-        padding-bottom: 12px;
-        margin-right: 12px;
-      }
+#pac-container {
+  padding-bottom: 12px;
+  margin-right: 12px;
+}
 
-      .pac-controls {
-        display: inline-block;
-        padding: 5px 11px;
-      }
+.pac-controls {
+  display: inline-block;
+  padding: 5px 11px;
+}
 
-      .pac-controls label {
-        font-family: Roboto;
-        font-size: 13px;
-        font-weight: 300;
-      }
+.pac-controls label {
+  font-family: Roboto;
+  font-size: 13px;
+  font-weight: 300;
+}
 
-      #pac-input {
-        background-color: #fff;
-        font-family: Roboto;
-        font-size: 15px;
-        font-weight: 300;
-        margin-left: 12px;
-        padding: 0 11px 0 13px;
-        text-overflow: ellipsis;
-        width: 400px;
-        z-index:99;
-      }
+#pac-input {
+  background-color: #fff;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+  margin-left: 12px;
+  padding: 0 11px 0 13px;
+  text-overflow: ellipsis;
+  width: 400px;
+  z-index:99;
+}
 
-      #pac-input:focus {
-        border-color: #4d90fe;
-      }
+#pac-input:focus {
+  border-color: #4d90fe;
+}
 
-    /*search bar*/
-    .controls {
-    margin-top: 10px;
-    border: 1px solid transparent;
-    border-radius: 2px 0 0 2px;
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    height: 32px;
-    outline: none;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+/************************* Search Bar *************************/
+.controls {
+  margin-top: 10px;
+  margin-left: 1em;
+  border: 1px solid transparent;
+  border-radius: 2px 0 0 2px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  height: 32px;
+  outline: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
 #searchInput {
-    background-color: #fff;
-    font-family: Roboto;
-    font-size: 15px;
-    font-weight: 300;
-    margin-left: 12px;
-    padding: 0 11px 0 13px;
-    text-overflow: ellipsis;
-    width: 50%;
+  background-color: #fff;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+  margin-left: 12px;
+  padding: 0 11px 0 13px;
+  text-overflow: ellipsis;
+  width: 50%;
 }
 #searchInput:focus {
-    border-color: #4d90fe;
+  border-color: #4d90fe;
 }
 
+/*************** Bottom Navigation Bar ***********************/
 .navbar {
-    overflow: hidden;
-    background-color: #ffffff;
-    position: fixed; /* Set the navbar to fixed position */
-    bottom: 0;
-    width: 100%; /* Full width */
-    padding-top: 14px;
-    padding-bottom: 14px;
+  overflow: hidden;
+  background-color: #ffffff;
+  position: fixed; /* Set the navbar to fixed position */
+  bottom: 0;
+  width: 100%; /* Full width */
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: none;
 }
 
 /* Links inside the navbar */
 .navbar a {
-    float: left;
-    display: block;
-    color: #000000;
-    text-align: center;
-    text-decoration: none;
-    width:33.33%;
-    height: 33.3%;
+  float: left;
+  /*color: #000000;*/
+  text-align: center;
+  text-decoration: none;
+  width:33%;
 }
 .navbar img{
-  width:33.3%;
-  max-height:33.3%;
+  width:33%;
+  /*max-height:33%;*/
 }
 
-/*Profile picture styling*/
+/***************** Profile picture styling ******************/
 .container-profile { 
   padding-left: 25px;
   padding-top: 25px;
@@ -964,7 +806,7 @@ a img{
   padding: 16px 16px;
 }
 .file-upload {
-    display: none;
+  display: none;
 }
 
 .login {
@@ -976,4 +818,28 @@ a img{
   display: block;
   margin: 0 auto;
   padding-top: 10%;
+}
+
+/************************* Mobile layout **********************/
+/* * * * * * * * * * * * KEEP AT BOTTOM * * * * * * * * * * * */
+@media (max-width: 900px) {
+  .android-navigation-container {
+    display: none;
+  }
+
+  .android-title {
+    display: none !important;
+  }
+
+  .android-mobile-title {
+    display: block !important;
+    position: absolute;
+    left: calc(50% - 70px);
+    top: 12px;
+    transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .navbar {
+    display: block !important;
+  }
 }
