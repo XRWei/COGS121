@@ -1,0 +1,848 @@
+@import url( 'https://fonts.googleapis.com/css?family=Raleway:300,400');
+
+/********* Map & Content ***********/
+main {
+  padding-top: 46px;
+  padding-bottom: 51px;
+}
+
+main tab-section {
+  display: none;
+}
+
+main tab-section.active {
+  display: block;
+}
+
+
+#map-loading {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  margin-left: -60px;
+  margin-top: -100px;
+  z-index: 129;
+}
+
+#map-outer {
+  position: fixed;
+  width: 100%;
+  height: calc(100% - 92px);
+  top: 80px;
+  left: 0;
+}
+
+#map {
+  height: 100%;
+}
+
+/******************** Request Form ***************/
+
+#request-form {
+  padding: 15px;
+}
+
+#request-form label {
+  display: block;
+  margin: 15px 0;
+}
+
+#request-form input, textarea {
+  padding: 10px;
+  border-radius: 3px;
+  border: 1px solid rgba(230, 230, 230, 1);
+  width: calc(100% - 22px);
+  text-align: center;
+}
+
+#request-form textarea {
+  resize: none;
+  width: calc(100% - 22px);
+  height: 80px;
+}
+
+#request-form select {
+  resize: none;
+  padding: 10px;
+  border-radius: 3px;
+  border: 1px solid rgba(230, 230, 230, 1);
+  width: 200px;
+  height: 45px;
+  font-size: 16px;
+  text-align: center;
+}
+
+#request-form button {
+  margin-top: 15px;
+  padding: 0;
+  height: 35px;
+  line-height: 35px;
+  width: 25%;
+  border-radius: 3px;
+  border: none;
+  text-align: center;
+  background-color: rgba(0, 134, 236, 0.8);
+  color: rgba(250, 250, 250, 1);
+}
+
+
+body {
+  margin: 0;
+}
+
+/* Disable ugly boxes around images in IE10 */
+a img{
+  border: 0px;
+}
+
+::-moz-selection {
+  background-color: #6ab344;
+  color: #fff;
+}
+
+::-webkit-scrollbar { 
+  display: none; 
+}
+
+/************* Website Style ***************/
+::selection {
+  background-color: #6ab344;
+  color: #fff;
+}
+
+.android-search-box .mdl-textfield__input {
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.android-header .mdl-menu__container {
+  z-index: 50;
+  margin: 0 !important;
+}
+
+
+.mdl-textfield--expandable {
+  width: auto;
+}
+
+.android-fab {
+  position: absolute;
+  right: 20%;
+  bottom: -26px;
+  z-index: 3;
+  background: #64ffda !important;
+  color: black !important;
+}
+
+.android-mobile-title {
+  display: none !important;
+}
+
+
+.android-logo-image {
+  height: 28px;
+  width: 140px;
+}
+
+
+.android-header {
+  overflow: visible;
+  background-color: white;
+}
+
+.android-header .material-icons {
+  color: #767777 !important;
+}
+
+.android-header .mdl-layout__drawer-button {
+  background: transparent;
+  color: #767777;
+}
+
+.android-header .mdl-navigation__link {
+  color: #757575;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.android-navigation-container {
+  /* Simple hack to make the overflow happen to the left instead... */
+  direction: rtl;
+  -webkit-order: 1;
+  -ms-flex-order: 1;
+  order: 1;
+  width: 500px;
+  transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+  width 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.android-navigation {
+  /* ... and now make sure the content is actually LTR */
+  direction: ltr;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  width: 800px;
+}
+
+.android-search-box.is-focused + .android-navigation-container {
+  opacity: 0;
+  width: 100px;
+}
+
+
+.android-navigation .mdl-navigation__link {
+  display: inline-block;
+  height: 60px;
+  line-height: 68px;
+  background-color: transparent !important;
+  border-bottom: 4px solid transparent;
+}
+
+.android-navigation .mdl-navigation__link:hover {
+  border-bottom: 4px solid #8bc34a;
+}
+
+.android-search-box {
+  -webkit-order: 2;
+  -ms-flex-order: 2;
+  order: 2;
+  margin-left: 16px;
+  margin-right: 16px;
+}
+
+.android-more-button {
+  -webkit-order: 3;
+  -ms-flex-order: 3;
+  order: 3;
+}
+
+
+.android-drawer {
+  border-right: none;
+}
+
+.android-drawer-separator {
+  height: 1px;
+  background-color: #dcdcdc;
+  margin: 8px 0;
+}
+
+.android-drawer .mdl-navigation__link.mdl-navigation__link {
+  font-size: 14px;
+  color: #757575;
+}
+
+.android-drawer span.mdl-navigation__link.mdl-navigation__link {
+  color: #8bc34a;
+}
+
+.android-drawer .mdl-layout-title {
+  position: relative;
+  background: #6ab344;
+  height: 160px;
+}
+
+.android-drawer .android-logo-image {
+  position: absolute;
+  bottom: 16px;
+}
+
+.android-be-together-section {
+  position: relative;
+  height: 800px;
+  width: auto;
+  background-color: #f3f3f3;
+  background: url('images/slide01.jpg') center 30% no-repeat;
+  background-size: cover;
+}
+
+.logo-font {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  line-height: 1;
+  color: #767777;
+  font-weight: 500;
+}
+
+.android-slogan {
+  font-size: 60px;
+  padding-top: 160px;
+}
+
+.android-sub-slogan {
+  font-size: 21px;
+  padding-top: 24px;
+}
+
+.android-create-character {
+  font-size: 21px;
+  padding-top: 400px;
+}
+
+.android-create-character a {
+  text-decoration: none;
+  color: #767777;
+  font-weight: 300;
+}
+
+.android-screen-section {
+  position: relative;
+  padding-top: 60px;
+  padding-bottom: 80px;
+}
+
+.android-screens {
+  text-align: right;
+  width: 100%;
+  white-space: nowrap;
+  overflow-x: auto;
+}
+
+.android-screen {
+  text-align: center;
+}
+
+.android-screen .android-link {
+  margin-top: 16px;
+  display: block;
+  z-index: 2;
+}
+
+.android-image-link {
+  text-decoration: none;
+}
+
+
+.android-auto {
+  display: inline-block;
+  width: 300px;
+  overflow: hidden;
+}
+
+
+.android-link {
+  text-decoration: none;
+  color: #8bc34a !important;
+}
+
+.android-link:hover {
+  color: #7cb342 !important;
+}
+
+.android-link .material-icons {
+  position: relative;
+  top: -1px;
+  vertical-align: middle;
+}
+
+.android-alt-link {
+  text-decoration: none;
+  color: #64ffda !important;
+  font-size: 16px;
+}
+
+.android-alt-link:hover {
+  color: #00bfa5 !important;
+}
+
+.android-alt-link .material-icons {
+  position: relative;
+  top: 6px;
+}
+
+.android-customized-section {
+  text-align: center;
+}
+
+.android-customized-section-text {
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 80px 16px 0 16px;
+}
+
+.android-customized-section-text p {
+  padding-top: 16px;
+}
+
+.android-customized-section-image {
+  background: url('images/devices.jpg') center top no-repeat;
+  background-size: cover;
+  height: 400px;
+}
+
+.android-more-section {
+  padding: 80px 0;
+  max-width: 1044px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.android-more-section .android-section-title {
+  margin-left: 12px;
+  padding-bottom: 24px;
+}
+
+.android-card-container {
+}
+
+.android-card-container .mdl-card__media {
+  overflow: hidden;
+  background: transparent;
+}
+
+.android-card-container .mdl-card__media img {
+  width: 100%;
+}
+
+.android-card-container .mdl-card__title {
+  background: transparent;
+  height: auto;
+}
+
+.android-card-container .mdl-card__title-text {
+  color: black;
+  height: auto;
+}
+
+.android-card-container .mdl-card__supporting-text {
+  height: auto;
+  color: black;
+  padding-bottom: 56px;
+}
+
+.android-card-container .mdl-card__actions {
+  position: absolute;
+  bottom: 0;
+}
+
+.android-card-container .mdl-card__actions a {
+  border-top: none;
+  font-size: 16px;
+}
+
+.android-footer {
+  background-color: #fafafa;
+  position: relative;
+}
+
+.android-footer a:hover {
+  color: #8bc34a;
+}
+
+.android-footer .mdl-mega-footer--top-section::after {
+  border-bottom: none;
+}
+
+.android-footer .mdl-mega-footer--middle-section::after {
+  border-bottom: none;
+}
+
+.android-footer .mdl-mega-footer--bottom-section {
+  position: relative;
+}
+
+.android-footer .mdl-mega-footer--bottom-section a {
+  margin-right: 2em;
+}
+
+.android-footer .mdl-mega-footer--right-section a .material-icons {
+  position: relative;
+  top: 6px;
+}
+
+
+.android-link-menu:hover {
+  cursor: pointer;
+}
+
+/**************************** Map Filters **********************/
+#wrapper {
+  position: relative; 
+}
+
+.over_map1 button{ 
+  position: absolute;
+  top: 500px; 
+  left: 400px; 
+  z-index: 99; 
+  background-color: rgba(0, 134, 236, 0.8);
+  color: rgba(250, 250, 250, 1);
+  height: 35px;
+  width:25%
+}
+
+#over_map2 button{ 
+  position: absolute; 
+  top: 500px;
+  left: 450px;
+  z-index: 99; 
+  background-color: rgba(0, 236, 134, 0.8);
+  color: rgba(250, 250, 250, 1);
+  height: 35px;
+  width:50px;
+}
+
+.dropbtn1, .dropbtn2 {
+  z-index: 99;
+  position: fixed;
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropbtn2 {
+  top: 125px;
+  left: 65%;
+
+}
+
+.dropbtn:hover, .dropbtn:focus {
+  background-color: #3e8e41;
+}
+#myInput {
+  border-box: box-sizing;
+  background-image: url('searchicon.png');
+  background-position: 14px 12px;
+  background-repeat: no-repeat;
+  font-size: 16px;
+  padding: 14px 20px 12px 45px;
+  border: none;
+}
+
+.dropdown {
+  display: inline-block;
+}
+
+.dropdown-content {
+  top: 95px;
+  display: none;
+  position: relative;
+  left: 65%;
+  background-color: #f6f6f6;
+  min-width: 230px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown a:hover {
+  background-color: #ddd;
+}
+
+.show {
+  display:block;
+}
+
+/******************** Slidout request list **********************/
+#slideout {
+  display: block;  
+  top: 150px;
+  z-index: 99;
+  position: fixed;
+  left: 0;
+  width: 35px;
+  padding: 12px 0;
+  text-align: center;
+  background: #6DAD53;
+  color: white;
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  -webkit-border-radius: 0 5px 5px 0;
+  -moz-border-radius: 0 5px 5px 0;
+  border-radius: 0 5px 5px 0;
+}
+#slideout_inner {
+  position: fixed;
+  top: 150px;
+  left: -250px;
+  background: #6DAD53;
+  width: 200px;
+  padding: 25px;
+  max-height: 130px;
+  overflow: scroll;
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  text-align: left;
+  -webkit-border-radius: 0 0 5px 0;
+  -moz-border-radius: 0 0 5px 0;
+  border-radius: 0 0 5px 0;
+}
+#slideout_inner textarea {
+  width: 190px;
+  height: 100px;
+  margin-bottom: 6px;
+}
+
+#slideout:hover {
+  left: 250px;
+}
+
+#slideout:hover #slideout_inner {
+  left: 0;
+}
+
+#slideout tr {
+  padding: 5px;
+}
+
+/********************* Modal Window ***************************/
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 129; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  z-index:129;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+  z-index:129;
+}
+
+/* Modal Header */
+.modal-header {
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: white;
+  z-index:129;
+}
+
+/* Modal Body */
+.modal-body {padding: 2px 16px;z-index:199;}
+
+/* Modal Footer */
+.modal-footer {
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: white;
+  z-index:129;
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 80%;
+  z-index:129;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+
+}
+
+/********************* Add Animation **************************/
+@-webkit-keyframes animatetop {
+  from {top: -300px; opacity: 0} 
+  to {top: 0; opacity: 1}
+}
+
+@keyframes animatetop {
+  from {top: -300px; opacity: 0}
+  to {top: 0; opacity: 1}
+}
+
+.pac-card {
+  margin: 10px 10px 0 0;
+  border-radius: 2px 0 0 2px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  outline: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  background-color: #fff;
+  font-family: Roboto;
+}
+
+#pac-container {
+  padding-bottom: 12px;
+  margin-right: 12px;
+}
+
+.pac-controls {
+  display: inline-block;
+  padding: 5px 11px;
+}
+
+.pac-controls label {
+  font-family: Roboto;
+  font-size: 13px;
+  font-weight: 300;
+}
+
+#pac-input {
+  background-color: #fff;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+  margin-left: 12px;
+  padding: 0 11px 0 13px;
+  text-overflow: ellipsis;
+  width: 400px;
+  z-index:99;
+}
+
+#pac-input:focus {
+  border-color: #4d90fe;
+}
+
+/************************* Search Bar *************************/
+.controls {
+  margin-top: 10px;
+  margin-left: 1em;
+  border: 1px solid transparent;
+  border-radius: 2px 0 0 2px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  height: 32px;
+  outline: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+#searchInput {
+  background-color: #fff;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+  margin-left: 12px;
+  padding: 0 11px 0 13px;
+  text-overflow: ellipsis;
+  width: 50%;
+}
+#searchInput:focus {
+  border-color: #4d90fe;
+}
+
+/*************** Bottom Navigation Bar ***********************/
+.navbar {
+  overflow: hidden;
+  background-color: #ffffff;
+  position: fixed; /* Set the navbar to fixed position */
+  bottom: 0;
+  width: 100%; /* Full width */
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: none;
+}
+
+/* Links inside the navbar */
+.navbar a {
+  float: left;
+  /*color: #000000;*/
+  text-align: center;
+  text-decoration: none;
+  width:33%;
+}
+.navbar img{
+  width:33%;
+  /*max-height:33%;*/
+}
+
+/***************** Profile picture styling ******************/
+.container-profile { 
+  padding-left: 25px;
+  padding-top: 25px;
+  height: 150px;
+  width:150px;
+}
+.img-profile {
+  border-radius: 50%;
+  max-height: 150px;
+  max-width: 150px;  
+}
+.middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 150px;
+  left: 100px;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%)
+}
+
+.container-profile:hover .image {
+  opacity: 0.3;
+}
+
+.container-profile:hover .middle {
+  opacity: 1;
+}
+
+.text-profile {
+  background-color: #0b0b7e;
+  color: white;
+  font-size: 16px;
+  padding: 16px 16px;
+}
+.file-upload {
+  display: none;
+}
+
+.login {
+  padding-top: 10%;
+}
+.loginimg{
+  max-height: 150px;
+  max-width: 150px; 
+  display: block;
+  margin: 0 auto;
+  padding-top: 10%;
+}
+
+/************************* Mobile layout **********************/
+/* * * * * * * * * * * * KEEP AT BOTTOM * * * * * * * * * * * */
+@media (max-width: 900px) {
+  .android-navigation-container {
+    display: none;
+  }
+
+  .android-title {
+    display: none !important;
+  }
+
+  .android-mobile-title {
+    display: block !important;
+    position: absolute;
+    left: calc(50% - 70px);
+    top: 12px;
+    transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .navbar {
+    display: block !important;
+  }
+}
