@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="css/styles.css">
     <script src="js/jquery.js"></script>
 </head>
-<body style="overflow: hidden; background-color: #2196F3;">
+<body style="overflow: hidden;">
 
     <script>
 //Loads the list of requests
@@ -42,30 +42,33 @@ function initMap(seat) {
     getGeoPosition(function (pos) {
         map = new google.maps.Map(document.getElementById("map"), {
             zoom: 15,
-            center: pos
+            center: pos,
+            styles:                      
+            [{"featureType":"poi","elementType":"all","stylers":[{"visibility":"simplified"},{"hue":"#0083ff"},{"saturation":"95"}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"},{"hue":"#ff0000"}]}]
         });
-        var current_loc = new google.maps.Marker({
-            position: pos,
-            icon: "img/self.png",
-            map: map
-        });
-        var input = document.getElementById('searchInput');
-        map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-        var autocomplete = new google.maps.places.Autocomplete(input);
-        autocomplete.bindTo('bounds', map);
-        var infowindow = new google.maps.InfoWindow();
-        var marker = new google.maps.Marker({
-            map: map,
-            anchorPoint: new google.maps.Point(0, -29)
-        });
-        autocomplete.addListener('place_changed', function() {
-            infowindow.close();
-            marker.setVisible(false);
-            var place = autocomplete.getPlace();
-            if (!place.geometry) {
-                window.alert("Autocomplete's returned place contains no geometry");
-                return;
-            }
+var current_loc = new google.maps.Marker({
+    position: pos,
+    icon: "img/self.png",
+    map: map
+});
+var input = document.getElementById('searchInput');
+map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+var autocomplete = new google.maps.places.Autocomplete(input);
+autocomplete.bindTo('bounds', map);
+var infowindow = new google.maps.InfoWindow();
+var marker = new google.maps.Marker({
+    map: map,
+    anchorPoint: new google.maps.Point(0, -29)
+});
+
+autocomplete.addListener('place_changed', function() {
+    infowindow.close();
+    marker.setVisible(false);
+    var place = autocomplete.getPlace();
+    if (!place.geometry) {
+        window.alert("Autocomplete's returned place contains no geometry");
+        return;
+    }
 
             // If the place has a geometry, then present it on a map.
             if (place.geometry.viewport) {
@@ -131,13 +134,13 @@ if (seat ==1) {
                         content: pick.name + ": "+pick.description+" I have "+pick.seats+" seats"
                     });
                     item.addListener('click', function() {
-                       var modal = document.getElementById('myModal');
-                       document.getElementById("modal-profile").innerHTML = "profile:"
-                       document.getElementById("modal-name").innerHTML = pick.name
-                       document.getElementById("modal-seats").innerHTML = pick.seats + "seats available"
-                       document.getElementById("modal-description").innerHTML = "Message:" + pick.description
-                       document.getElementById("modal-post-time").innerHTML = "Posted at: " + pick.post_hour +" : "+ pick.post_minute +" : "+ pick.post_second
-                       document.getElementById("modal-stay-time").innerHTML = "Stay for: " + pick.time + "minutes"
+                     var modal = document.getElementById('myModal');
+                     document.getElementById("modal-profile").innerHTML = "profile:"
+                     document.getElementById("modal-name").innerHTML = pick.name
+                     document.getElementById("modal-seats").innerHTML = pick.seats + "seats available"
+                     document.getElementById("modal-description").innerHTML = "Message:" + pick.description
+                     document.getElementById("modal-post-time").innerHTML = "Posted at: " + pick.post_hour +" : "+ pick.post_minute +" : "+ pick.post_second
+                     document.getElementById("modal-stay-time").innerHTML = "Stay for: " + pick.time + "minutes"
                                 // Get the <span> element that closes the modal
                                 var span = document.getElementsByClassName("close")[0];
                                 // When the user clicks on the button, open the modal 
@@ -181,13 +184,13 @@ if (seat ==2) {
                         content: pick.name + ": "+pick.description+" I have "+pick.seats+" seats"
                     });
                     item.addListener('click', function() {
-                       var modal = document.getElementById('myModal');
-                       document.getElementById("modal-profile").innerHTML = "profile:"
-                       document.getElementById("modal-name").innerHTML = pick.name
-                       document.getElementById("modal-seats").innerHTML = pick.seats + "seats available"
-                       document.getElementById("modal-description").innerHTML = "Message:" + pick.description
-                       document.getElementById("modal-post-time").innerHTML = "Posted at: " + pick.post_hour +" : "+ pick.post_minute +" : "+ pick.post_second
-                       document.getElementById("modal-stay-time").innerHTML = "Stay for: " + pick.time + "minutes"
+                     var modal = document.getElementById('myModal');
+                     document.getElementById("modal-profile").innerHTML = "profile:"
+                     document.getElementById("modal-name").innerHTML = pick.name
+                     document.getElementById("modal-seats").innerHTML = pick.seats + "seats available"
+                     document.getElementById("modal-description").innerHTML = "Message:" + pick.description
+                     document.getElementById("modal-post-time").innerHTML = "Posted at: " + pick.post_hour +" : "+ pick.post_minute +" : "+ pick.post_second
+                     document.getElementById("modal-stay-time").innerHTML = "Stay for: " + pick.time + "minutes"
                                 // Get the <span> element that closes the modal
                                 var span = document.getElementsByClassName("close")[0];
                                 // When the user clicks on the button, open the modal 
@@ -230,13 +233,13 @@ if (seat ==3) {
                         content: pick.name + ": "+pick.description+" I have "+pick.seats+" seats"
                     });
                     item.addListener('click', function() {
-                       var modal = document.getElementById('myModal');
-                       document.getElementById("modal-profile").innerHTML = "profile:"
-                       document.getElementById("modal-name").innerHTML = pick.name
-                       document.getElementById("modal-seats").innerHTML = pick.seats + "seats available"
-                       document.getElementById("modal-description").innerHTML = "Message:" + pick.description
-                       document.getElementById("modal-post-time").innerHTML = "Posted at: " + pick.post_hour +" : "+ pick.post_minute +" : "+ pick.post_second
-                       document.getElementById("modal-stay-time").innerHTML = "Stay for: " + pick.time + "minutes"
+                     var modal = document.getElementById('myModal');
+                     document.getElementById("modal-profile").innerHTML = "profile:"
+                     document.getElementById("modal-name").innerHTML = pick.name
+                     document.getElementById("modal-seats").innerHTML = pick.seats + "seats available"
+                     document.getElementById("modal-description").innerHTML = "Message:" + pick.description
+                     document.getElementById("modal-post-time").innerHTML = "Posted at: " + pick.post_hour +" : "+ pick.post_minute +" : "+ pick.post_second
+                     document.getElementById("modal-stay-time").innerHTML = "Stay for: " + pick.time + "minutes"
                                 // Get the <span> element that closes the modal
                                 var span = document.getElementsByClassName("close")[0];
                                 // When the user clicks on the button, open the modal 
@@ -354,13 +357,13 @@ if (seat ==3) {
                                     content: pick.name + ": "+pick.description+" I have "+pick.seats+" seats"
                                 });
                                 item.addListener('click', function() {
-                                   var modal = document.getElementById('myModal');
-                                   document.getElementById("modal-profile").innerHTML = "profile:"
-                                   document.getElementById("modal-name").innerHTML = pick.name
-                                   document.getElementById("modal-seats").innerHTML = pick.seats + "seats available"
-                                   document.getElementById("modal-description").innerHTML = "Message:" + pick.description
-                                   document.getElementById("modal-post-time").innerHTML = "Posted at: " + pick.post_hour +" : "+ pick.post_minute +" : "+ pick.post_second
-                                   document.getElementById("modal-stay-time").innerHTML = "Stay for: " + pick.time + "minutes"
+                                 var modal = document.getElementById('myModal');
+                                 document.getElementById("modal-profile").innerHTML = "profile:"
+                                 document.getElementById("modal-name").innerHTML = pick.name
+                                 document.getElementById("modal-seats").innerHTML = pick.seats + "seats available"
+                                 document.getElementById("modal-description").innerHTML = "Message:" + pick.description
+                                 document.getElementById("modal-post-time").innerHTML = "Posted at: " + pick.post_hour +" : "+ pick.post_minute +" : "+ pick.post_second
+                                 document.getElementById("modal-stay-time").innerHTML = "Stay for: " + pick.time + "minutes"
                                 // Get the <span> element that closes the modal
                                 var span = document.getElementsByClassName("close")[0];
                                 // When the user clicks on the button, open the modal 
@@ -392,13 +395,13 @@ if (seat ==3) {
                                     content: pick.name + ": "+pick.description+" I have "+pick.seats+" seats"
                                 });
                                 item.addListener('click', function() {
-                                   var modal = document.getElementById('myModal');
-                                   document.getElementById("modal-profile").innerHTML = "profile:"
-                                   document.getElementById("modal-name").innerHTML = pick.name
-                                   document.getElementById("modal-seats").innerHTML = pick.seats + "seats available"
-                                   document.getElementById("modal-description").innerHTML = "Message:" + pick.description
-                                   document.getElementById("modal-post-time").innerHTML = "Posted at: " + pick.post_hour +" : "+ pick.post_minute +" : "+ pick.post_second
-                                   document.getElementById("modal-stay-time").innerHTML = "Stay for: " + pick.time + "minutes"
+                                 var modal = document.getElementById('myModal');
+                                 document.getElementById("modal-profile").innerHTML = "profile:"
+                                 document.getElementById("modal-name").innerHTML = pick.name
+                                 document.getElementById("modal-seats").innerHTML = pick.seats + "seats available"
+                                 document.getElementById("modal-description").innerHTML = "Message:" + pick.description
+                                 document.getElementById("modal-post-time").innerHTML = "Posted at: " + pick.post_hour +" : "+ pick.post_minute +" : "+ pick.post_second
+                                 document.getElementById("modal-stay-time").innerHTML = "Stay for: " + pick.time + "minutes"
                                 // Get the <span> element that closes the modal
                                 var span = document.getElementsByClassName("close")[0];
                                 // When the user clicks on the button, open the modal 
@@ -545,7 +548,7 @@ function getGeoPosition(callback) {
           <div class="android-header mdl-layout__header mdl-layout__header--waterfall">
             <div class="mdl-layout__header-row">
               <span class="android-title mdl-layout-title">
-                <img class="android-logo-image" src="img/name.png" href="index.html" alt="Dine With Me">
+                <img class="android-logo-image" src="img/name.png" alt="Dine With Me">
             </span>
             <!-- Navigation -->
             <div class="android-navigation-container">
@@ -559,7 +562,6 @@ function getGeoPosition(callback) {
             <img class="android-logo-image" src="img/name.png">
         </span>
     </div>
-</div>
 </div>
 
 <div class="android-content mdl-layout__content">
