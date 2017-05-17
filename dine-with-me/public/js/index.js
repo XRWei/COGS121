@@ -5,6 +5,7 @@ $("footer > tab").click(function () {
 
 $("#request-form").submit(function () {
     postRequest();
+
     return false;
 });
 
@@ -24,3 +25,28 @@ function ajax(option) {
     };
     $.ajax(option);
 }
+
+// For side menu
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+}
+
+// For responsive menu
+function menuFunction() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+        x.className += " responsive";
+    } else {
+        x.className = "topnav";
+    }
+}
+
+//For listing requests
+var ul = $('<ul>').appendTo('body');
+$.get('data.json').each(function(index, item) {
+    ul.append($(document.createElement('li')).text(item));
+});

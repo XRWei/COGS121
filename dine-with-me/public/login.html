@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Log In</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/jquery.js"></script>
+
+</head>
+<body>
+
+    <!--Dine With Me header-->
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+      <span class="android-mobile-title mdl-layout-title">
+        <img class="android-logo-image" src="img/name.png">
+      </span>
+    </div>
+
+  <main>
+        <img class="loginimg" src="img/login.png">
+        <div class="login">
+            <form id="request-form">
+                <input type="text" name="username" id="username" class="text" maxlength="30" placeholder="username"/>
+                <br/>
+                <input type="password" name="password" id="password" class="text" maxlength="30" placeholder="password"/>
+                <br/>
+                <center>
+                    <button type="submit" id="btnSubmit">Log In</button>
+                </center>
+                <input type="button" onclick="location.href='/createaccount.html';" value="New User"/>
+            </form>
+        </div>
+   
+
+    </main>
+
+<script>
+
+  $(document).ready(function () {
+    $("#btnSubmit").click(function () {
+        if ($("#username").val() == "") {
+            alert("Please insert your username!");
+        }
+        if ($("#password").val() == "") {
+            alert("Please insert your password!");
+        }
+        var userName = $("#username").val();
+        var password = $("#password").val();
+        var checkval = false;
+
+        $.getJSON('../ajax/login.json', function(data){
+            $.each(data,function(i,obj){
+                if(obj.username == userName && obj.password == password){
+                    checkval = true; 
+                    return false;
+                }
+            });
+            if(checkval == true){
+                alert("Login Sucessful");
+                window.location.replace("http://localhost:21023/index.html");
+            }
+            else{
+                alert("Invalid Login");
+            }
+        });
+    });
+});
+
+
+
+</script>
+<script src="js/index.js"></script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0BIjCQP-zarunMKbJgnlB-zVquaUrSqU"></script>
+</body>
+</html>
