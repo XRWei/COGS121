@@ -6,5 +6,7 @@
 ## Jessica 
 ### Updated the UI. Worked on directions to be enable through the search bar. 
 
-![Post]
-![Post]
+![Post](https://github.com/dingqixin/chicas/blob/milestone11/Screen%20Shot%202017-05-17%20at%2011.49.48%20AM.png)
+![Post](https://github.com/dingqixin/chicas/blob/milestone11/Screen%20Shot%202017-05-17%20at%2011.50.11%20AM.png)
+![Post](https://github.com/dingqixin/chicas/blob/milestone11/Screen%20Shot%202017-05-17%20at%2011.50.27%20AM.png)
+![Post](https://github.com/dingqixin/chicas/blob/milestone11/Screen%20Shot%202017-05-17%20at%2011.50.55%20AM.png)
