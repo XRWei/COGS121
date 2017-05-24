@@ -636,10 +636,6 @@ a img{
   text-align: center;
 }
 
-#slideout td:hover {
-  background-color: #0000ff;
-}
-
 #slideout-filter a {
   color: white;
 }
@@ -868,8 +864,9 @@ a img{
 }
 
 .login {
-  padding-top: 10%;
+  padding-top: 3%;
 }
+
 .loginimg{
   max-height: 150px;
   max-width: 150px; 
@@ -884,6 +881,15 @@ a img{
   background-repeat: no-repeat;
 }
 
+#log a {
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1em;
+}
+
+#log a:hover {
+  color: #ffffff;
+}
 /************************* Mobile layout **********************/
 /* * * * * * * * * * * * KEEP AT BOTTOM * * * * * * * * * * * */
 @media (max-width: 900px) {

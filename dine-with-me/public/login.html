@@ -112,86 +112,82 @@
 
 
   <main>
-
-        <img class="loginimg" src="img/dinewithme-logo.png">
-        <fb:login-button 
-          scope="public_profile,email"
-          onlogin="checkLoginState();"> 
-        </fb:login-button>
-        <div id="status">
-        </div>
-        <div class="login">
-            <form id="request-form">
-                <input type="text" name="username" id="username" class="text" maxlength="30" placeholder="username"/>
-                <br/>
-                <input type="password" name="password" id="password" class="text" maxlength="30" placeholder="password"/>
-                <br/>
-                <center>
-                    <button type="button" onclick="login()">Log In</button>
-                </center>
-                <input type="button" onclick="location.href='/createaccount.html';" value="New User"/>
-            </form>
-        </div>
-
-
-        <!-- Modal Window -->
-        <div id="myModal" class="modal">
-          <!-- Modal content -->
-          <div class="modal-content">
-              <div class="modal-header">
-                <span class="close">&times;</span>
-                <h2 id = "modal-name"></h2>
-            </div>
-            <div class="modal-body">
-                <p id = "modal-username"></p>
-                <p id = "modal-password"></p>
-            </div>
-            <div class="modal-footer">
-                <button>Accept</button>
-            </div>
-        </div>
+    <img class="loginimg" src="img/dinewithme-logo.png">
+    <fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
+    <div id="status">
+    </div>
+    <div class="login">
+      <form id="request-form">
+        <input type="text" name="username" id="username" class="text" maxlength="30" placeholder="username"/>
+        <br/>
+        <input type="password" name="password" id="password" class="text" maxlength="30" placeholder="password"/>
+        <br/>
+        <center>
+          <button type="button" onclick="login()" id="log"><a href="index.html" >Log In</a></button>
+        </center>
+        <input type="button" onclick="location.href='/createaccount.html';" value="New User"/>
+      </form>
     </div>
 
-    </main>
 
-<script>  
+    <!-- Modal Window -->
+    <div id="myModal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="close">&times;</span>
+          <h2 id = "modal-name"></h2>
+        </div>
+        <div class="modal-body">
+          <p id = "modal-username"></p>
+          <p id = "modal-password"></p>
+        </div>
+        <div class="modal-footer">
+          <button>Accept</button>
+        </div>
+      </div>
+    </div>
 
-function login(){
-  if ($("#username").val() == "") {
-    alert("Please insert your username!");
-  }
-  if ($("#password").val() == "") {
-    alert("Please insert your password!");
-  }
+  </main>
+
+  <script>  
+
+  function login(){
+    if ($("#username").val() == "") {
+      alert("Please insert your username!");
+    }
+    if ($("#password").val() == "") {
+      alert("Please insert your password!");
+    }
     user = $("#username").val();
     pass = $("#password").val();
     login_pass = 0;
     ajax({
-        url: "/ajax/login?action=get",
-        type: "get",
-        success: function (data) {
-            data.forEach(function (login) {
-                var modal = document.getElementById('myModal');
-                document.getElementById("modal-username").innerHTML = login.username;
-                document.getElementById("modal-password").innerHTML = login.password;
-                if(login.username == user && login.password == pass){
-                    login_pass = 1;
-                }   
-            });
-            if (login_pass == 1){ 
-              alert("Login Sucessful");
-              window.location.replace("http://localhost:21023/index.html");
-            }
-            else{
-              alert("Invalid Login");
-           }
+      url: "/ajax/login?action=get",
+      type: "get",
+      success: function (data) {
+        data.forEach(function (login) {
+          var modal = document.getElementById('myModal');
+          document.getElementById("modal-username").innerHTML = login.username;
+          document.getElementById("modal-password").innerHTML = login.password;
+          if(login.username == user && login.password == pass){
+            login_pass = 1;
+          }   
+        });
+        if (login_pass == 1){ 
+          alert("Login Sucessful");
+          window.location.replace("http://localhost:21023/index.html");
         }
+        else{
+          alert("Invalid Login");
+        }
+      }
     });
-}
+  }
 
 
-</script>
-<script src="js/index.js"></script>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0BIjCQP-zarunMKbJgnlB-zVquaUrSqU"></script>
+  </script>
+  <script src="js/index.js"></script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0BIjCQP-zarunMKbJgnlB-zVquaUrSqU"></script>
 </body>
 </html>
