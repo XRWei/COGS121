@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0", user-scalable="no">
     <title>Dine With Me</title>
 
     <!-- Page styles -->
@@ -24,8 +24,8 @@
 <body style="overflow: hidden;">
 
     <!-- START INITIALIZATION CODE -->
-  <script src="https://www.gstatic.com/firebasejs/4.0.0/firebase.js"></script>
-<script>
+    <script src="https://www.gstatic.com/firebasejs/4.0.0/firebase.js"></script>
+    <script>
   // Initialize Firebase
   var config = {
     apiKey: "AIzaSyCiE3wC90F4-gtUJdubNJVhP_m8e8wCmcc",
@@ -34,12 +34,12 @@
     projectId: "dine-with-me-ff1b2",
     storageBucket: "dine-with-me-ff1b2.appspot.com",
     messagingSenderId: "822853727556"
-  };
-  firebase.initializeApp(config);
+};
+firebase.initializeApp(config);
 </script>
-  <!-- END INITIALIZATION CODE -->
+<!-- END INITIALIZATION CODE -->
 
-  <script src="WebPushManager.js"></script>
+<script src="WebPushManager.js"></script>
 
 <script>
 //Loads the list of requests
@@ -72,31 +72,32 @@ function initMap(seat) {
             zoom: 15,
             center: pos,
             styles:                      
-            [{"featureType":"poi","elementType":"all","stylers":[{"visibility":"simplified"},{"hue":"#0083ff"},{"saturation":"95"}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"},{"hue":"#ff0000"}]}]
+            [{"featureType":"poi","elementType":"all","stylers":[{"visibility":"simplified"},{"hue":"#0083ff"},{"saturation":"95"}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"},{"hue":"#ff0000"}]}],
+            mapTypeControl:false
         });
-var current_loc = new google.maps.Marker({
-    position: pos,
-    icon: "img/self.png",
-    map: map
-});
-var input = document.getElementById('searchInput');
-map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-var autocomplete = new google.maps.places.Autocomplete(input);
-autocomplete.bindTo('bounds', map);
-var infowindow = new google.maps.InfoWindow();
-var marker = new google.maps.Marker({
-    map: map,
-    anchorPoint: new google.maps.Point(0, -29)
-});
+        var current_loc = new google.maps.Marker({
+            position: pos,
+            icon: "img/self.png",
+            map: map
+        });
+        var input = document.getElementById('searchInput');
+        map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+        var autocomplete = new google.maps.places.Autocomplete(input);
+        autocomplete.bindTo('bounds', map);
+        var infowindow = new google.maps.InfoWindow();
+        var marker = new google.maps.Marker({
+            map: map,
+            anchorPoint: new google.maps.Point(0, -29)
+        });
 
-autocomplete.addListener('place_changed', function() {
-    infowindow.close();
-    marker.setVisible(false);
-    var place = autocomplete.getPlace();
-    if (!place.geometry) {
-        window.alert("Autocomplete's returned place contains no geometry");
-        return;
-    }
+        autocomplete.addListener('place_changed', function() {
+            infowindow.close();
+            marker.setVisible(false);
+            var place = autocomplete.getPlace();
+            if (!place.geometry) {
+                window.alert("Autocomplete's returned place contains no geometry");
+                return;
+            }
 
             // If the place has a geometry, then present it on a map.
             if (place.geometry.viewport) {
@@ -620,6 +621,32 @@ function getGeoPosition(callback) {
             </table>      
         </div>
     </div>
+    <div id="slideout-filter">
+        <input type="button" class="button" onclick="myFunction2()" value="☆"/>
+        <div id="slideout_inner">
+            <table id="tableList">
+                <tr>
+                    <th>Filter Seats</th>
+                </tr>
+                <tr>
+                    <td><a onclick = "filterSeats1()">1 seat</a></td>
+                </tr>
+                <tr>
+                    <td><a onclick = "filterSeats2()">2 seats</a></td>
+                </tr>
+                <tr>
+                    <td><a onclick = "filterSeats3()">3 seats</a></td>
+                </tr>
+                <tr>
+                    <td><a onclick = "filterSeats4()">more than 3 seats</a></td>
+                </tr>
+                <tr>
+                    <td><a onclick = "filterSeats5()">clean filter</a></td>
+                </tr>
+                
+            </table>      
+        </div>
+    </div>
 
     <main>
         <div id="wrapper">
@@ -629,20 +656,6 @@ function getGeoPosition(callback) {
                 <input id="searchInput" class="controls" type="text" placeholder="Enter a location">
                 <div id="map"></div>
             </div>
-
-            <!-- Filter -->
-            <ls>
-                <div class="dropdown">
-                    <button onclick="myFunction2()" class="dropbtn">filter seats</button>
-                    <div id="myDropdown2" class="dropdown-content">
-                        <a onclick = "filterSeats1()">1 seat</a>
-                        <a onclick = "filterSeats2()">2 seats</a>
-                        <a onclick = "filterSeats3()">3 seats</a>
-                        <a onclick = "filterSeats4()">more than 3 seats</a>
-                        <a onclick = "filterSeats5()">clean filter</a>
-                    </div>
-                </div>
-            </ls>
         </div>
 
         <!-- Modal Window -->

@@ -6,21 +6,12 @@ main {
   padding-bottom: 51px;
 }
 
-main tab-section {
-  display: none;
-}
-
-main tab-section.active {
-  display: block;
-}
-
-
 #map-loading {
   position: fixed;
   left: 50%;
   top: 50%;
   margin-left: -60px;
-  margin-top: -100px;
+  margin-top: -50px;
   z-index: 129;
 }
 
@@ -28,7 +19,7 @@ main tab-section.active {
   position: fixed;
   width: 100%;
   height: calc(100% - 92px);
-  top: 80px;
+  top: 60px;
   left: 0;
 }
 
@@ -149,7 +140,7 @@ a img{
   overflow: visible;
   background-color: #ffffff;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 
-              0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .android-header .material-icons {
@@ -169,7 +160,7 @@ a img{
 
 .android-navigation-container {
   /* Simple hack to make the overflow happen to the left instead... */
-  direction: rtl;
+  /*direction: rtl;*/
   -webkit-order: 1;
   -ms-flex-order: 1;
   order: 1;
@@ -518,7 +509,7 @@ a img{
   display:block;
 }
 
-/******************** Slidout request list **********************/
+/******************** Slideout request list **********************/
 #slideout {
   display: block;  
   top: 150px;
@@ -583,6 +574,70 @@ a img{
 
 #slideout tr {
   padding: 5px;
+}
+
+/******************** Slideout Filter list **********************/
+#slideout-filter {
+  top: 200px;
+  background: #0000ff;
+  display: block;  
+  z-index: 99;
+  position: fixed;
+  left: 0;
+  width: auto;
+  padding: 12px 0;
+  text-align: center;
+  color: white;
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  -webkit-border-radius: 0 5px 5px 0;
+  -moz-border-radius: 0 5px 5px 0;
+  border-radius: 0 5px 5px 0;
+}
+
+#slideout-filter .button {
+  background: transparent;
+  border: none;
+  color: white;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.5em;
+}
+
+#slideout-filter #slideout_inner {
+  top: 200px;
+}
+
+#slideout-filter:hover {
+  left: 250px;
+}
+
+#slideout-filter:hover #slideout_inner {
+  left: 0;
+  background-color: #0000ff;
+}
+
+#slideout-filter tr {
+  padding: 5px;
+  text-align: center;
+}
+
+#slideout td:hover {
+  background-color: #0000ff;
+}
+
+#slideout-filter a {
+  color: white;
+}
+
+#slideout-filter tr {
+  padding: 2px;
+}
+
+#slideout-filter td:hover {
+  background-color: #0083ff;
 }
 
 /********************* Modal Window ***************************/
@@ -727,7 +782,7 @@ a img{
   margin-left: 12px;
   padding: 0 11px 0 13px;
   text-overflow: ellipsis;
-  width: 50%;
+  width: 70%;
 }
 #searchInput:focus {
   border-color: #4d90fe;
@@ -743,6 +798,8 @@ a img{
   padding-top: 10px;
   padding-bottom: 10px;
   display: none;
+  box-shadow: 
+  inset 0px 16px 8px -10px #CCC;
 }
 
 /* Links inside the navbar */
