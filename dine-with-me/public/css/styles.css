@@ -6,21 +6,12 @@ main {
   padding-bottom: 51px;
 }
 
-main tab-section {
-  display: none;
-}
-
-main tab-section.active {
-  display: block;
-}
-
-
 #map-loading {
   position: fixed;
   left: 50%;
   top: 50%;
   margin-left: -60px;
-  margin-top: -100px;
+  margin-top: -50px;
   z-index: 129;
 }
 
@@ -28,12 +19,24 @@ main tab-section.active {
   position: fixed;
   width: 100%;
   height: calc(100% - 92px);
-  top: 80px;
+  top: 60px;
   left: 0;
 }
 
 #map {
   height: 100%;
+}
+
+#sentFB {
+  position: fixed;
+  left: 10%;
+  top: 10%;
+  z-index: 199;
+  color: white;
+  padding: 8px;
+  font-size: 10px;
+  border: none;
+  cursor: pointer;
 }
 
 /******************** Request Form ***************/
@@ -88,6 +91,7 @@ main tab-section.active {
 
 body {
   margin: 0;
+  padding: 0;
 }
 
 /* Disable ugly boxes around images in IE10 */
@@ -146,7 +150,9 @@ a img{
 
 .android-header {
   overflow: visible;
-  background-color: white;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 
+  0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .android-header .material-icons {
@@ -159,14 +165,14 @@ a img{
 }
 
 .android-header .mdl-navigation__link {
-  color: #757575;
+  color: #212121;
   font-weight: 700;
   font-size: 14px;
 }
 
 .android-navigation-container {
   /* Simple hack to make the overflow happen to the left instead... */
-  direction: rtl;
+  /*direction: rtl;*/
   -webkit-order: 1;
   -ms-flex-order: 1;
   order: 1;
@@ -199,7 +205,7 @@ a img{
 }
 
 .android-navigation .mdl-navigation__link:hover {
-  border-bottom: 4px solid #8bc34a;
+  border-bottom: 4px solid #FFC107;
 }
 
 .android-search-box {
@@ -460,31 +466,9 @@ a img{
   position: relative; 
 }
 
-.over_map1 button{ 
-  position: absolute;
-  top: 500px; 
-  left: 400px; 
-  z-index: 99; 
-  background-color: rgba(0, 134, 236, 0.8);
-  color: rgba(250, 250, 250, 1);
-  height: 35px;
-  width:25%
-}
-
-#over_map2 button{ 
-  position: absolute; 
-  top: 500px;
-  left: 450px;
-  z-index: 99; 
-  background-color: rgba(0, 236, 134, 0.8);
-  color: rgba(250, 250, 250, 1);
-  height: 35px;
-  width:50px;
-}
-
-.dropbtn1, .dropbtn2 {
+.dropbtn {
   z-index: 99;
-  position: fixed;
+  position: relative;
   background-color: #4CAF50;
   color: white;
   padding: 16px;
@@ -493,15 +477,10 @@ a img{
   cursor: pointer;
 }
 
-.dropbtn2 {
-  top: 125px;
-  left: 65%;
-
-}
-
 .dropbtn:hover, .dropbtn:focus {
   background-color: #3e8e41;
 }
+
 #myInput {
   border-box: box-sizing;
   background-image: url('searchicon.png');
@@ -517,10 +496,9 @@ a img{
 }
 
 .dropdown-content {
-  top: 95px;
-  display: none;
+  /*display: none;*/
   position: relative;
-  left: 65%;
+  left: 450px;
   background-color: #f6f6f6;
   min-width: 230px;
   overflow: auto;
@@ -543,7 +521,7 @@ a img{
   display:block;
 }
 
-/******************** Slidout request list **********************/
+/******************** Slideout request list **********************/
 #slideout {
   display: block;  
   top: 150px;
@@ -563,6 +541,16 @@ a img{
   -moz-border-radius: 0 5px 5px 0;
   border-radius: 0 5px 5px 0;
 }
+
+#slideout .button {
+  background: transparent;
+  border: none;
+  color: white;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1em;
+}
+
 #slideout_inner {
   position: fixed;
   top: 150px;
@@ -570,7 +558,7 @@ a img{
   background: #6DAD53;
   width: 200px;
   padding: 25px;
-  max-height: 130px;
+  max-height: calc(100% - 300px);;
   overflow: scroll;
   -webkit-transition-duration: 0.3s;
   -moz-transition-duration: 0.3s;
@@ -581,9 +569,10 @@ a img{
   -moz-border-radius: 0 0 5px 0;
   border-radius: 0 0 5px 0;
 }
+
 #slideout_inner textarea {
   width: 190px;
-  height: 100px;
+  height: 200px;
   margin-bottom: 6px;
 }
 
@@ -597,6 +586,70 @@ a img{
 
 #slideout tr {
   padding: 5px;
+}
+
+/******************** Slideout Filter list **********************/
+#slideout-filter {
+  top: 200px;
+  background: #0000ff;
+  display: block;  
+  z-index: 99;
+  position: fixed;
+  left: 0;
+  width: auto;
+  padding: 12px 0;
+  text-align: center;
+  color: white;
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  -webkit-border-radius: 0 5px 5px 0;
+  -moz-border-radius: 0 5px 5px 0;
+  border-radius: 0 5px 5px 0;
+}
+
+#slideout-filter .button {
+  background: transparent;
+  border: none;
+  color: white;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.5em;
+}
+
+#slideout-filter #slideout_inner {
+  top: 200px;
+}
+
+#slideout-filter:hover {
+  left: 250px;
+}
+
+#slideout-filter:hover #slideout_inner {
+  left: 0;
+  background-color: #0000ff;
+}
+
+#slideout-filter tr {
+  padding: 5px;
+  text-align: center;
+}
+
+#slideout td:hover {
+  background-color: #0000ff;
+}
+
+#slideout-filter a {
+  color: white;
+}
+
+#slideout-filter tr {
+  padding: 2px;
+}
+
+#slideout-filter td:hover {
+  background-color: #0083ff;
 }
 
 /********************* Modal Window ***************************/
@@ -724,7 +777,7 @@ a img{
 /************************* Search Bar *************************/
 .controls {
   margin-top: 10px;
-  margin-left: 1em;
+  margin-left: 50px;
   border: 1px solid transparent;
   border-radius: 2px 0 0 2px;
   box-sizing: border-box;
@@ -741,7 +794,7 @@ a img{
   margin-left: 12px;
   padding: 0 11px 0 13px;
   text-overflow: ellipsis;
-  width: 50%;
+  width: 70%;
 }
 #searchInput:focus {
   border-color: #4d90fe;
@@ -757,6 +810,8 @@ a img{
   padding-top: 10px;
   padding-bottom: 10px;
   display: none;
+  box-shadow: 
+  inset 0px 16px 8px -10px #CCC;
 }
 
 /* Links inside the navbar */
@@ -821,6 +876,12 @@ a img{
   display: block;
   margin: 0 auto;
   padding-top: 10%;
+}
+
+.login-body {
+  background-image: url("img/seats.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
 }
 
 /************************* Mobile layout **********************/
