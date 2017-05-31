@@ -75,7 +75,7 @@
         <option value="Mathematics"> Mathematics</option>
       </select>
 
-      <button type="submit" onclick= >Post</button>
+      <button type="submit" onclick= >Save</button>
     </form>
 
     <!--Bottom Navigation--> 
@@ -109,7 +109,7 @@
           major: $("#major").val(),
         },
         success: function (data) {
-          alert("Post Success!");
+          alert("Your profile has been saved.");
           window.location.replace("http://localhost:21023/index.html");
         }
       });
