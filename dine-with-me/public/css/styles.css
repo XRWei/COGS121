@@ -591,7 +591,7 @@ a img{
 /******************** Slideout Filter list **********************/
 #slideout-filter {
   top: 200px;
-  background: #0000ff;
+  background: #ff3aee;
   display: block;  
   z-index: 99;
   position: fixed;
@@ -628,7 +628,7 @@ a img{
 
 #slideout-filter:hover #slideout_inner {
   left: 0;
-  background-color: #0000ff;
+  background-color: #ff3aee;
 }
 
 #slideout-filter tr {
@@ -645,7 +645,7 @@ a img{
 }
 
 #slideout-filter td:hover {
-  background-color: #0083ff;
+  background-color: #87067c;
 }
 
 /********************* Modal Window ***************************/
@@ -890,8 +890,36 @@ a img{
 #log a:hover {
   color: #ffffff;
 }
+
+/************************ Directions **************************/
+#right-panel {
+  font-family: 'Roboto','sans-serif';
+  line-height: 30px;
+  padding-left: 10px;
+}
+
+#right-panel select, #right-panel input {
+  font-size: 15px;
+}
+
+#right-panel select {
+  width: 100%;
+}
+
+#right-panel i {
+  font-size: 12px;
+}
+#right-panel {
+  height: 100%;
+  float: right;
+  width: 390px;
+  overflow: auto;
+}
 /************************* Mobile layout **********************/
 /* * * * * * * * * * * * KEEP AT BOTTOM * * * * * * * * * * * */
+@media (min-width: 1280px ) {
+  
+}
 @media (max-width: 900px) {
   .android-navigation-container {
     display: none;
@@ -911,5 +939,11 @@ a img{
 
   .navbar {
     display: block !important;
+  }
+}
+@media print {
+  #right-panel {
+    float: none;
+    width: auto;
   }
 }

@@ -72,7 +72,15 @@ function initMap(seat) {
             zoom: 15,
             center: pos,
             styles:                      
-            [{"featureType":"poi","elementType":"all","stylers":[{"visibility":"simplified"},{"hue":"#0083ff"},{"saturation":"95"}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"},{"hue":"#ff0000"}]}],
+            [{"featureType":"poi",
+                "elementType":"all",
+                "stylers":[{"visibility":"simplified"},{"hue":"#0083ff"},{"saturation":"95"}]},
+             {"featureType":"road.highway",
+                "elementType":"all",
+                "stylers":[{"visibility":"simplified"},{"hue":"#ff0000"}]},
+             {"featureType": "landscape",
+                "elementType": "all",
+                "stylers": [{"color": "#333333"},{"lightness":"60"}]}],
             mapTypeControl:false
         });
         var current_loc = new google.maps.Marker({
