@@ -13,6 +13,7 @@
 
     <script src="js/jquery.js"></script>
 
+<<<<<<< HEAD
     <!-- THESE ARE THE REQUIRED FILES TO USE WEB PUSH NOTIFICATIONS -->
     <link rel="manifest" href="manifest.json">  
     <script src="//messaging-public.realtime.co/js/2.1.0/ortc.js"></script>
@@ -26,30 +27,54 @@
     <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/demo.css" rel="stylesheet">
+=======
+>>>>>>> 446c378bc6fa6bfccceedc156b620b74ef1b42c9
 </head>
 <body style="overflow: hidden;">
 
-    <!-- START INITIALIZATION CODE -->
-    <script src="https://www.gstatic.com/firebasejs/4.0.0/firebase.js"></script>
-    <script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyCiE3wC90F4-gtUJdubNJVhP_m8e8wCmcc",
-    authDomain: "dine-with-me-ff1b2.firebaseapp.com",
-    databaseURL: "https://dine-with-me-ff1b2.firebaseio.com",
-    projectId: "dine-with-me-ff1b2",
-    storageBucket: "dine-with-me-ff1b2.appspot.com",
-    messagingSenderId: "822853727556"
-};
-firebase.initializeApp(config);
-</script>
-<!-- END INITIALIZATION CODE -->
-
-<script src="WebPushManager.js"></script>
-
 <script>
-//Loads the list of requests
-function loadlist(){
+   
+var loadlist = 0;
+function changebttn(){ 
+    var listbttn = document.getElementById("listButton");
+    var slidein = document.getElementById("slideout_inner");
+    if (listbttn.value =="List" && loadlist == 1){
+        listbttn.value = "x";
+        $("#slideout_inner").animate({"margin-left": "0px"});
+        $("#slideout").animate({"margin-left": "0px"});
+    } 
+    else if (listbttn.value =="List" && loadlist ==0){
+        listbttn.value = "x";
+        loadlist = 1;
+    }
+    else { 
+        listbttn.value = "List";
+        $("#slideout_inner").animate({"margin-left": "-250px"});
+        $("#slideout").animate({"margin-left": "-250px"});
+    }
+}
+
+var loadfilter = 0;
+function changeFilter(){ 
+    var filterbttn = document.getElementById("filterbttn");
+    var slidein = document.getElementById("slideout_inner_filter");
+    if (filterbttn.value =="Filter" && loadfilter == 1){
+        filterbttn.value = "x";
+        $("#slideout_inner_filter").animate({"margin-left": "0px"});
+        $("#slideout-filter").animate({"margin-left": "0px"});
+    } 
+    else if (filterbttn.value =="Filter" && loadfilter ==0){
+        filterbttn.value = "x";
+        loadfilter = 1;
+    }
+    else { 
+        filterbttn.value = "Filter";
+        $("#slideout_inner_filter").animate({"margin-left": "-250px"});
+        $("#slideout-filter").animate({"margin-left": "-250px"});
+    }
+}
+
+$(document).ready(function() {
     ajax({
         url: "/ajax/pick?action=get",
         type: "get",
@@ -57,7 +82,6 @@ function loadlist(){
             var trHTML = '';
             data.forEach(function (pick) {
                 var modal = document.getElementById('myModal');
-                //document.getElementById("modal-profile").innerHTML = "profile:"
                 document.getElementById("modal-name").innerHTML = pick.name;
                 document.getElementById("modal-seats").innerHTML = pick.seats;
                 document.getElementById("modal-description").innerHTML = pick.description;
@@ -67,7 +91,8 @@ function loadlist(){
             $('#tableList').append(trHTML);
         }
     });
-}
+});
+
 
 var map;
 var seat = 0;
@@ -632,8 +657,13 @@ function getGeoPosition(callback) {
     <div class="android-be-together-section mdl-typography--text-center">
 
       <!--Slide out where JSON Data is loaded-->
+<<<<<<< HEAD
       <div id="slideout" data-step="1" data-intro="This list contains the all of the requestor's name, available seats, and description of their table's surroundings. Click on the &ldquo;List&ldquo; button to see them!">
         <input type="button" class="button" onclick="loadlist()" value="List"/>
+=======
+      <div id="slideout">
+        <input type="button" id="listButton" class="button" onclick="changebttn()" value="List"/>
+>>>>>>> 446c378bc6fa6bfccceedc156b620b74ef1b42c9
         <div id="slideout_inner">
             <table id="tableList">
                 <tr>
@@ -644,9 +674,16 @@ function getGeoPosition(callback) {
             </table>      
         </div>
     </div>
+<<<<<<< HEAD
     <div id="slideout-filter" data-step="2" data-intro="Filter by the number of seats you need and check out the map!">
         <input type="button" class="button" onclick="myFunction2()" value="☆"/>
         <div id="slideout_inner">
+=======
+    <div id="slideout-filter">
+        <!--<input type="button" class="button" onclick="myFunction2()" value="☆"/>-->
+        <input type="button" id="filterbttn" class="button" onclick="changeFilter()" value="Filter"/>
+        <div id="slideout_inner_filter">
+>>>>>>> 446c378bc6fa6bfccceedc156b620b74ef1b42c9
             <table id="tableList">
                 <tr>
                     <th>Filter Seats</th>
@@ -685,9 +722,11 @@ function getGeoPosition(callback) {
         <div id="myModal" class="modal">
           <!-- Modal content -->
           <div class="modal-content">
+            <div id = "sentFB"><div class="fb-send" data-href="https://www.facebook.com/profile.php?id=100007043866703" data-layout="button_count"> </div></div>
               <div class="modal-header">
                 <span class="close">&times;</span>
                 <h2 id = "modal-name"></h2>
+<<<<<<< HEAD
                 <div id = "sentFB"><div class="fb-send" 
                     data-href="https://www.facebook.com/profile.php?id=100007043866703" 
                     data-layout="button_count"> </div></div>
@@ -702,6 +741,15 @@ function getGeoPosition(callback) {
                 <div class="modal-footer">
                     <button id="sendButton" class="button-primary" onclick="javascript:send();">Accept</button>
                 </div>
+=======
+            </div>
+            <div class="modal-body">
+                <p id = "modal-profile"></p>
+                <p id = "modal-seats"></p>
+                <p id = "modal-description"></p>
+                <p id = "modal-post-time"></p>
+                <p id = "modal-stay-time"></p>
+>>>>>>> 446c378bc6fa6bfccceedc156b620b74ef1b42c9
             </div>
         </div>
 
