@@ -13,59 +13,17 @@
 
     <script src="js/jquery.js"></script>
 
+    <!-- For Tutorial  -->
+    <!-- styles -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/demo.css" rel="stylesheet">
+
+    <!-- Add IntroJs styles -->
+    <link href="css/introjs.css" rel="stylesheet">
+    <link href="/css/bootstrap-responsive.min.css" rel="stylesheet">
+
 </head>
 <body style="overflow: hidden;">
-
-<div id="fb-root"></div>
-        <script src="http://connect.facebook.net/en_US/all.js"></script>
-<script>
-(function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_US/sdk.js";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));
-FB.init({
-            appId      : '125147001384927',
-            cookie     : true,  // enable cookies to allow the server to access 
-                                // the session
-            xfbml      : true,  // parse social plugins on this page
-            version    : 'v2.9' // use graph api version 2.8
-          });
-function testAPI(id) {
-    console.log('Welcome!  Fetching your information.... ');
-    FB.api('/me', {fields: 'name, link, id'}, function(response) {
-      console.log('Successful login for: ' + response.name);
-      console.log('Successful login for: ' + response.link);
-      //document.getElementById('status').innerHTML =
-        //'Thanks for logging in, ' + response.name + '!';
-                
-FB.ui({method: "send", to: id,
-    link: response.link})
-        
-        //window.location.replace("http://localhost:21023/index.html");
-        //window.location.replace(response.link);
-      });
-  }
-function toProfile() {
-    console.log('Welcome!  Fetching your information.... ');
-    FB.api('/me', {fields: 'name, link, id'}, function(response) {
-      console.log('Successful login for: ' + response.name);
-      console.log('Successful login for: ' + response.link);
-      //document.getElementById('status').innerHTML =
-        //'Thanks for logging in, ' + response.name + '!';
-        
-        //window.location.replace("http://localhost:21023/index.html");
-        window.open(response.link);
-      });
-  }
-        
-function testfun(){
-            console.log("this is a test");
-        };
-</script>
-
 
 <script>
    
@@ -227,9 +185,6 @@ if (seat ==1) {
                      document.getElementById("modal-post-time").innerHTML = "Posted at: " + pick.post_hour +" : "+ pick.post_minute +" : "+ pick.post_second
                      document.getElementById("modal-stay-time").innerHTML = "Stay for: " + pick.time
                      document.getElementById("link2fb").setAttribute("href",pick.url)
-                     document.getElementById("link2fb").setAttribute("target","_blank")
-                     var id = pick.userID;
-                                 document.getElementById("send-m").setAttribute("onclick","testAPI("+id+")")
                                 // Get the <span> element that closes the modal
                                 var span = document.getElementsByClassName("close")[0];
                                 // When the user clicks on the button, open the modal 
@@ -278,9 +233,6 @@ if (seat ==2) {
                      document.getElementById("modal-post-time").innerHTML = "Posted at: " + pick.post_hour +" : "+ pick.post_minute +" : "+ pick.post_second
                      document.getElementById("modal-stay-time").innerHTML = "Stay for: " + pick.time
                      document.getElementById("link2fb").setAttribute("href",pick.url)
-                     document.getElementById("link2fb").setAttribute("target","_blank")
-                     var id = pick.userID;
-                                 document.getElementById("send-m").setAttribute("onclick","testAPI("+id+")")
                                 // Get the <span> element that closes the modal
                                 var span = document.getElementsByClassName("close")[0];
                                 // When the user clicks on the button, open the modal 
@@ -329,9 +281,6 @@ if (seat ==3) {
                      document.getElementById("modal-post-time").innerHTML = "Posted at: " + pick.post_hour +" : "+ pick.post_minute +" : "+ pick.post_second
                      document.getElementById("modal-stay-time").innerHTML = "Stay for: " + pick.time
                      document.getElementById("link2fb").setAttribute("href",pick.url)
-                     document.getElementById("link2fb").setAttribute("target","_blank")
-                     var id = pick.userID;
-                                 document.getElementById("send-m").setAttribute("onclick","testAPI("+id+")")
                                 // Get the <span> element that closes the modal
                                 var span = document.getElementsByClassName("close")[0];
                                 // When the user clicks on the button, open the modal 
@@ -415,9 +364,6 @@ if (seat ==3) {
                                 document.getElementById("modal-post-time").innerHTML = "Posted at: " + pick.post_hour +" : "+ pick.post_minute +" : "+ pick.post_second
                                 document.getElementById("modal-stay-time").innerHTML = "Stay for: " + pick.time
                                 document.getElementById("link2fb").setAttribute("href",pick.url)
-                                document.getElementById("link2fb").setAttribute("target","_blank")
-                                var id = pick.userID;
-                                 document.getElementById("send-m").setAttribute("onclick","testAPI("+id+")")
                                 // Get the <span> element that closess the modal
                                 var span = document.getElementsByClassName("close")[0];
                                 var sendButton = document.getElementsByClassName("sendButton");
@@ -461,9 +407,6 @@ if (seat ==3) {
                                  document.getElementById("modal-post-time").innerHTML = "Posted at: " + pick.post_hour +" : "+ pick.post_minute +" : "+ pick.post_second
                                  document.getElementById("modal-stay-time").innerHTML = "Stay for: " + pick.time 
                                  document.getElementById("link2fb").setAttribute("href",pick.url)
-                                 document.getElementById("link2fb").setAttribute("target","_blank")
-                                 var id = pick.userID;
-                                 document.getElementById("send-m").setAttribute("onclick","testAPI("+id+")")
                                 // Get the <span> element that closes the modal
                                 var span = document.getElementsByClassName("close")[0];
                                 var sendButton = document.getElementsByClassName("sendButton");
@@ -507,9 +450,6 @@ if (seat ==3) {
                                  document.getElementById("modal-post-time").innerHTML = "Posted at: " + pick.post_hour +" : "+ pick.post_minute +" : "+ pick.post_second
                                  document.getElementById("modal-stay-time").innerHTML = "Stay for: " + pick.time
                                  document.getElementById("link2fb").setAttribute("href",pick.url)
-                                 document.getElementById("link2fb").setAttribute("target","_blank")
-                                 var id = pick.userID;
-                                 document.getElementById("send-m").setAttribute("onclick","testAPI("+id+")")
                                 // Get the <span> element that closes the modal
                                 var span = document.getElementsByClassName("close")[0];
                                 var sendButton = document.getElementsByClassName("sendButton");
@@ -652,7 +592,8 @@ function getGeoPosition(callback) {
       </script>
 
         
-            
+            <div id="fb-root"></div>
+        <script src="http://connect.facebook.net/en_US/all.js"></script>
               <!--script>(function(d, s, id) {
                 var js, fjs = d.getElementsByTagName(s)[0];
                 if (d.getElementById(id)) return;
@@ -668,6 +609,7 @@ function getGeoPosition(callback) {
             xfbml      : true,  // parse social plugins on this page
             version    : 'v2.9' // use graph api version 2.8
           });
+
         
 function testAPI() {
             FB.api('/me', {fields: 'name, link'}, var url = function(response) {
@@ -675,15 +617,22 @@ function testAPI() {
               console.log('Successful login for: ' + response.link);
               //document.getElementById('status').innerHTML =
                 //'Thanks for logging in, ' + response.name + '!';
+
+
         //window.location.replace("http://localhost:21023/index.html");
              url = response.link;
         return url;
        
       });
+
        console.log('Successful login for: ' + url);
         };
+
+
+
         function sendProfile(){
             //console.log(url)
+
             FB.getLoginStatus(function(response){
                 if (response.status === 'connected')
                 {
@@ -697,39 +646,102 @@ function testAPI() {
             }
                 )
         };
+
         function testfun(){
             console.log("this is a test");
         };
+
         </script-->
 
+<script>
+
+(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+
+FB.init({
+            appId      : '125147001384927',
+            cookie     : true,  // enable cookies to allow the server to access 
+                                // the session
+            xfbml      : true,  // parse social plugins on this page
+            version    : 'v2.9' // use graph api version 2.8
+          });
+
+function testAPI() {
+    console.log('Welcome!  Fetching your information.... ');
+    FB.api('/me', {fields: 'name, link, id'}, function(response) {
+      console.log('Successful login for: ' + response.name);
+      console.log('Successful login for: ' + response.link);
+      //document.getElementById('status').innerHTML =
+        //'Thanks for logging in, ' + response.name + '!';
+                
+FB.ui({method: "send", 
+    link: response.link})
+        
+        //window.location.replace("http://localhost:21023/index.html");
+        //window.location.replace(response.link);
+      });
+  }
+
+function toProfile() {
+    console.log('Welcome!  Fetching your information.... ');
+    FB.api('/me', {fields: 'name, link, id'}, function(response) {
+      console.log('Successful login for: ' + response.name);
+      console.log('Successful login for: ' + response.link);
+      //document.getElementById('status').innerHTML =
+        //'Thanks for logging in, ' + response.name + '!';
+        
+        //window.location.replace("http://localhost:21023/index.html");
+        window.open(response.link);
+      });
+  }
+        
 
 
-      <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+function testfun(){
+            console.log("this is a test");
+        };
+</script>
 
-          <div class="android-header mdl-layout__header mdl-layout__header--waterfall">
+<header class="header">
+  <a href="/" class="logo">Dine With Me</a>
+  <input class="menu-btn" type="checkbox" id="menu-btn" />
+  <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+  <ul class="menu">
+    <li><a onclick="toProfile()">Profile</a></li>
+    <li><a href="postReq.html">Post</a></li>
+    <li><a href="login.html">Log Out</a></li>
+    <!-- <li><a href="javascript:void(0);" onclick="javascript:introJs().start();">Tutorial</a></li> -->
+  </ul>
+</header>
+      <!-- <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header"> -->
+
+<!--           <div class="android-header mdl-layout__header mdl-layout__header--waterfall">
             <div class="mdl-layout__header-row">
               <span class="android-title mdl-layout-title">
                 <img class="android-logo-image" src="img/name.png" alt="Dine With Me">
-            </span>
+            </span> -->
             <!-- Navigation -->
-            <div class="android-navigation-container">
+           <!--  <div class="android-navigation-container">
                 <nav class="android-navigation mdl-navigation">
                   <a class="mdl-navigation__link mdl-typography--text-uppercase" onclick="toProfile()">Profile</a>
                   <a class="mdl-navigation__link mdl-typography--text-uppercase" href="postReq.html">Post</a>
                   <a class="mdl-navigation__link mdl-typography--text-uppercase" href="login.html">Log Out</a>
               </nav>
           </div>
-          <span class="android-mobile-title mdl-layout-title">
-            <img class="android-logo-image" src="img/name.png">
-        </span>
+          
     </div>
-</div>
+</div> -->
 
 <div class="android-content mdl-layout__content">
     <div class="android-be-together-section mdl-typography--text-center">
 
       <!--Slide out where JSON Data is loaded-->
-      <div id="slideout">
+      <div id="slideout" data-step="1" data-intro="Checkout all the requests here!">
         <input type="button" id="listButton" class="button" onclick="changebttn()" value="List"/>
         <div id="slideout_inner">
             <table id="tableList">
@@ -741,7 +753,7 @@ function testAPI() {
             </table>      
         </div>
     </div>
-    <div id="slideout-filter">
+    <div id="slideout-filter" data-step="2" data-intro="Filter requests by how many seats you need.">
         <!--<input type="button" class="button" onclick="myFunction2()" value="☆"/>-->
         <input type="button" id="filterbttn" class="button" onclick="changeFilter()" value="Filter"/>
         <div id="slideout_inner_filter">
@@ -795,8 +807,7 @@ function testAPI() {
                 <p id = "modal-post-time"></p>
                 <p id = "modal-stay-time"></p>
                 <p id = "modal-description"></p>
-                <!--p>Send your profile:<a onclick="testAPI()"><img id="fb-m" src="img/fbm.png"></a></p-->
-                <p>Send your profile:<a id="send-m"><img id="fb-m" src="img/fbm.png"></a></p>
+                <p>Send your profile:<a onclick="testAPI()"><img id="fb-m" src="img/fbm.png"></a></p>
                 <p>View this person's profile:<a id="link2fb"><img id="fb-m" src="img/fbpn.jpg"></a></p>
             </div>
         </div>
@@ -820,6 +831,7 @@ function testAPI() {
 
 
 <script src="js/index.js"></script>
+<script type="text/javascript" src="js/intro.js"></script>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0BIjCQP-zarunMKbJgnlB-zVquaUrSqU&libraries=places&callback=initMap" async defer></script>
 
