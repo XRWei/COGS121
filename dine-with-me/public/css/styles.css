@@ -238,7 +238,7 @@ a img{
 }
 
 .android-navigation .mdl-navigation__link:hover {
-  border-bottom: 4px solid #FFC107;
+  border-bottom: 4px solid #0086EC;
 }
 
 .android-search-box {
@@ -564,7 +564,7 @@ a img{
   width: 35px;
   padding: 12px 0;
   text-align: center;
-  background: #6DAD53;
+  background: #0086EC;
   color: white;
   -webkit-transition-duration: 0.3s;
   -moz-transition-duration: 0.3s;
@@ -588,7 +588,7 @@ a img{
   position: fixed;
   top: 150px;
   left: -250px;
-  background: #6DAD53;
+  background: #0086EC;
   width: 200px;
   padding: 25px;
   max-height: calc(100% - 300px);;
@@ -624,7 +624,7 @@ a img{
 /******************** Slideout Filter list **********************/
 #slideout-filter {
   top: 200px;
-  background: #ff3aee;
+  background: #0086EC;
   display: block;  
   z-index: 99;
   position: fixed;
@@ -655,10 +655,10 @@ a img{
   position: fixed;
   top: 200px;
   left: -250px;
-  background: #6DAD53;
+  background: #0086EC;
   width: 200px;
   padding: 25px;
-  max-height: calc(100% - 300px);;
+  max-height: calc(100% - 300px);
   overflow: scroll;
   -webkit-transition-duration: 0.3s;
   -moz-transition-duration: 0.3s;
@@ -676,7 +676,7 @@ a img{
 
 #slideout-filter:hover #slideout_inner_filter {
   left: 0;
-  background-color: #ff3aee;
+  background-color: #0086EC;
 }
 
 #slideout-filter tr {
@@ -693,7 +693,7 @@ a img{
 }
 
 #slideout-filter td:hover {
-  background-color: #87067c;
+  background-color: #0090ff;
 }
 
 /********************* Modal Window ***************************/
@@ -731,7 +731,7 @@ a img{
 /* Modal Header */
 .modal-header {
   padding: 2px 16px;
-  background-color: #5cb85c;
+  background-color: #0090ff;
   color: white;
   z-index:129;
 }
@@ -833,12 +833,12 @@ font-size: 28px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
 #searchInput {
-  background-color: #fff;
+  background:white url("../img/searchicon.png") left 5px center no-repeat;
   font-family: Roboto;
   font-size: 15px;
   font-weight: 300;
   margin-left: 12px;
-  padding: 0 11px 0 13px;
+  padding: 0 11px 0 35px;
   text-overflow: ellipsis;
   width: 70%;
 }
