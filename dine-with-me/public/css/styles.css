@@ -533,11 +533,7 @@ a img{
   text-align: center;
   background: #6DAD53;
   color: white;
-  -webkit-transition-duration: 0.3s;
-  -moz-transition-duration: 0.3s;
-  transition-duration: 0.3s;
-  -o-transition-duration: 0.3s;
-  -webkit-border-radius: 0 5px 5px 0;
+  transition: right 0.4s ease-in-out;
   -moz-border-radius: 0 5px 5px 0;
   border-radius: 0 5px 5px 0;
 }
@@ -560,12 +556,8 @@ a img{
   padding: 25px;
   max-height: calc(100% - 300px);;
   overflow: scroll;
-  -webkit-transition-duration: 0.3s;
-  -moz-transition-duration: 0.3s;
-  transition-duration: 0.3s;
-  -o-transition-duration: 0.3s;
+  transition: right 0.4s ease-in-out;
   text-align: left;
-  -webkit-border-radius: 0 0 5px 0;
   -moz-border-radius: 0 0 5px 0;
   border-radius: 0 0 5px 0;
 }
@@ -615,7 +607,8 @@ a img{
   color: white;
   text-decoration: none;
   display: inline-block;
-  font-size: .7em;
+  font-size: 1em;
+  width: auto;
 }
 
 #slideout-filter #slideout_inner_filter {
@@ -623,7 +616,7 @@ a img{
   top: 200px;
   left: -250px;
   background: #6DAD53;
-  width: 200px;
+  width: auto;
   padding: 25px;
   max-height: calc(100% - 300px);;
   overflow: scroll;
@@ -638,7 +631,7 @@ a img{
 }
 
 #slideout-filter:hover {
-  left: 250px;
+  left: 170px;
 }
 
 #slideout-filter:hover #slideout_inner_filter {
@@ -931,7 +924,7 @@ a img{
   width: 390px;
   overflow: auto;
 }
-=======
+
 /***************** Only showing button on mobile ******************/
 
 @media screen and (min-width: 900px) and (max-width: 2560px) {
@@ -940,7 +933,7 @@ a img{
   }
 }
 
->>>>>>> 446c378bc6fa6bfccceedc156b620b74ef1b42c9
+
 /************************* Mobile layout **********************/
 /* * * * * * * * * * * * KEEP AT BOTTOM * * * * * * * * * * * */
 @media (max-width: 900px) {
