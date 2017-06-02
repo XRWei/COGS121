@@ -16,6 +16,57 @@
 </head>
 <body style="overflow: hidden;">
 
+<div id="fb-root"></div>
+        <script src="http://connect.facebook.net/en_US/all.js"></script>
+<script>
+(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+FB.init({
+            appId      : '125147001384927',
+            cookie     : true,  // enable cookies to allow the server to access 
+                                // the session
+            xfbml      : true,  // parse social plugins on this page
+            version    : 'v2.9' // use graph api version 2.8
+          });
+function testAPI(id) {
+    console.log('Welcome!  Fetching your information.... ');
+    FB.api('/me', {fields: 'name, link, id'}, function(response) {
+      console.log('Successful login for: ' + response.name);
+      console.log('Successful login for: ' + response.link);
+      //document.getElementById('status').innerHTML =
+        //'Thanks for logging in, ' + response.name + '!';
+                
+FB.ui({method: "send", to: id,
+    link: response.link})
+        
+        //window.location.replace("http://localhost:21023/index.html");
+        //window.location.replace(response.link);
+      });
+  }
+function toProfile() {
+    console.log('Welcome!  Fetching your information.... ');
+    FB.api('/me', {fields: 'name, link, id'}, function(response) {
+      console.log('Successful login for: ' + response.name);
+      console.log('Successful login for: ' + response.link);
+      //document.getElementById('status').innerHTML =
+        //'Thanks for logging in, ' + response.name + '!';
+        
+        //window.location.replace("http://localhost:21023/index.html");
+        window.open(response.link);
+      });
+  }
+        
+function testfun(){
+            console.log("this is a test");
+        };
+</script>
+
+
 <script>
    
 var loadlist = 0;
@@ -177,6 +228,8 @@ if (seat ==1) {
                      document.getElementById("modal-stay-time").innerHTML = "Stay for: " + pick.time
                      document.getElementById("link2fb").setAttribute("href",pick.url)
                      document.getElementById("link2fb").setAttribute("target","_blank")
+                     var id = pick.userID;
+                                 document.getElementById("send-m").setAttribute("onclick","testAPI("+id+")")
                                 // Get the <span> element that closes the modal
                                 var span = document.getElementsByClassName("close")[0];
                                 // When the user clicks on the button, open the modal 
@@ -226,6 +279,8 @@ if (seat ==2) {
                      document.getElementById("modal-stay-time").innerHTML = "Stay for: " + pick.time
                      document.getElementById("link2fb").setAttribute("href",pick.url)
                      document.getElementById("link2fb").setAttribute("target","_blank")
+                     var id = pick.userID;
+                                 document.getElementById("send-m").setAttribute("onclick","testAPI("+id+")")
                                 // Get the <span> element that closes the modal
                                 var span = document.getElementsByClassName("close")[0];
                                 // When the user clicks on the button, open the modal 
@@ -275,6 +330,8 @@ if (seat ==3) {
                      document.getElementById("modal-stay-time").innerHTML = "Stay for: " + pick.time
                      document.getElementById("link2fb").setAttribute("href",pick.url)
                      document.getElementById("link2fb").setAttribute("target","_blank")
+                     var id = pick.userID;
+                                 document.getElementById("send-m").setAttribute("onclick","testAPI("+id+")")
                                 // Get the <span> element that closes the modal
                                 var span = document.getElementsByClassName("close")[0];
                                 // When the user clicks on the button, open the modal 
@@ -359,6 +416,8 @@ if (seat ==3) {
                                 document.getElementById("modal-stay-time").innerHTML = "Stay for: " + pick.time
                                 document.getElementById("link2fb").setAttribute("href",pick.url)
                                 document.getElementById("link2fb").setAttribute("target","_blank")
+                                var id = pick.userID;
+                                 document.getElementById("send-m").setAttribute("onclick","testAPI("+id+")")
                                 // Get the <span> element that closess the modal
                                 var span = document.getElementsByClassName("close")[0];
                                 var sendButton = document.getElementsByClassName("sendButton");
@@ -403,6 +462,8 @@ if (seat ==3) {
                                  document.getElementById("modal-stay-time").innerHTML = "Stay for: " + pick.time 
                                  document.getElementById("link2fb").setAttribute("href",pick.url)
                                  document.getElementById("link2fb").setAttribute("target","_blank")
+                                 var id = pick.userID;
+                                 document.getElementById("send-m").setAttribute("onclick","testAPI("+id+")")
                                 // Get the <span> element that closes the modal
                                 var span = document.getElementsByClassName("close")[0];
                                 var sendButton = document.getElementsByClassName("sendButton");
@@ -447,6 +508,8 @@ if (seat ==3) {
                                  document.getElementById("modal-stay-time").innerHTML = "Stay for: " + pick.time
                                  document.getElementById("link2fb").setAttribute("href",pick.url)
                                  document.getElementById("link2fb").setAttribute("target","_blank")
+                                 var id = pick.userID;
+                                 document.getElementById("send-m").setAttribute("onclick","testAPI("+id+")")
                                 // Get the <span> element that closes the modal
                                 var span = document.getElementsByClassName("close")[0];
                                 var sendButton = document.getElementsByClassName("sendButton");
@@ -589,8 +652,7 @@ function getGeoPosition(callback) {
       </script>
 
         
-            <div id="fb-root"></div>
-        <script src="http://connect.facebook.net/en_US/all.js"></script>
+            
               <!--script>(function(d, s, id) {
                 var js, fjs = d.getElementsByTagName(s)[0];
                 if (d.getElementById(id)) return;
@@ -606,7 +668,6 @@ function getGeoPosition(callback) {
             xfbml      : true,  // parse social plugins on this page
             version    : 'v2.9' // use graph api version 2.8
           });
-
         
 function testAPI() {
             FB.api('/me', {fields: 'name, link'}, var url = function(response) {
@@ -614,22 +675,15 @@ function testAPI() {
               console.log('Successful login for: ' + response.link);
               //document.getElementById('status').innerHTML =
                 //'Thanks for logging in, ' + response.name + '!';
-
-
         //window.location.replace("http://localhost:21023/index.html");
              url = response.link;
         return url;
        
       });
-
        console.log('Successful login for: ' + url);
         };
-
-
-
         function sendProfile(){
             //console.log(url)
-
             FB.getLoginStatus(function(response){
                 if (response.status === 'connected')
                 {
@@ -643,66 +697,12 @@ function testAPI() {
             }
                 )
         };
-
         function testfun(){
             console.log("this is a test");
         };
-
         </script-->
 
-<script>
 
-(function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_US/sdk.js";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));
-
-FB.init({
-            appId      : '125147001384927',
-            cookie     : true,  // enable cookies to allow the server to access 
-                                // the session
-            xfbml      : true,  // parse social plugins on this page
-            version    : 'v2.9' // use graph api version 2.8
-          });
-
-function testAPI() {
-    console.log('Welcome!  Fetching your information.... ');
-    FB.api('/me', {fields: 'name, link, id'}, function(response) {
-      console.log('Successful login for: ' + response.name);
-      console.log('Successful login for: ' + response.link);
-      //document.getElementById('status').innerHTML =
-        //'Thanks for logging in, ' + response.name + '!';
-                
-FB.ui({method: "send", 
-    link: response.link})
-        
-        //window.location.replace("http://localhost:21023/index.html");
-        //window.location.replace(response.link);
-      });
-  }
-
-function toProfile() {
-    console.log('Welcome!  Fetching your information.... ');
-    FB.api('/me', {fields: 'name, link, id'}, function(response) {
-      console.log('Successful login for: ' + response.name);
-      console.log('Successful login for: ' + response.link);
-      //document.getElementById('status').innerHTML =
-        //'Thanks for logging in, ' + response.name + '!';
-        
-        //window.location.replace("http://localhost:21023/index.html");
-        window.open(response.link);
-      });
-  }
-        
-
-
-function testfun(){
-            console.log("this is a test");
-        };
-</script>
 
       <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
 
@@ -795,7 +795,8 @@ function testfun(){
                 <p id = "modal-post-time"></p>
                 <p id = "modal-stay-time"></p>
                 <p id = "modal-description"></p>
-                <p>Send your profile:<a onclick="testAPI()"><img id="fb-m" src="img/fbm.png"></a></p>
+                <!--p>Send your profile:<a onclick="testAPI()"><img id="fb-m" src="img/fbm.png"></a></p-->
+                <p>Send your profile:<a id="send-m"><img id="fb-m" src="img/fbm.png"></a></p>
                 <p>View this person's profile:<a id="link2fb"><img id="fb-m" src="img/fbpn.jpg"></a></p>
             </div>
         </div>
