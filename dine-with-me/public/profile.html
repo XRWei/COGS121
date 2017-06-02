@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Profile</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+
+  <!-- Page styles -->
+  <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" type="image/png" href="img/dinewithme-logo.png">
+  <script src="js/jquery.js"></script>
+
+</head>
+<body>
+
+  <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/zh_CN/sdk.js#xfbml=1&version=v2.9&appId=125147001384927";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+  <!--Dine With Me header-->
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+
+    <div class="android-header mdl-layout__header mdl-layout__header--waterfall">
+      <div class="mdl-layout__header-row">
+        <span class="android-title mdl-layout-title">
+          <a href="index.html"><img class="android-logo-image" src="img/name.png" alt="Dine With Me"></a>
+        </span>
+        <!-- Navigation -->
+        <div class="android-navigation-container">
+          <nav class="android-navigation mdl-navigation">
+            <a class="mdl-navigation__link mdl-typography--text-uppercase" href="index.html">Home</a>
+            <a class="mdl-navigation__link mdl-typography--text-uppercase" href="postReq.html">Post</a>
+            <a class="mdl-navigation__link mdl-typography--text-uppercase" href="login.html">Log Out</a>
+          </nav>
+        </div>
+        <span class="android-mobile-title mdl-layout-title">
+          <img class="android-logo-image" src="img/name.png">
+        </span>
+      </div>
+    </div>
+
+
+
+
+  <main>
+
+
+<!--div class="fb-page" data-href="https://www.facebook.com/webraincogsci/" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/webraincogsci/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/webraincogsci/">UCSD Cognitive Science Student Association</a></blockquote></div-->
+<!--iframe id = "fb1" ></iframe-->
+<a id = "fb1" type="submit" target="_blank">visit fb profile</a>
+    <!--Profile Picture--> 
+    <div class="container-profile">
+      <img class="img-profile" src="img/profile-picture.png"/>
+      <div class="middle">
+        <div class="text-profile" onclick="myProfilePic()">Upload Image</div>
+        <input class="file-upload" type="file" accept="image/*"/>
+      </div>
+    </div>
+
+    <!--About Me, Interests, Major form--> 
+    <form id="request-form">
+
+      <!--About Me section-->
+      <label>About Me </label>
+      <p id = "fb-name"> </p>       
+      <!--textarea id="aboutme" placeholder="Tell others about yourself!"></textarea-->
+
+      <!--Interests section-->
+      <label>Interests </label>
+      <!--input id="interests" type="text" placeholder="eating with strangers..." /-->
+
+      <!--Major section-->
+      <label>Major </label>
+      <!--select id="major" name="major">
+        <option value="other"> Other</option>
+        <option value="Bioengineering"> Bioengineering</option>
+        <option value="Biology"> Biology</option>
+        <option value="Chemistry"> Chemistry</option>
+        <option value="Communication"> Communication</option>
+        <option value="Cognitive Science"> Cognitive Science</option>
+        <option value="Computer Science"> Computer Science</option>
+        <option value="Economics"> Economics</option>
+        <option value="Engineering"> Engineering</option>
+        <option value="Mathematics"> Mathematics</option>
+      </select-->
+
+      <button type="submit" onclick="window.location.href = 'profile_edit.html'">Edit</button>
+    </form>
+
+    <!--Bottom Navigation--> 
+    <div class="navbar">
+      <a href="/index.html">
+        <img class="img" src="img/home-icon.png">
+      </a>
+      <a href="/profile.html">
+        <img class="img" src="img/profile-icon.png">
+      </a>
+      <a href="/postReq.html">
+        <img class="img" src="img/request-icon.png">
+      </a>
+    </div>
+
+  </main>
+</div>
+
+
+<script> 
+var url = ""
+// This is called with the results from from FB.getLoginStatus().
+      function statusChangeCallback(response) {
+        console.log('statusChangeCallback');
+        console.log(response);
+    // The response object is returned with a status field that lets the
+    // app know the current login status of the person.
+    // Full docs on the response object can be found in the documentation
+    // for FB.getLoginStatus().
+    if (response.status === 'connected') {
+      // Logged into your app and Facebook.
+      testAPI();
+    } else {
+      // The person is not logged into your app or we are unable to tell.
+      //document.getElementById('status').innerHTML = 'Please log ' +
+      //'into this app.';
+    }
+  }
+
+  // This function is called when someone finishes with the Login
+  // Button.  See the onlogin handler attached to it in the sample
+  // code below.
+  function checkLoginState() {
+    FB.getLoginStatus(function(response) {
+      statusChangeCallback(response);
+    });
+  }
+
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '125147001384927',
+    cookie     : true,  // enable cookies to allow the server to access 
+                        // the session
+    xfbml      : true,  // parse social plugins on this page
+    version    : 'v2.9' // use graph api version 2.8
+  });
+
+  // Now that we've initialized the JavaScript SDK, we call 
+  // FB.getLoginStatus().  This function gets the state of the
+  // person visiting this page and can return one of three states to
+  // the callback you provide.  They can be:
+  //
+  // 1. Logged into your app ('connected')
+  // 2. Logged into Facebook, but not your app ('not_authorized')
+  // 3. Not logged into Facebook and can't tell if they are logged into
+  //    your app or not.
+  //
+  // These three cases are handled in the callback function.
+
+  FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+  });
+
+};
+
+  // Load the SDK asynchronously
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+
+  // Here we run a very simple test of the Graph API after login is
+  // successful.  See statusChangeCallback() for when this call is made.
+  
+
+  function testAPI() {
+    console.log('Welcome!  Fetching your information.... ');
+    FB.api('/me', {fields: 'name, link'}, function(response) {
+      console.log('Successful login for: ' + response.name);
+      console.log('Successful login for: ' + response.link);
+      document.getElementById("fb-name").innerHTML = response.name
+      //document.getElementById('status').innerHTML =
+        //'Thanks for logging in, ' + response.name + '!';
+
+
+        //alert("Login Sucessful");
+        //window.location.replace("http://localhost:21023/index.html");
+        //window.location.replace(response.link);
+        document.getElementById("fb1").setAttribute("href",response.link)
+        //document.getElementById("fb2").setAttribute("cite",response.link)
+        //document.getElementById("fb1").setAttribute("data-href",response.link)
+        //fb2.setAttribute("cite", response.link);
+        //fb2.setAttribute("class","fb-xfbml-parse-ignore");
+        //document.getElementById("fb1").appendChild(fb2)
+
+        //var fb3 = document.createElement("a"); 
+        //fb3.setAttribute("href", response.link);
+        //fb2.appendChild(fb3)
+        //var newContent = document.createTextNode("Hi there and greetings!"); 
+        //newDiv.appendChild(newContent); //add the text node to the newly created div. 
+        //document.getElementsByTagName("blockquote").setAttribute("cite", response.link);
+        //var test = document.getElementsByTagName("blockquote")
+        //document.getElementById("fb1").firstChild.setAttribute("cite",response.link)
+        //document.getElementById("fb1").firstChild.firstChild.setAttribute("href",response.link)
+        //console.log(test)
+        url = response.link
+        return url
+      });
+  }
+
+  //saving other data
+  function postRequest() {
+    randomClosePosition(function (pos) {
+      ajax({
+        url: "/ajax/profile?action=post",
+        type: "post",
+        data: {
+          aboutme: $("#aboutme").val(),
+          interests: $("#interests").val(),
+          major: $("#major").val(),
+        },
+        success: function (data) {
+          alert("Post Success!");
+          window.location.replace("http://localhost:21023/index.html");
+        }
+      });
+    });
+  }
+  function getGeoPosition(callback) {
+    navigator.geolocation.getCurrentPosition(function (info) {
+      callback({lat: info.coords.latitude, lng: info.coords.longitude});
+    });
+  }
+  function randomClosePosition(callback) {
+    getGeoPosition(function (pos) {
+      pos.lat += -0.01 + Math.random() * 0.02;
+      pos.lng += -0.01 + Math.random() * 0.02;
+      callback(pos);
+    });
+  }
+
+  //saving a profile picture
+  function myProfilePic(){
+    $(document).ready(function() {
+      var readURL = function(input) {
+        if (input.files && input.files[0]) {
+          var reader = new FileReader();
+          reader.onload = function (e) {
+            $('.profile-pic').attr('src', e.target.result);
+          }
+          reader.readAsDataURL(input.files[0]);
+        }
+      }
+      $(".file-upload").on('change', function(){
+        readURL(this);
+      });
+      $(".text-profile").on('click', function() {
+       $(".file-upload").click();
+     });
+    });
+  }
+
+  </script>
+
+  <script src="js/index.js"></script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0BIjCQP-zarunMKbJgnlB-zVquaUrSqU"></script>
+</body>
+</html>

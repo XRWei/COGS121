@@ -9,18 +9,6 @@ body {
     background-color: rgba(242, 242, 242, 1);
 }
 
-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 45px;
-    line-height: 45px;
-    width: 100%;
-    text-align: center;
-    border-bottom: 1px solid rgba(200, 200, 200, 1);
-    background-color: rgba(250, 250, 250, 1);
-}
-
 main {
     padding-top: 46px;
     padding-bottom: 51px;
@@ -34,6 +22,7 @@ main tab-section.active {
     display: block;
 }
 
+
 #map-loading {
     position: fixed;
     left: 50%;
@@ -46,7 +35,7 @@ main tab-section.active {
 #map-outer {
     position: fixed;
     width: 100%;
-    height: calc(100% - 92px);
+    height: 100%;
     top: 46px;
     left: 0;
 }
@@ -80,12 +69,23 @@ main tab-section.active {
     height: 80px;
 }
 
+#request-form select {
+    resize: none;
+    padding: 10px;
+    border-radius: 3px;
+    border: 1px solid rgba(230, 230, 230, 1);
+    width: 200px;
+    height: 45px;
+    font-size: 16px;
+    text-align: center;
+}
+
 #request-form button {
     margin-top: 15px;
     padding: 0;
     height: 35px;
     line-height: 35px;
-    width: 100%;
+    width: 25%;
     border-radius: 3px;
     border: none;
     text-align: center;
@@ -93,6 +93,8 @@ main tab-section.active {
     color: rgba(250, 250, 250, 1);
 }
 
+
+/*
 footer {
     position: fixed;
     bottom: 0;
@@ -128,4 +130,454 @@ footer tab.active {
     color: rgba(0, 134, 236, 1);
     line-height: 48px;
     border-top: 2px solid rgba(0, 134, 236, 1);
+}*/
+
+/*Side Navigation*/
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
 }
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+    .sidenav a {
+        font-size: 18px;
+    }
+}
+
+/*Map Filters*/
+#wrapper {
+    position: relative; 
+}
+
+.over_map1 button{ 
+    position: absolute;
+    top: 500px; 
+    left: 400px; 
+    z-index: 99; 
+    background-color: rgba(0, 134, 236, 0.8);
+    color: rgba(250, 250, 250, 1);
+    height: 35px;
+    width:25%
+}
+
+#over_map2 button{ 
+    position: absolute; 
+    top: 500px;
+    left: 450px;
+    z-index: 99; 
+    background-color: rgba(0, 236, 134, 0.8);
+    color: rgba(250, 250, 250, 1);
+    height: 35px;
+    width:50px;
+}
+
+.dropbtn1 {
+    z-index: 99;
+    position: relative;
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropbtn2 {
+    z-index: 99;
+    position: relative;
+    background-color: #4CAF50;
+    color: white;
+    left: 450px;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropbtn3 {
+    z-index: 99;
+    position: fixed;
+    top: 500px;
+    left: 450px;
+    background-color: rgba(0, 134, 236, 0.8);
+    color: rgba(250, 250, 250, 1);
+    height: 35px;
+    width:25%;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+    background-color: #3e8e41;
+}
+#myInput {
+    border-box: box-sizing;
+    background-image: url('searchicon.png');
+    background-position: 14px 12px;
+    background-repeat: no-repeat;
+    font-size: 16px;
+    padding: 14px 20px 12px 45px;
+    border: none;
+}
+
+.dropdown {
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: relative;
+    left: 450px;
+    background-color: #f6f6f6;
+    min-width: 230px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown a:hover {
+    background-color: #ddd;
+}
+
+.show {
+    display:block;
+}
+
+/*********************** Responsive navigation **********************/
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+
+}
+
+.topnav a {
+  z-index: 99;
+  position: relative;
+  border: none;
+  cursor: pointer;
+  background-color: #333;
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav .icon {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .topnav a:not(:first-child) {display: none;}
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .topnav.responsive {position: relative;}
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+
+}
+
+/******************** Slidout request list **********************/
+#slideout {
+    display: block;  
+    top: 100px;
+    z-index: 99;
+    position: fixed;
+    left: 0;
+    width: 35px;
+    padding: 12px 0;
+    text-align: center;
+    background: #6DAD53;
+    color: white;
+    -webkit-transition-duration: 0.3s;
+    -moz-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -o-transition-duration: 0.3s;
+    -webkit-border-radius: 0 5px 5px 0;
+    -moz-border-radius: 0 5px 5px 0;
+    border-radius: 0 5px 5px 0;
+}
+#slideout_inner {
+    position: fixed;
+    top: 100px;
+    left: -250px;
+    background: #6DAD53;
+    width: 200px;
+    padding: 25px;
+    height: 100%;
+    -webkit-transition-duration: 0.3s;
+    -moz-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -o-transition-duration: 0.3s;
+    text-align: left;
+    -webkit-border-radius: 0 0 5px 0;
+    -moz-border-radius: 0 0 5px 0;
+    border-radius: 0 0 5px 0;
+}
+#slideout_inner textarea {
+    width: 190px;
+    height: 100%;
+    margin-bottom: 6px;
+}
+
+#slideout:hover {
+    left: 250px;
+}
+
+#slideout:hover #slideout_inner {
+    left: 0;
+}
+
+#slideout tr {
+    padding: 5px;
+}
+
+/************************** Add Button *************************/
+* {
+    padding:0;
+    margin:0;
+}
+
+body{
+    font-family:Verdana, Geneva, sans-serif;
+    font-size:18px;
+    background-color:#CCC;
+}
+
+.float{
+    position:fixed;
+    width:60px;
+    height:60px;
+    bottom:40px;
+    left:40px;
+    background-color:#0C9;
+    color:#FFF;
+    border-radius:50px;
+    text-align:center;
+    box-shadow: 2px 2px 3px #999;
+}
+
+.my-float{
+    margin-top:22px;
+}
+
+#floating-panel {
+        position: absolute;
+        top: 100px;
+        left: 25%;
+        z-index: 5;
+        background-color: #fff;
+        padding: 5px;
+        border: 1px solid #999;
+        text-align: center;
+        font-family: 'Roboto','sans-serif';
+        line-height: 30px;
+        padding-left: 10px;
+      }
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 129; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    z-index:129;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+    z-index:129;
+}
+
+/* Modal Header */
+.modal-header {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+    z-index:129;
+}
+
+/* Modal Body */
+.modal-body {padding: 2px 16px;z-index:199;}
+
+/* Modal Footer */
+.modal-footer {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+    z-index:129;
+}
+
+/* Modal Content */
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 80%;
+    z-index:129;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top: -300px; opacity: 0} 
+    to {top: 0; opacity: 1}
+}
+
+@keyframes animatetop {
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1}
+}
+
+.pac-card {
+        margin: 10px 10px 0 0;
+        border-radius: 2px 0 0 2px;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        outline: none;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+        background-color: #fff;
+        font-family: Roboto;
+      }
+
+      #pac-container {
+        padding-bottom: 12px;
+        margin-right: 12px;
+      }
+
+      .pac-controls {
+        display: inline-block;
+        padding: 5px 11px;
+      }
+
+      .pac-controls label {
+        font-family: Roboto;
+        font-size: 13px;
+        font-weight: 300;
+      }
+
+      #pac-input {
+        background-color: #fff;
+        font-family: Roboto;
+        font-size: 15px;
+        font-weight: 300;
+        margin-left: 12px;
+        padding: 0 11px 0 13px;
+        text-overflow: ellipsis;
+        width: 400px;
+        z-index:99;
+      }
+
+      #pac-input:focus {
+        border-color: #4d90fe;
+      }
+
+      .controls {
+    margin-top: 10px;
+    border: 1px solid transparent;
+    border-radius: 2px 0 0 2px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    height: 32px;
+    outline: none;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+#searchInput {
+    background-color: #fff;
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: 300;
+    margin-left: 12px;
+    padding: 0 11px 0 13px;
+    text-overflow: ellipsis;
+    width: 50%;
+}
+#searchInput:focus {
+    border-color: #4d90fe;
+}
+

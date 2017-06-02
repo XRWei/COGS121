@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Post Request</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    
+    <!-- Page styles -->
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.min.css">
+
+    <link rel="icon" type="image/png" href="img/dinewithme-logo.png">
+
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/jquery.js"></script>
+
+</head>
+<body>
+<script>
+//-------------------fb------------------------
+         function statusChangeCallback(response) {
+        console.log('statusChangeCallback');
+        console.log(response);
+    // The response object is returned with a status field that lets the
+    // app know the current login status of the person.
+    // Full docs on the response object can be found in the documentation
+    // for FB.getLoginStatus().
+    if (response.status === 'connected') {
+      // Logged into your app and Facebook.
+      testAPI();
+    } else {
+      // The person is not logged into your app or we are unable to tell.
+      document.getElementById('status').innerHTML = 'Please log ' +
+      'into this app.';
+    }
+  }
+
+  // This function is called when someone finishes with the Login
+  // Button.  See the onlogin handler attached to it in the sample
+  // code below.
+  function checkLoginState() {
+    FB.getLoginStatus(function(response) {
+      statusChangeCallback(response);
+    });
+  }
+
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '125147001384927',
+    cookie     : true,  // enable cookies to allow the server to access 
+                        // the session
+    xfbml      : true,  // parse social plugins on this page
+    version    : 'v2.9' // use graph api version 2.8
+  });
+
+  // Now that we've initialized the JavaScript SDK, we call 
+  // FB.getLoginStatus().  This function gets the state of the
+  // person visiting this page and can return one of three states to
+  // the callback you provide.  They can be:
+  //
+  // 1. Logged into your app ('connected')
+  // 2. Logged into Facebook, but not your app ('not_authorized')
+  // 3. Not logged into Facebook and can't tell if they are logged into
+  //    your app or not.
+  //
+  // These three cases are handled in the callback function.
+
+  FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+  });
+
+};
+
+  // Load the SDK asynchronously
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+
+  // Here we run a very simple test of the Graph API after login is
+  // successful.  See statusChangeCallback() for when this call is made.
+  function testAPI() {
+    console.log('Welcome!  Fetching your information.... ');
+    FB.api('/me', {fields: 'name, link'}, function(response) {
+      console.log('Successful login for: ' + response.name);
+      console.log('Successful login for: ' + response.link);
+      //document.getElementById('status').innerHTML =
+        //'Thanks for logging in, ' + response.name + '!';
+                    
+        
+        //window.location.replace(response.link);
+      });
+  }
+
+function toProfile() {
+    console.log('Welcome!  Fetching your information.... ');
+    FB.api('/me', {fields: 'name, link, id'}, function(response) {
+      console.log('Successful login for: ' + response.name);
+      console.log('Successful login for: ' + response.link);
+      //document.getElementById('status').innerHTML =
+        //'Thanks for logging in, ' + response.name + '!';
+        
+        //window.location.replace("http://localhost:21023/index.html");
+        window.open(response.link);
+      });
+  }
+        
+
+
+
+        //---------------------------------------------
+</script>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+
+      <div class="android-header mdl-layout__header mdl-layout__header--waterfall">
+        <div class="mdl-layout__header-row">
+          <span class="android-title mdl-layout-title">
+            <a href="index.html"><img class="android-logo-image" src="img/name.png" alt="Dine With Me"></a>
+        </span>
+        <!-- Navigation -->
+        <div class="android-navigation-container">
+            <nav class="android-navigation mdl-navigation">
+              <a class="mdl-navigation__link mdl-typography--text-uppercase" onclick="toProfile()" >Profile</a>
+              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="index.html">Home</a>
+              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="login.html">Log Out</a>
+          </nav>
+      </div>
+      <span class="android-mobile-title mdl-layout-title">
+        <img class="android-logo-image" src="img/name.png">
+    </span>
+
+</div>
+</div>
+
+<div class="android-content mdl-layout__content">
+    <a name="top"></a>
+    <div class="android-be-together-section mdl-typography--text-center">
+
+        <form id="request-form">
+            <h2>Request a Buddy</h2>
+            <!--label>Name: </label>
+            <input id="request-item" type="text" placeholder="Type your name here" /-->
+            <label>Numer of seats avaliable: </label>
+            <!--input id="request-seats" type="text" placeholder="Type number of seats avaliable hear" /-->
+            <select id="request-seats" name="seats">
+                <option value=1> 1 seat</option>
+                <option value=2> 2 seats</option>
+                <option value=3> 3 seats</option>
+                <!--option value=4> 4 seats</option-->
+                <!--option value=5> 5 seats</option-->
+                <!--option value=6> 6 seats</option-->
+            </select>
+
+            <label>How long will you stay? </label>
+            <!--input id="request-time" type="text" placeholder="Type the time duration you want to stay here"-->
+            <select id="request-time" name="time">
+                <option value="less than 15 minutes"> less than 15 minutes</option>
+                <option value="15 to 30 minutes"> 15 to 30 minutes</option>
+                <option value="30 minutes to 1 hour"> 30 minutes to 1 hour</option>
+                <option value="more than 1 hour"> more than 1 hour</option>
+            </select>
+
+
+            <label>Message: </label>
+            <textarea id="request-description" placeholder="Describe yourself or your surroundings"></textarea>
+            <button type="submit">Post</button>
+            <button onclick = "location.href = 'index.html';">Cancel</button>
+        </form>
+
+        <!--Bottom Navigation--> 
+        <div class="navbar">
+            <a href="/index.html">
+                <img class="img" src="img/home-icon.png" alt="Home">
+            </a>
+            <a onclick = "toProfile()">
+                <img class="img" src="img/profile-icon.png" alt="Profile">
+            </a>
+            <a href="/postReq.html">
+                <img class="img" src="img/request-icon.png" alt="Request Form">
+            </a>
+        </div>
+
+
+        <script>
+
+        
+
+        var map;
+        var seat = 0;
+        function initMap(seat) {
+            $("#map-loading").fadeOut();
+            getGeoPosition(function (pos) {
+                map = new google.maps.Map(document.getElementById("map"), {
+                    zoom: 15,
+                    center: pos
+                });
+                var current_loc = new google.maps.Marker({
+                    position: pos,
+                    icon: "img/self.png",
+                    map: map
+                });
+                    //added a new draggable marker 
+                    // var marker = new google.maps.Marker({
+                    //     position: pos,
+                    //     icon: "img/marker.png",
+                    //     draggable:true,
+                    //     map: map
+                    // });
+
+                    
+                    if (seat == 0) {
+                        loadPick();
+                    }
+                    if (seat ==1) {
+                        ajax({
+                            url: "/ajax/pick?action=get",
+                            type: "get",
+                            success: function (data) {
+                                alert("Filter Success!");
+                                data.forEach(function (pick) {
+                                    if (pick.seats == 1){
+                                        var myLatLng = {lat: pick.lat, lng: pick.lng};
+                                        var item = new google.maps.Marker({
+                                            icon: "img/number_1.png",
+                                            position: myLatLng,
+                                            map: map
+                                        });
+                                        var infowindow = new google.maps.InfoWindow({
+                                            content: pick.name + ": "+pick.description+" I have "+pick.seats+" seats"
+                                        });
+                                        item.addListener('click', function() {
+                                            infowindow.open(map, item);
+                                        });
+
+                                    }
+
+                                });
+                            }
+                        });  
+}
+
+if (seat ==2) {
+    ajax({
+        url: "/ajax/pick?action=get",
+        type: "get",
+        success: function (data) {
+            alert("Filter Success!");
+            data.forEach(function (pick) {
+                if (pick.seats == 2){
+                    var myLatLng = {lat: pick.lat, lng: pick.lng};
+                    var item = new google.maps.Marker({
+                        icon: "img/number_2.png",
+                        position: myLatLng,
+                        map: map
+                    });
+                    var infowindow = new google.maps.InfoWindow({
+                        content: pick.name + ": "+pick.description+" I have "+pick.seats+" seats"
+                    });
+                    item.addListener('click', function() {
+                        infowindow.open(map, item);
+                    });
+                                //item.setContent(pick.description);
+                                //item.open(map);
+                            }
+
+                        });
+        }
+    });  
+}
+
+if (seat ==3) {
+    ajax({
+        url: "/ajax/pick?action=get",
+        type: "get",
+        success: function (data) {
+            alert("Filter Success!");
+            data.forEach(function (pick) {
+                if (pick.seats == 3){
+                    var myLatLng = {lat: pick.lat, lng: pick.lng};
+                    var item = new google.maps.Marker({
+                        icon: "img/number_3.png",
+                        position: myLatLng,
+                        map: map
+                    });
+                    var infowindow = new google.maps.InfoWindow({
+                        content: pick.name + ": "+pick.description+" I have "+pick.seats+" seats"
+                    });
+                    item.addListener('click', function() {
+                        infowindow.open(map, item);
+                    });
+                                //item.setContent(pick.description);
+                                //item.open(map);
+                            }
+
+                        });
+        }
+    });  
+}
+
+if (seat ==4) {
+    ajax({
+        url: "/ajax/pick?action=get",
+        type: "get",
+        success: function (data) {
+            alert("Filter Success!");
+            data.forEach(function (pick) {
+                if (pick.seats > 3){
+                    var item = new google.maps.InfoWindow;
+                    item.setPosition({lat: pick.lat, lng: pick.lng});
+                    item.setContent(pick.seats+" seats");
+                                //item.setContent(pick.description);
+                                item.open(map);
+                            }
+
+                        });
+        }
+    });  
+}
+}, function (err) {
+    console.log(err);
+});
+}
+
+function loadPick() {
+    ajax({
+        url: "/ajax/pick?action=get",
+        type: "get",
+        success: function (data) {
+            alert("load Success!");
+            data.forEach(function (pick) {
+                if (pick.seats == 1){
+                    var myLatLng = {lat: pick.lat, lng: pick.lng};
+                    var item = new google.maps.Marker({
+                        icon: "img/number_1.png",
+                        position: myLatLng,
+                        map: map
+                    });
+                    var infowindow = new google.maps.InfoWindow({
+                        content: pick.name + ": "+pick.description+" I have "+pick.seats+" seats"
+                    });
+                    item.addListener('click', function() {
+                        infowindow.open(map, item);
+                    });
+                                //item.setContent(pick.description);
+                                //item.open(map);
+                            }
+                            if (pick.seats == 2){
+                                var myLatLng = {lat: pick.lat, lng: pick.lng};
+                                var item = new google.maps.Marker({
+                                    icon: "img/number_2.png",
+                                    position: myLatLng,
+                                    map: map
+                                });
+                                var infowindow = new google.maps.InfoWindow({
+                                    content: pick.name + ": "+pick.description+" I have "+pick.seats+" seats"
+                                });
+                                item.addListener('click', function() {
+                                    infowindow.open(map, item);
+                                });
+                                //item.setContent(pick.description);
+                                //item.open(map);
+                            }
+                            if (pick.seats == 3){
+                                var myLatLng = {lat: pick.lat, lng: pick.lng};
+                                var item = new google.maps.Marker({
+                                    icon: "img/number_3.png",
+                                    position: myLatLng,
+                                    map: map
+                                });
+                                var infowindow = new google.maps.InfoWindow({
+                                    content: pick.name + ": "+pick.description+" I have "+pick.seats+" seats"
+                                });
+                                item.addListener('click', function() {
+                                    infowindow.open(map, item);
+                                });
+                                //item.setContent(pick.description);
+                                //item.open(map);
+                            }
+                            if (pick.seats > 3){
+                                var item = new google.maps.InfoWindow;
+                                item.setPosition({lat: pick.lat, lng: pick.lng});
+                                item.setContent(pick.seats+" seats");
+                                //item.setContent(pick.description);
+                                item.open(map);
+                            }
+                        });
+}
+});
+}
+
+initMap(0);
+
+function postRequest() {
+    if ($("#request-item").val() == "") {
+        alert("Please insert your name!");
+    }
+    if ($("#request-description").val() == "") {
+        alert("Please insert some description of yourself or your surroundings!");
+    }
+    if ($("#request-seats").val() == "") {
+        alert("Please insert the available seats number");
+    }
+    if ($("#request-description").val() == "") {
+        alert("Please insert the time you are planning to stay!");
+    }
+    randomClosePosition(function (pos) {
+                    //var now = Date.now();
+                    var date = new Date;
+                    var seconds = date.getSeconds();
+                    var minutes = date.getMinutes();
+                    var hour = date.getHours();
+                FB.api('/me', {fields: 'name, id, link'}, function(response) {
+                    console.log("hello")
+                    ajax({
+                        url: "/ajax/request?action=post",
+                        type: "post",
+                        data: {
+                            name: response.name,
+                            description: $("#request-description").val(),
+                            seats: $("#request-seats").val(),
+                            time: $("#request-time").val(),
+                            //current_time: now,
+                            lat: pos.lat,
+                            lng: pos.lng,
+                            post_hour: hour,
+                            post_minute: minutes,
+                            post_second: seconds,
+                            url: response.link,
+                            userID: response.id
+                        },
+                        success: function (data) {
+                            alert("Post Success!");
+                            //intiMap(0);
+                            window.location.replace("http://localhost:21023/index.html");
+                        }
+                    });
+                 });
+                });
+}
+
+function getGeoPosition(callback) {
+    navigator.geolocation.getCurrentPosition(function (info) {
+        callback({lat: info.coords.latitude, lng: info.coords.longitude});
+    });
+}
+
+            //Just for demo, FIX ME when need to get the exact location
+            //stretch goal for milestone5, only show people in a certain distance
+            function randomClosePosition(callback) {
+                getGeoPosition(function (pos) {
+                    pos.lat += -0.001;
+                    pos.lng += -0.001;
+                    callback(pos);
+                });
+            }
+
+            function myFunction1() {
+                document.getElementById("myDropdown1").classList.toggle("show");
+            }
+
+            function myFunction2() {
+                document.getElementById("myDropdown2").classList.toggle("show");
+            }
+
+            function filterFunction() {
+                var input, filter, ul, li, a, i;
+                input = document.getElementById("myInput");
+                filter = input.value.toUpperCase();
+                div = document.getElementById("myDropdown");
+                a = div.getElementsByTagName("a");
+                for (i = 0; i < a.length; i++) {
+                    if (a[i].innerHTML.toUpperCase().indexOf(filter) > -1) {
+                        a[i].style.display = "";
+                    } else {
+                        a[i].style.display = "none";
+                    }
+                }
+            }
+
+            function filterSeats1() {
+                var seat = 1;
+                initMap(seat)
+            }
+            
+            function filterSeats2() {
+                var seat = 2;
+                initMap(seat)
+            }
+            
+            function filterSeats3() {
+                var seat = 3;
+                initMap(seat)
+            }
+
+            function filterSeats4() {
+                var seat = 4;
+                initMap(seat)
+            }
+            function filterSeats5() {
+                var seat = 0;
+                initMap(seat)
+            }
+
+            </script>
+            <script src="js/index.js"></script>
+            <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0BIjCQP-zarunMKbJgnlB-zVquaUrSqU"></script>
+        </div>
+    </div>
+</body>
+</html>
