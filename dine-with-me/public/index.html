@@ -13,37 +13,50 @@
 
     <script src="js/jquery.js"></script>
 
-    <!-- THESE ARE THE REQUIRED FILES TO USE WEB PUSH NOTIFICATIONS -->
-    <link rel="manifest" href="manifest.json">  
-    <script src="//messaging-public.realtime.co/js/2.1.0/ortc.js"></script>
-
-    <!-- THESE FILES ARE ONLY REQUIRED FOR THE CURRENT EXAMPLE -->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>  
-    <script src="index.js"></script>
 </head>
 <body style="overflow: hidden;">
 
-    <!-- START INITIALIZATION CODE -->
-    <script src="https://www.gstatic.com/firebasejs/4.0.0/firebase.js"></script>
-    <script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyCiE3wC90F4-gtUJdubNJVhP_m8e8wCmcc",
-    authDomain: "dine-with-me-ff1b2.firebaseapp.com",
-    databaseURL: "https://dine-with-me-ff1b2.firebaseio.com",
-    projectId: "dine-with-me-ff1b2",
-    storageBucket: "dine-with-me-ff1b2.appspot.com",
-    messagingSenderId: "822853727556"
-};
-firebase.initializeApp(config);
-</script>
-<!-- END INITIALIZATION CODE -->
-
-<script src="WebPushManager.js"></script>
-
 <script>
-//Loads the list of requests
-function loadlist(){
+   
+var loadlist = 0;
+function changebttn(){ 
+    var listbttn = document.getElementById("listButton");
+    var slidein = document.getElementById("slideout_inner");
+    if (listbttn.value =="List" && loadlist == 1){
+        listbttn.value = "x";
+        $("#slideout_inner").animate({"margin-left": "0px"});
+        $("#slideout").animate({"margin-left": "0px"});
+    } 
+    else if (listbttn.value =="List" && loadlist ==0){
+        listbttn.value = "x";
+        loadlist = 1;
+    }
+    else { 
+        listbttn.value = "List";
+        $("#slideout_inner").animate({"margin-left": "-250px"});
+        $("#slideout").animate({"margin-left": "-250px"});
+    }
+}
+var loadfilter = 0;
+function changeFilter(){ 
+    var filterbttn = document.getElementById("filterbttn");
+    var slidein = document.getElementById("slideout_inner_filter");
+    if (filterbttn.value =="Filter" && loadfilter == 1){
+        filterbttn.value = "x";
+        $("#slideout_inner_filter").animate({"margin-left": "0px"});
+        $("#slideout-filter").animate({"margin-left": "0px"});
+    } 
+    else if (filterbttn.value =="Filter" && loadfilter ==0){
+        filterbttn.value = "x";
+        loadfilter = 1;
+    }
+    else { 
+        filterbttn.value = "Filter";
+        $("#slideout_inner_filter").animate({"margin-left": "-250px"});
+        $("#slideout-filter").animate({"margin-left": "-250px"});
+    }
+}
+$(document).ready(function() {
     ajax({
         url: "/ajax/pick?action=get",
         type: "get",
@@ -51,7 +64,6 @@ function loadlist(){
             var trHTML = '';
             data.forEach(function (pick) {
                 var modal = document.getElementById('myModal');
-                //document.getElementById("modal-profile").innerHTML = "profile:"
                 document.getElementById("modal-name").innerHTML = pick.name;
                 document.getElementById("modal-seats").innerHTML = pick.seats;
                 document.getElementById("modal-description").innerHTML = pick.description;
@@ -61,8 +73,7 @@ function loadlist(){
             $('#tableList').append(trHTML);
         }
     });
-}
-
+});
 var map;
 var seat = 0;
 function initMap(seat) {
@@ -89,7 +100,6 @@ function initMap(seat) {
             map: map,
             anchorPoint: new google.maps.Point(0, -29)
         });
-
         autocomplete.addListener('place_changed', function() {
             infowindow.close();
             marker.setVisible(false);
@@ -98,7 +108,6 @@ function initMap(seat) {
                 window.alert("Autocomplete's returned place contains no geometry");
                 return;
             }
-
             // If the place has a geometry, then present it on a map.
             if (place.geometry.viewport) {
                 map.fitBounds(place.geometry.viewport);
@@ -115,7 +124,6 @@ function initMap(seat) {
             }));
             marker.setPosition(place.geometry.location);
             marker.setVisible(true);
-
             var address = '';
             if (place.address_components) {
                 address = [
@@ -124,10 +132,8 @@ function initMap(seat) {
                 (place.address_components[2] && place.address_components[2].short_name || '')
                 ].join(' ');
             }
-
             infowindow.setContent('<div><strong>' + place.name + '</strong><br>' + address);
             infowindow.open(map, marker);
-
             //Location details
             for (var i = 0; i < place.address_components.length; i++) {
                 if(place.address_components[i].types[0] == 'postal_code'){
@@ -141,7 +147,6 @@ function initMap(seat) {
             document.getElementById('lat').innerHTML = place.geometry.location.lat();
             document.getElementById('lon').innerHTML = place.geometry.location.lng();
         });
-
 if (seat == 0) {
     loadPick();
 }
@@ -164,12 +169,13 @@ if (seat ==1) {
                     });
                     item.addListener('click', function() {
                      var modal = document.getElementById('myModal');
-                     document.getElementById("modal-profile").innerHTML = "profile:"
+                     
                      document.getElementById("modal-name").innerHTML = pick.name
-                     document.getElementById("modal-seats").innerHTML = pick.seats + "seats available"
+                     document.getElementById("modal-seats").innerHTML = pick.seat + " seat available"
                      document.getElementById("modal-description").innerHTML = "Message:" + pick.description
                      document.getElementById("modal-post-time").innerHTML = "Posted at: " + pick.post_hour +" : "+ pick.post_minute +" : "+ pick.post_second
-                     document.getElementById("modal-stay-time").innerHTML = "Stay for: " + pick.time + "minutes"
+                     document.getElementById("modal-stay-time").innerHTML = "Stay for: " + pick.time
+                     document.getElementById("link2fb").setAttribute("href",pick.url)
                                 // Get the <span> element that closes the modal
                                 var span = document.getElementsByClassName("close")[0];
                                 // When the user clicks on the button, open the modal 
@@ -187,14 +193,11 @@ if (seat ==1) {
                                     }
                                 }
                             });
-
 }
-
 });
 }
 });  
 }
-
 if (seat ==2) {
     ajax({
         url: "/ajax/pick?action=get",
@@ -214,12 +217,13 @@ if (seat ==2) {
                     });
                     item.addListener('click', function() {
                      var modal = document.getElementById('myModal');
-                     document.getElementById("modal-profile").innerHTML = "profile:"
+                    
                      document.getElementById("modal-name").innerHTML = pick.name
-                     document.getElementById("modal-seats").innerHTML = pick.seats + "seats available"
+                     document.getElementById("modal-seats").innerHTML = pick.seats + " seats available"
                      document.getElementById("modal-description").innerHTML = "Message:" + pick.description
                      document.getElementById("modal-post-time").innerHTML = "Posted at: " + pick.post_hour +" : "+ pick.post_minute +" : "+ pick.post_second
-                     document.getElementById("modal-stay-time").innerHTML = "Stay for: " + pick.time + "minutes"
+                     document.getElementById("modal-stay-time").innerHTML = "Stay for: " + pick.time
+                     document.getElementById("link2fb").setAttribute("href",pick.url)
                                 // Get the <span> element that closes the modal
                                 var span = document.getElementsByClassName("close")[0];
                                 // When the user clicks on the button, open the modal 
@@ -237,9 +241,7 @@ if (seat ==2) {
                                     }
                                 }
                             });
-
 }
-
 });
 }
 });  
@@ -263,12 +265,13 @@ if (seat ==3) {
                     });
                     item.addListener('click', function() {
                      var modal = document.getElementById('myModal');
-                     document.getElementById("modal-profile").innerHTML = "profile:"
+                     
                      document.getElementById("modal-name").innerHTML = pick.name
-                     document.getElementById("modal-seats").innerHTML = pick.seats + "seats available"
+                     document.getElementById("modal-seats").innerHTML = pick.seats + " seats available"
                      document.getElementById("modal-description").innerHTML = "Message:" + pick.description
                      document.getElementById("modal-post-time").innerHTML = "Posted at: " + pick.post_hour +" : "+ pick.post_minute +" : "+ pick.post_second
-                     document.getElementById("modal-stay-time").innerHTML = "Stay for: " + pick.time + "minutes"
+                     document.getElementById("modal-stay-time").innerHTML = "Stay for: " + pick.time
+                     document.getElementById("link2fb").setAttribute("href",pick.url)
                                 // Get the <span> element that closes the modal
                                 var span = document.getElementsByClassName("close")[0];
                                 // When the user clicks on the button, open the modal 
@@ -289,12 +292,10 @@ if (seat ==3) {
                                 //item.setContent(pick.description);
                                 //item.open(map);
                             }
-
                         });
 }
 });  
 }
-
                    //if (seat ==4) {
                         //ajax({
                         //url: "/ajax/pick?action=get",
@@ -317,8 +318,6 @@ if (seat ==3) {
                 }, function (err) {
                     console.log(err);
                 });
-
-
 }
             //function getMarkerLoc() {
                 //getGeoPosition(function (pos) {
@@ -349,12 +348,13 @@ if (seat ==3) {
                                 item.addListener('click', function() {
                                 //infowindow.open(map, item);
                                 var modal = document.getElementById('myModal');
-                                document.getElementById("modal-profile").innerHTML = "profile: "
+                                //document.getElementById("modal-profile").innerHTML = "profile: "
                                 document.getElementById("modal-name").innerHTML = pick.name
-                                document.getElementById("modal-seats").innerHTML = pick.seats + " seats available"
+                                document.getElementById("modal-seats").innerHTML = pick.seats + " seat available"
                                 document.getElementById("modal-description").innerHTML = "Message: " + pick.description
                                 document.getElementById("modal-post-time").innerHTML = "Posted at: " + pick.post_hour +" : "+ pick.post_minute +" : "+ pick.post_second
-                                document.getElementById("modal-stay-time").innerHTML = "Stay for: " + pick.time + "minutes"
+                                document.getElementById("modal-stay-time").innerHTML = "Stay for: " + pick.time
+                                document.getElementById("link2fb").setAttribute("href",pick.url)
                                 // Get the <span> element that closess the modal
                                 var span = document.getElementsByClassName("close")[0];
                                 var sendButton = document.getElementsByClassName("sendButton");
@@ -391,12 +391,13 @@ if (seat ==3) {
                                 });
                                 item.addListener('click', function() {
                                  var modal = document.getElementById('myModal');
-                                 document.getElementById("modal-profile").innerHTML = "profile:"
+                                 //document.getElementById("modal-profile").innerHTML = "profile:"
                                  document.getElementById("modal-name").innerHTML = pick.name
-                                 document.getElementById("modal-seats").innerHTML = pick.seats + "seats available"
+                                 document.getElementById("modal-seats").innerHTML = pick.seats + " seats available"
                                  document.getElementById("modal-description").innerHTML = "Message:" + pick.description
                                  document.getElementById("modal-post-time").innerHTML = "Posted at: " + pick.post_hour +" : "+ pick.post_minute +" : "+ pick.post_second
-                                 document.getElementById("modal-stay-time").innerHTML = "Stay for: " + pick.time + "minutes"
+                                 document.getElementById("modal-stay-time").innerHTML = "Stay for: " + pick.time 
+                                 document.getElementById("link2fb").setAttribute("href",pick.url)
                                 // Get the <span> element that closes the modal
                                 var span = document.getElementsByClassName("close")[0];
                                 var sendButton = document.getElementsByClassName("sendButton");
@@ -433,12 +434,13 @@ if (seat ==3) {
                                 });
                                 item.addListener('click', function() {
                                  var modal = document.getElementById('myModal');
-                                 document.getElementById("modal-profile").innerHTML = "profile:"
+                                 //document.getElementById("modal-profile").innerHTML = "profile:"
                                  document.getElementById("modal-name").innerHTML = pick.name
-                                 document.getElementById("modal-seats").innerHTML = pick.seats + "seats available"
+                                 document.getElementById("modal-seats").innerHTML = pick.seats + " seats available"
                                  document.getElementById("modal-description").innerHTML = "Message:" + pick.description
                                  document.getElementById("modal-post-time").innerHTML = "Posted at: " + pick.post_hour +" : "+ pick.post_minute +" : "+ pick.post_second
-                                 document.getElementById("modal-stay-time").innerHTML = "Stay for: " + pick.time + "minutes"
+                                 document.getElementById("modal-stay-time").innerHTML = "Stay for: " + pick.time
+                                 document.getElementById("link2fb").setAttribute("href",pick.url)
                                 // Get the <span> element that closes the modal
                                 var span = document.getElementsByClassName("close")[0];
                                 var sendButton = document.getElementsByClassName("sendButton");
@@ -475,7 +477,6 @@ if (seat ==3) {
 });
 }
 initMap(0);
-
 function postRequest() {
     if ($("#request-item").val() == "") {
         alert("Please insert your name!");
@@ -559,7 +560,6 @@ function getGeoPosition(callback) {
                 initMap(seat)
             }
             
-
         //initMap();
         //loadPick();
         //var markers = [];
@@ -582,15 +582,121 @@ function getGeoPosition(callback) {
       //}
       </script>
 
-        </script>
+        
             <div id="fb-root"></div>
-              <script>(function(d, s, id) {
+        <script src="http://connect.facebook.net/en_US/all.js"></script>
+              <!--script>(function(d, s, id) {
                 var js, fjs = d.getElementsByTagName(s)[0];
                 if (d.getElementById(id)) return;
                 js = d.createElement(s); js.id = id;
                 js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.9";
                 fjs.parentNode.insertBefore(js, fjs);
               }(document, 'script', 'facebook-jssdk'));</script>
+        <script>
+        FB.init({
+            appId      : '125147001384927',
+            cookie     : true,  // enable cookies to allow the server to access 
+                                // the session
+            xfbml      : true,  // parse social plugins on this page
+            version    : 'v2.9' // use graph api version 2.8
+          });
+
+        
+function testAPI() {
+            FB.api('/me', {fields: 'name, link'}, var url = function(response) {
+              console.log('Successful login for: ' + response.name);
+              console.log('Successful login for: ' + response.link);
+              //document.getElementById('status').innerHTML =
+                //'Thanks for logging in, ' + response.name + '!';
+
+
+        //window.location.replace("http://localhost:21023/index.html");
+             url = response.link;
+        return url;
+       
+      });
+
+       console.log('Successful login for: ' + url);
+        };
+
+
+
+        function sendProfile(){
+            //console.log(url)
+
+            FB.getLoginStatus(function(response){
+                if (response.status === 'connected')
+                {
+                    //testAPI();
+                    FB.ui({method: "send",
+    link: "https://www.google.com"})
+                }
+                else{
+                    console.log('connection error')
+                }
+            }
+                )
+        };
+
+        function testfun(){
+            console.log("this is a test");
+        };
+
+        </script-->
+
+<script>
+
+(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+
+FB.init({
+            appId      : '125147001384927',
+            cookie     : true,  // enable cookies to allow the server to access 
+                                // the session
+            xfbml      : true,  // parse social plugins on this page
+            version    : 'v2.9' // use graph api version 2.8
+          });
+
+function testAPI() {
+    console.log('Welcome!  Fetching your information.... ');
+    FB.api('/me', {fields: 'name, link, id'}, function(response) {
+      console.log('Successful login for: ' + response.name);
+      console.log('Successful login for: ' + response.link);
+      //document.getElementById('status').innerHTML =
+        //'Thanks for logging in, ' + response.name + '!';
+                
+FB.ui({method: "send", 
+    link: response.link})
+        
+        //window.location.replace("http://localhost:21023/index.html");
+        //window.location.replace(response.link);
+      });
+  }
+
+function toProfile() {
+    console.log('Welcome!  Fetching your information.... ');
+    FB.api('/me', {fields: 'name, link, id'}, function(response) {
+      console.log('Successful login for: ' + response.name);
+      console.log('Successful login for: ' + response.link);
+      //document.getElementById('status').innerHTML =
+        //'Thanks for logging in, ' + response.name + '!';
+        
+        //window.location.replace("http://localhost:21023/index.html");
+        window.open(response.link);
+      });
+  }
+        
+
+
+function testfun(){
+            console.log("this is a test");
+        };
+</script>
 
       <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
 
@@ -602,7 +708,7 @@ function getGeoPosition(callback) {
             <!-- Navigation -->
             <div class="android-navigation-container">
                 <nav class="android-navigation mdl-navigation">
-                  <a class="mdl-navigation__link mdl-typography--text-uppercase" href="profile.html">Profile</a>
+                  <a class="mdl-navigation__link mdl-typography--text-uppercase" onclick="toProfile()">Profile</a>
                   <a class="mdl-navigation__link mdl-typography--text-uppercase" href="postReq.html">Post</a>
                   <a class="mdl-navigation__link mdl-typography--text-uppercase" href="login.html">Log Out</a>
               </nav>
@@ -618,7 +724,7 @@ function getGeoPosition(callback) {
 
       <!--Slide out where JSON Data is loaded-->
       <div id="slideout">
-        <input type="button" class="button" onclick="loadlist()" value="List"/>
+        <input type="button" id="listButton" class="button" onclick="changebttn()" value="List"/>
         <div id="slideout_inner">
             <table id="tableList">
                 <tr>
@@ -630,8 +736,9 @@ function getGeoPosition(callback) {
         </div>
     </div>
     <div id="slideout-filter">
-        <input type="button" class="button" onclick="myFunction2()" value="☆"/>
-        <div id="slideout_inner">
+        <!--<input type="button" class="button" onclick="myFunction2()" value="☆"/>-->
+        <input type="button" id="filterbttn" class="button" onclick="changeFilter()" value="Filter"/>
+        <div id="slideout_inner_filter">
             <table id="tableList">
                 <tr>
                     <th>Filter Seats</th>
@@ -670,22 +777,20 @@ function getGeoPosition(callback) {
         <div id="myModal" class="modal">
           <!-- Modal content -->
           <div class="modal-content">
+            <!--div id = "sentFB"><div class="fb-send" data-href="https://www.facebook.com/profile.php?id=100007043866703" data-layout="button_count"> </div></div-->
+            <div id= "sentFB" class="fb-send"> </div>
               <div class="modal-header">
                 <span class="close">&times;</span>
                 <h2 id = "modal-name"></h2>
-                <div id = "sentFB"><div class="fb-send" 
-    data-href="https://www.facebook.com/profile.php?id=100007043866703" 
-    data-layout="button_count"> </div></div>
             </div>
             <div class="modal-body">
                 <p id = "modal-profile"></p>
                 <p id = "modal-seats"></p>
-                <p id = "modal-description"></p>
                 <p id = "modal-post-time"></p>
                 <p id = "modal-stay-time"></p>
-            </div>
-            <div class="modal-footer">
-                <button id="sendButton" class="button-primary" onclick="javascript:send();">Accept</button>
+                <p id = "modal-description"></p>
+                <p>Send your profile:<a onclick="testAPI()"><img id="fb-m" src="img/fbm.png"></a></p>
+                <p>View this person's profile:<a id="link2fb"><img id="fb-m" src="img/fbpn.jpg"></a></p>
             </div>
         </div>
     </div>
@@ -695,7 +800,7 @@ function getGeoPosition(callback) {
         <a href="/index.html">
             <img class="img" src="img/home-icon.png" alt="Home">
         </a>
-        <a href="profile.html">
+        <a onclick = "toProfile()">
             <img class="img" src="img/profile-icon.png" alt="Profile">
         </a>
         <a href="/postReq.html">
@@ -703,6 +808,9 @@ function getGeoPosition(callback) {
         </a>
     </div>
 </main>
+
+
+
 
 <script src="js/index.js"></script>
 
