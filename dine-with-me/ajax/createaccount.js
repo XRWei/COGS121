@@ -14,7 +14,7 @@ module.exports = {
             res.error(3, "Please confirm your password");
             return;
         }
-        if(req.body.confirmpassword != req.body.password){ 
+        if(req.body.confirmpassword != req.body.password){
         	res.error(4, "Passwords do not match");
         	return;
         }
@@ -24,7 +24,3 @@ module.exports = {
         res.success();
     }
 }
-
-
-
-

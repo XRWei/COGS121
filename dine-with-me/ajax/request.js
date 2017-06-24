@@ -1,11 +1,12 @@
+
 var fs = require('fs');
 
 module.exports = {
     post: function (req, res) {
-        if (!req.body.name || req.body.name == "") {
-            res.error(1, "Please specify your name");
-            return;
-        }
+        //if (!req.body.name || req.body.name == "") {
+            //res.error(1, "Please specify your name");
+            //return;
+        //}
         if (!req.body.description || req.body.description == "") {
             res.error(2, "Please specify your description");
             return;
